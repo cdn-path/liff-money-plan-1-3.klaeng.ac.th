@@ -1460,7 +1460,7 @@ async function shareToLine() {
                     {
                         type:'box', layout:'horizontal', margin:'sm', spacing:'sm',
                         contents: [
-                            { type:'text', text:'📅 ' + approveDate, color:'#bfdbfe', size:'xs', flex:1 },
+                            { type:'text', text:'📅 ' + formatThaiDate(approveDate), color:'#bfdbfe', size:'xs', flex:1 },
                             { type:'text', text: r.id||'', color:'#ffffff80', size:'xs', align:'end' },
                         ],
                     },
