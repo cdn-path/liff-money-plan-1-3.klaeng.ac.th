@@ -18,7 +18,7 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;padding-bottom:84px;-webkit-font-smoothing:antialiased;}
 
-/* LOCK */
+/* ── LOCK ── */
 #lockScreen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0ea5e9 100%);display:flex;align-items:center;justify-content:center;}
 .lock-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:40px 28px;width:90%;max-width:340px;text-align:center;backdrop-filter:blur(20px);}
 .lock-icon{font-size:52px;margin-bottom:14px;}
@@ -31,7 +31,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .lock-btn:hover{background:#0284c7;transform:translateY(-1px);}
 .lock-error{color:#f87171;font-size:12px;margin-top:10px;min-height:18px;}
 
-/* HEADER */
+/* ── HEADER ── */
 .app-header{background:linear-gradient(135deg,#1a56db 0%,#0e3bb5 60%,#0ea5e9 100%);padding:18px 20px 56px;position:relative;overflow:hidden;}
 .app-header::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.06);}
 .app-header::after{content:'';position:absolute;bottom:-30px;left:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04);}
@@ -41,10 +41,10 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .header-badge-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
 .header-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.18);color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;backdrop-filter:blur(4px);}
 
-/* PULL CARD */
+/* ── PULL CARD ── */
 .pull-card{background:var(--white);border-radius:24px 24px 0 0;margin-top:-28px;position:relative;z-index:10;box-shadow:0 -4px 32px rgba(15,23,42,0.10);padding:20px 16px 0;min-height:calc(100vh - 160px);}
 
-/* TABS */
+/* ── TABS ── */
 .tab-bar{display:flex;background:var(--surface);border-radius:12px;padding:4px;margin-bottom:16px;gap:4px;}
 .tab-item{flex:1;padding:10px 6px;text-align:center;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;border-radius:9px;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .tab-item.active{background:var(--white);color:var(--primary);box-shadow:var(--shadow);}
@@ -52,18 +52,18 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .section.active{display:block;animation:fadeUp .25s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* CARD */
+/* ── CARD ── */
 .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.04);overflow:hidden;margin-bottom:12px;}
 .card-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .card-title{font-size:14px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;}
 .card-body{padding:16px;}
 
-/* STATUS BANNER */
+/* ── STATUS BANNER ── */
 .status-banner{background:linear-gradient(135deg,#e8fbf0 0%,#d1fae5 100%);border:1.5px solid #6ee7b7;border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
 .status-title{font-size:15px;font-weight:700;color:#065f46;}
 .status-sub{font-size:12px;color:#047857;margin-top:2px;}
 
-/* FIELDS */
+/* ── FIELDS ── */
 .field-group{margin-bottom:13px;}
 .field-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;align-items:center;gap:5px;}
 .req{color:var(--red);}
@@ -72,7 +72,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .field-textarea{resize:vertical;min-height:72px;}
 .field-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;}
 
-/* ACTIVITY BLOCK */
+/* ── ACTIVITY BLOCK ── */
 .activity-block{background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:14px;margin-bottom:10px;transition:border-color .2s;}
 .activity-block:focus-within{border-color:var(--primary);}
 .activity-block-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -82,7 +82,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .add-activity-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;border:2px dashed var(--border);border-radius:12px;background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;margin-bottom:12px;}
 .add-activity-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
 
-/* BUTTONS */
+/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 18px;border-radius:10px;font-size:13.5px;font-weight:600;font-family:'Sarabun',sans-serif;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;}
 .btn-primary{background:var(--primary);color:#fff;}
 .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,0.3);}
@@ -97,13 +97,14 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .btn-sm{padding:7px 13px;font-size:12px;border-radius:8px;}
 .btn-xs{padding:5px 10px;font-size:11px;border-radius:7px;}
 .btn-full{width:100%;}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none !important;}
 
-/* FILE UPLOAD */
+/* ── FILE UPLOAD ── */
 .upload-zone{border:2px dashed var(--border);border-radius:11px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface);}
 .upload-zone:hover,.upload-zone.drag-over{border-color:var(--primary);background:var(--primary-light);}
 .file-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;background:var(--surface);border:1px solid var(--border);margin-top:7px;}
 
-/* FLEX PREVIEW */
+/* ── FLEX PREVIEW ── */
 .flex-preview-box{background:#1C2333;border-radius:16px;padding:16px;margin-top:8px;}
 .flex-preview-header{font-family:'Chakra Petch',sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;}
 .flex-single-bubble{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.25);}
@@ -117,17 +118,41 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .bubble-footer-note{font-size:10px;color:var(--muted);line-height:1.6;flex:1;}
 .bubble-footer-btn{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Sarabun',sans-serif;flex-shrink:0;}
 
-/* RECORDS */
+/* ── RECORDS / SEARCH ── */
+.search-box{display:flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--border);border-radius:11px;padding:0 12px;transition:border-color .2s;margin-bottom:10px;}
+.search-box:focus-within{border-color:var(--primary);}
+.search-box svg{flex-shrink:0;color:var(--muted);}
+.search-input{flex:1;padding:10px 0;border:none;background:transparent;font-size:13px;font-family:'Sarabun',sans-serif;color:var(--ink);outline:none;}
+.search-input::placeholder{color:var(--muted);}
+.search-clear{background:none;border:none;cursor:pointer;color:var(--muted);padding:4px;border-radius:6px;display:none;font-size:13px;}
+.search-clear.visible{display:block;}
 .record-item{padding:13px 15px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
 .record-item:hover{background:var(--primary-light);}
 .record-item:last-child{border-bottom:none;}
 .record-id{font-family:'Chakra Petch',monospace;font-size:10px;color:var(--primary);font-weight:700;background:var(--primary-light);padding:2px 7px;border-radius:5px;white-space:nowrap;}
+mark{background:#fef08a;border-radius:3px;padding:0 1px;}
 
-/* TOAST */
+/* ── PAGINATION ── */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 4px 4px;}
+.page-btn{min-width:32px;height:32px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--ink);font-size:12px;font-weight:600;cursor:pointer;font-family:'Chakra Petch',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0 8px;}
+.page-btn:hover:not(:disabled){border-color:var(--primary);color:var(--primary);}
+.page-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.page-btn:disabled{opacity:.35;cursor:not-allowed;}
+.page-info{font-size:11px;color:var(--muted);font-family:'Chakra Petch',sans-serif;padding:0 4px;}
+
+/* ── STATUS BAR ── */
+#sheetStatusBar{display:none;align-items:center;gap:8px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:9px 13px;margin-bottom:10px;font-size:12px;}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.status-dot.loading{background:var(--amber);animation:pulse 1s infinite;}
+.status-dot.done{background:var(--green);}
+.status-dot.error{background:var(--red);}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── TOAST ── */
 .toast{position:fixed;bottom:92px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:100px;font-size:13px;font-weight:500;opacity:0;transition:all .3s;z-index:1000;white-space:nowrap;display:flex;align-items:center;gap:7px;max-width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.2);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* MODAL */
+/* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:200;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px);}
 .modal-overlay.show{display:flex;animation:fadeIn .2s;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -136,13 +161,13 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px;}
 .modal-title{font-size:17px;font-weight:800;margin-bottom:14px;}
 
-/* BOTTOM NAV */
+/* ── BOTTOM NAV ── */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 18px;z-index:100;box-shadow:0 -2px 20px rgba(15,23,42,0.06);}
 .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 28px;border-radius:10px;cursor:pointer;font-size:10px;font-weight:600;color:var(--muted);transition:all .2s;}
 .nav-item svg{width:20px;height:20px;}
 .nav-item.active{color:var(--primary);}
 
-/* MISC */
+/* ── MISC ── */
 .chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;}
 .chip-blue{background:var(--primary-light);color:var(--primary-dark);}
 .chip-amber{background:var(--amber-light);color:#92400e;}
@@ -150,15 +175,14 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .empty-state{text-align:center;padding:36px 20px;color:var(--muted);}
 .empty-state .empty-icon{font-size:44px;opacity:.25;margin-bottom:10px;}
-/* VIEW TOGGLE */
-.view-toggle-btn{padding:7px 13px;border-radius:9px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;}
-.view-toggle-btn:hover{border-color:var(--primary);color:var(--primary);}
-.view-toggle-btn.active-view{background:var(--primary);color:#fff;border-color:var(--primary);}
+input[type="file"]{display:none;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(0,0,0,.1);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 
-<!-- LOCK SCREEN -->
+<!-- LOCK -->
 <div id="lockScreen">
   <div class="lock-card">
     <div class="lock-icon">🔐</div>
@@ -172,8 +196,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
 
 <!-- APP -->
 <div id="appWrap" style="display:none;">
-
-  <!-- HEADER -->
   <div class="app-header">
     <div class="header-school">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
@@ -196,10 +218,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
     </div>
   </div>
 
-  <!-- PULL CARD -->
   <div class="pull-card">
-
-    <!-- 2 TABS ONLY -->
     <div class="tab-bar">
       <div class="tab-item active" onclick="switchTab('form')" data-tab="form">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
@@ -211,7 +230,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
       </div>
     </div>
 
-    <!-- FORM SECTION -->
+    <!-- ══ FORM ══ -->
     <div class="section active" id="sec-form">
       <div class="status-banner">
         <div style="font-size:26px;flex-shrink:0;">✅</div>
@@ -221,7 +240,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
         </div>
       </div>
 
-      <!-- Common Fields -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
@@ -229,7 +247,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
             ข้อมูลส่วนกลาง
           </div>
         </div>
-        <div class="card-body" style="display:flex;flex-direction:column;gap:0;">
+        <div class="card-body">
           <div class="field-group">
             <div class="field-label">แผนที่แจ้ง <span class="req">*</span></div>
             <input type="text" class="field-input" id="gf_planRange" placeholder="เช่น: 1-3">
@@ -246,7 +264,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
         </div>
       </div>
 
-      <!-- Activities -->
       <div class="section-label">รายการกิจกรรม</div>
       <div id="activityContainer"></div>
       <button class="add-activity-btn" onclick="addActivity()">
@@ -254,7 +271,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
         เพิ่มรายการกิจกรรม
       </button>
 
-      <!-- File Upload -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
@@ -276,7 +292,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
         </div>
       </div>
 
-      <!-- Flex Preview -->
       <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
         <div class="section-label">ตัวอย่าง Flex Bubble</div>
         <div class="flex-preview-box">
@@ -285,7 +300,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
         </div>
       </div>
 
-      <!-- Actions -->
       <div style="display:flex;gap:10px;margin-bottom:8px;">
         <button class="btn btn-secondary" style="flex:1;" onclick="clearForm()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
@@ -296,7 +310,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
           ดูตัวอย่าง
         </button>
       </div>
-      <button class="btn btn-primary btn-full" onclick="submitForm()" style="margin-bottom:8px;">
+      <button class="btn btn-primary btn-full" id="saveBtn" onclick="submitForm()" style="margin-bottom:8px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
         บันทึกข้อมูล
       </button>
@@ -306,64 +320,51 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
       </button>
     </div>
 
-    <!-- RECORDS SECTION -->
+    <!-- ══ RECORDS ══ -->
     <div class="section" id="sec-records">
 
-      <!-- Sheet Status Bar -->
-      <div id="sheetStatusBar" style="display:none;align-items:center;gap:8px;
-           background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;
-           padding:9px 13px;margin-bottom:12px;font-size:12px;"></div>
+      <!-- Status bar -->
+      <div id="sheetStatusBar">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusMsg"></span>
+        <button id="retryBtn" onclick="fetchSheetRecords()" style="display:none;margin-left:auto;border:none;background:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:11px;">ลองอีกครั้ง</button>
+        <button onclick="fetchSheetRecords()" style="margin-left:auto;border:none;background:none;color:var(--muted);cursor:pointer;font-size:13px;" title="รีเฟรช" id="refreshBtn">🔄</button>
+      </div>
 
-      <!-- View Toggle -->
-      <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">
-        <button id="viewBtn_local" class="view-toggle-btn active-view" onclick="setViewMode('local')">
-          📱 บันทึกในเครื่อง
-        </button>
-        <button id="viewBtn_sheet" class="view-toggle-btn" onclick="setViewMode('sheet')">
-          ☁️ จาก Google Sheets
-        </button>
-        <button onclick="fetchSheetRecords()" title="รีเฟรชจาก Sheets"
-          style="margin-left:auto;width:32px;height:32px;border-radius:8px;border:1.5px solid var(--border);
-                 background:var(--surface);cursor:pointer;font-size:14px;display:flex;align-items:center;
-                 justify-content:center;flex-shrink:0;transition:all .2s;"
-          onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
-          🔄
-        </button>
+      <!-- Search -->
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" id="searchInput" type="search" placeholder="ค้นหา ชื่อกิจกรรม / ผู้รับผิดชอบ / แผน..." oninput="onSearch()">
+        <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            รายการทั้งหมด
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            รายการจาก Google Sheets
           </div>
           <span class="chip chip-blue" id="totalCount">0 รายการ</span>
         </div>
         <div id="recordList">
           <div class="empty-state">
-            <div class="empty-icon">📭</div>
-            <p style="font-size:14px;">ยังไม่มีข้อมูล</p>
-            <p style="font-size:12px;margin-top:4px;color:var(--muted);">กรอกข้อมูลในแท็บ "กรอกข้อมูล"</p>
+            <div class="empty-icon">☁️</div>
+            <p style="font-size:13.5px;">กำลังโหลดข้อมูล...</p>
           </div>
         </div>
+        <div id="pagination" class="pagination" style="display:none;"></div>
       </div>
 
       <div style="padding:0 4px 8px;display:flex;gap:8px;">
-        <button class="btn btn-secondary btn-sm" onclick="exportJSON()" style="flex:1;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export JSON
-        </button>
-        <button class="btn btn-danger btn-sm" onclick="clearAllRecords()" style="flex:1;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
-          ล้างข้อมูล
+        <button class="btn btn-secondary btn-sm" onclick="fetchSheetRecords()" style="flex:1;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          โหลดใหม่
         </button>
         <button class="btn btn-secondary btn-sm" onclick="lockApp()">🔒 ล็อก</button>
       </div>
     </div>
-
   </div><!-- /pull-card -->
 
-  <!-- BOTTOM NAV — 2 items -->
   <div class="bottom-nav">
     <div class="nav-item active" onclick="switchTab('form')" id="nav-form">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
@@ -374,7 +375,6 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
       รายการ
     </div>
   </div>
-
 </div><!-- /appWrap -->
 
 <!-- TOAST -->
@@ -414,7 +414,7 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
     </div>
     <div style="display:flex;gap:10px;">
       <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('shareModal')">ปิด</button>
-      <button class="btn btn-green" style="flex:2;" onclick="shareToLine()">
+      <button class="btn btn-green" style="flex:2;" id="shareNowBtn" onclick="shareToLine()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         แชร์ใน LINE ตอนนี้
       </button>
@@ -430,59 +430,53 @@ body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink)
     <div id="recordModalContent"></div>
     <div style="display:flex;gap:10px;margin-top:14px;">
       <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('recordModal')">ปิด</button>
-      <button class="btn btn-green" style="flex:2;" onclick="shareRecordFromModal()">แชร์ใน LINE</button>
+      <button class="btn btn-green" style="flex:2;" onclick="shareRecordFromModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        แชร์ใน LINE
+      </button>
     </div>
   </div>
 </div>
 
 <script>
 // ════════════════════════════════════════════════════════════
-//  ⚙️  CONFIG — แก้ไขที่นี่เท่านั้น  (ไม่มีหน้าตั้งค่าในแอป)
+//  ⚙️  CONFIG
 // ════════════════════════════════════════════════════════════
 const CFG = {
-  // รหัสผ่านสำหรับล็อกอิน
-  PASSWORD: 'school2568',
-
-  // Google Apps Script Web App URL (ได้จาก Deploy > New deployment > Web app)
-  GAS_URL: 'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
-
-  // ชื่อชีทใน Google Sheets
-  SHEET_NAME: 'Sheet1',
-
-  // LINE LIFF ID — เว้นว่างหากไม่ใช้
-  LIFF_ID: '2009306563-QXaMSWaV',
-
-  // true = แสดง popup ยืนยันก่อนบันทึก
+  PASSWORD:            'school2568',
+  GAS_URL:             'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
+  SHEET_NAME:          'Sheet1',
+  LIFF_ID:             '2009306563-QXaMSWaV',
   CONFIRM_BEFORE_SAVE: true,
-
-  // true = เปิด ShareTargetPicker อัตโนมัติหลังบันทึก
-  AUTO_SHARE: false,
-
-  // ชื่อโรงเรียน / หน่วยงาน
-  SCHOOL_NAME: 'โรงเรียนแกลง"วิทยสถาวร"',
+  AUTO_SHARE:          false,
+  SCHOOL_NAME:         'โรงเรียนแกลง"วิทยสถาวร"',
+  PAGE_SIZE:           10,   // จำนวนรายการต่อหน้า
 };
-// ════════════════════════════════════════════════════════════
 
-/* ─── STATE ─── */
+// ════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════
 const APP = {
-  records: [],          // รายการที่กรอกในแอปนี้ (localStorage)
-  sheetRecords: [],     // รายการที่ดึงจาก Google Sheets
+  sheetRecords: [],   // raw grouped records จาก Sheet
+  filteredRecords: [], // หลัง search filter
+  currentPage: 1,
   files: [],
   currentRecordIdx: null,
-  viewMode: 'local',    // 'local' | 'sheet'
-  sheetLoaded: false,
 };
-let activities    = [];
-let actCounter    = 0;
+let activities = [];
+let actCounter = 0;
 let currentShareRecord = null;
+let liffReady = false;
 
-/* ─── LOCK ─── */
+// ════════════════════════════════════════════════════════════
+//  LOCK
+// ════════════════════════════════════════════════════════════
 function checkLock() {
   if (document.getElementById('lockInput').value === CFG.PASSWORD) {
     document.getElementById('lockScreen').style.display = 'none';
     document.getElementById('appWrap').style.display   = 'block';
     sessionStorage.setItem('unlocked', '1');
-    fetchSheetRecords();   // ดึงข้อมูลจาก Sheet หลังล็อกอิน
+    afterUnlock();
   } else {
     const err = document.getElementById('lockError');
     err.textContent = '❌ รหัสผ่านไม่ถูกต้อง';
@@ -496,21 +490,26 @@ function lockApp() {
   document.getElementById('lockScreen').style.display = 'flex';
   document.getElementById('appWrap').style.display    = 'none';
 }
+function afterUnlock() {
+  fetchSheetRecords();
+  initLIFF();
+}
 document.getElementById('lockInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkLock(); });
 
-/* ─── INIT ─── */
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
 function init() {
-  if (sessionStorage.getItem('unlocked') === '1') {
-    document.getElementById('lockScreen').style.display = 'none';
-    document.getElementById('appWrap').style.display   = 'block';
-    fetchSheetRecords();   // ดึงข้อมูลจาก Sheet ทันทีถ้าเคย unlock แล้ว
-  }
   document.getElementById('hdr_school').textContent = CFG.SCHOOL_NAME;
   setCurrentDate();
   setDefaultApproveDate();
-  loadLocalRecords();
   addActivity(); addActivity(); addActivity();
-  renderRecords();
+
+  if (sessionStorage.getItem('unlocked') === '1') {
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('appWrap').style.display   = 'block';
+    afterUnlock();
+  }
 }
 
 function setCurrentDate() {
@@ -528,96 +527,295 @@ function setDefaultApproveDate() {
   if (el && !el.value)
     el.value = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
 }
-function loadLocalRecords() {
-  try { const s = localStorage.getItem('lineapp_records_v3'); if (s) APP.records = JSON.parse(s); } catch(e) {}
-}
-function saveLocalRecords() {
-  try { localStorage.setItem('lineapp_records_v3', JSON.stringify(APP.records)); } catch(e) {}
-}
 
-/* ─── FETCH FROM SHEET ─── */
-async function fetchSheetRecords() {
-  if (!CFG.GAS_URL || CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')) return;
-  setSheetStatus('loading');
+// ════════════════════════════════════════════════════════════
+//  LIFF
+// ════════════════════════════════════════════════════════════
+async function initLIFF() {
+  if (!CFG.LIFF_ID) return;
+  if (typeof liff === 'undefined') {
+    // โหลด SDK แล้วค่อย init
+    await new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
+      s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
   try {
-    const url = CFG.GAS_URL + '?sheet=' + encodeURIComponent(CFG.SHEET_NAME) + '&t=' + Date.now();
-    const res  = await fetch(url);
-    const json = await res.json();
-    if (!json.success) throw new Error(json.error || 'GAS error');
-
-    APP.sheetRecords = groupSheetRows(json.data || []);
-    APP.sheetLoaded  = true;
-    setSheetStatus('done', APP.sheetRecords.length);
-    if (APP.viewMode === 'sheet') renderRecords();
-  } catch(err) {
-    console.warn('fetchSheetRecords:', err);
-    setSheetStatus('error');
+    await liff.init({ liffId: CFG.LIFF_ID });
+    if (!liff.isLoggedIn()) {
+      liff.login({ redirectUri: location.href });
+      return;
+    }
+    liffReady = true;
+    console.log('LIFF ready, isInClient:', liff.isInClient());
+  } catch(e) {
+    console.warn('LIFF init error:', e);
   }
 }
 
-/**
- * แถว Sheet แต่ละแถว = 1 กิจกรรม
- * จัดกลุ่มตาม 'รหัสบันทึก' → สร้าง record object เหมือน APP.records
- */
+// ════════════════════════════════════════════════════════════
+//  FETCH FROM SHEET
+// ════════════════════════════════════════════════════════════
+async function fetchSheetRecords() {
+  setStatus('loading', 'กำลังดึงข้อมูลจาก Sheets...');
+  document.getElementById('retryBtn').style.display = 'none';
+  try {
+    const url  = CFG.GAS_URL + '?sheet=' + encodeURIComponent(CFG.SHEET_NAME) + '&t=' + Date.now();
+    const res  = await fetch(url);
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error || 'GAS returned error');
+
+    APP.sheetRecords  = groupSheetRows(json.data || []);
+    APP.filteredRecords = APP.sheetRecords;
+    APP.currentPage   = 1;
+
+    const total = APP.sheetRecords.length;
+    setStatus('done', `ดึงข้อมูลสำเร็จ — ${total} กลุ่ม`);
+    document.getElementById('totalBadgeText').textContent = total + ' รายการ';
+    applySearch();
+  } catch(err) {
+    console.error('fetchSheetRecords:', err);
+    setStatus('error', 'ดึงข้อมูลไม่สำเร็จ: ' + err.message);
+    document.getElementById('retryBtn').style.display = 'inline';
+    renderRecordList([]);
+  }
+}
+
 function groupSheetRows(rows) {
   const map = new Map();
   for (const row of rows) {
-    const key = row['รหัสบันทึก'] || row['_timestamp'] || Math.random();
+    const key = String(row['รหัสบันทึก'] || row['_timestamp'] || Math.random());
     if (!map.has(key)) {
       map.set(key, {
         id:          key,
-        _timestamp:  row['_timestamp']    || '',
-        planRange:   row['แผน']           || '',
-        approveDate: row['วันที่อนุมัติ'] || '',
-        docLink:     row['ลิงก์เอกสาร']  || '',
-        _source:     'sheet',
+        _timestamp:  String(row['_timestamp']    || ''),
+        planRange:   String(row['แผน']           || ''),
+        approveDate: String(row['วันที่อนุมัติ'] || ''),
+        docLink:     String(row['ลิงก์เอกสาร']  || ''),
         activities:  [],
         files:       [],
       });
     }
     map.get(key).activities.push({
-      name:        row['ชื่อกิจกรรม']  || '',
-      responsible: row['ผู้รับผิดชอบ'] || '',
-      round:       row['ครั้งที่']      || '',
-      result:      row['ผลการอนุมัติ'] || '',
-      budget:      row['วงเงิน']        || '',
-      email:       row['อีเมล']         || '',
+      name:        String(row['ชื่อกิจกรรม']  || ''),
+      responsible: String(row['ผู้รับผิดชอบ'] || ''),
+      round:       String(row['ครั้งที่']      || ''),
+      result:      String(row['ผลการอนุมัติ'] || ''),
+      budget:      String(row['วงเงิน']        || ''),
+      email:       String(row['อีเมล']         || ''),
     });
   }
-  // เรียงล่าสุดก่อน
-  return [...map.values()].reverse();
+  return [...map.values()].reverse(); // ล่าสุดก่อน
 }
 
-function setSheetStatus(state, count) {
-  const el = document.getElementById('sheetStatusBar');
-  if (!el) return;
-  const msgs = {
-    loading: `<span style="color:var(--muted);">⏳ กำลังดึงข้อมูลจาก Sheets...</span>`,
-    done:    `<span style="color:var(--green-dark);">✅ ดึงข้อมูลจาก Sheets แล้ว — ${count} กลุ่ม</span>`,
-    error:   `<span style="color:var(--red);">⚠️ ดึงข้อมูลไม่สำเร็จ <button onclick="fetchSheetRecords()" style="border:none;background:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:11px;">ลองอีกครั้ง</button></span>`,
-  };
-  el.innerHTML = msgs[state] || '';
+function setStatus(state, msg) {
+  const bar = document.getElementById('sheetStatusBar');
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusMsg');
+  bar.style.display = 'flex';
+  dot.className = 'status-dot ' + state;
+  txt.textContent = msg;
+}
+
+// ════════════════════════════════════════════════════════════
+//  SEARCH
+// ════════════════════════════════════════════════════════════
+let searchTimer;
+function onSearch() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(applySearch, 200);
+  const q = document.getElementById('searchInput').value;
+  document.getElementById('searchClear').classList.toggle('visible', q.length > 0);
+}
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').classList.remove('visible');
+  applySearch();
+}
+function applySearch() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (!q) {
+    APP.filteredRecords = APP.sheetRecords;
+  } else {
+    APP.filteredRecords = APP.sheetRecords.filter(r => {
+      if (r.planRange.toLowerCase().includes(q))    return true;
+      if (r.approveDate.toLowerCase().includes(q))  return true;
+      if (r.id.toLowerCase().includes(q))           return true;
+      return r.activities.some(a =>
+        a.name.toLowerCase().includes(q) ||
+        a.responsible.toLowerCase().includes(q)
+      );
+    });
+  }
+  APP.currentPage = 1;
+  const total = APP.filteredRecords.length;
+  document.getElementById('totalCount').textContent = (q ? `${total} ผลลัพธ์` : total + ' รายการ');
+  renderCurrentPage();
+}
+
+// ════════════════════════════════════════════════════════════
+//  RENDER RECORDS + PAGINATION
+// ════════════════════════════════════════════════════════════
+function renderCurrentPage() {
+  const { filteredRecords: src, currentPage } = APP;
+  const ps    = CFG.PAGE_SIZE;
+  const total = src.length;
+  const pages = Math.ceil(total / ps);
+  const start = (currentPage - 1) * ps;
+  const slice = src.slice(start, start + ps);
+  renderRecordList(slice, start);
+  renderPagination(currentPage, pages, total);
+}
+
+function hl(text, q) {
+  if (!q) return escHtml(text);
+  const safe = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  return escHtml(text).replace(new RegExp('(' + safe + ')', 'gi'), '<mark>$1</mark>');
+}
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderRecordList(slice, offset = 0) {
+  const list = document.getElementById('recordList');
+  const q    = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  if (!slice.length) {
+    list.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">${APP.sheetRecords.length === 0 ? '☁️' : '🔍'}</div>
+      <p style="font-size:13.5px;">${APP.sheetRecords.length === 0 ? 'ยังไม่มีข้อมูล' : 'ไม่พบรายการที่ค้นหา'}</p>
+    </div>`;
+    return;
+  }
+
+  list.innerHTML = slice.map((r, localIdx) => {
+    const globalIdx = offset + localIdx;
+    const actNames = r.activities.map(a => a.name).filter(Boolean).join(', ');
+    const respNames = r.activities.map(a => a.responsible).filter(Boolean).join(', ');
+    return `
+    <div class="record-item" onclick="showRecordDetail(${globalIdx})">
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13.5px;font-weight:700;">
+          📢 แจ้งผลอนุมัติแผน <span>${hl(r.planRange, q)}</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+          ${hl(r.approveDate, q)} · ${r.activities.length} รายการ
+        </div>
+        <div style="font-size:10.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+          ${hl(actNames || '—', q)}
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;">
+        <span class="record-id">${hl(r.id, q)}</span>
+        <button onclick="event.stopPropagation();quickShare(${globalIdx})" class="btn btn-green btn-xs">📤</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderPagination(current, pages, total) {
+  const el = document.getElementById('pagination');
+  if (pages <= 1) { el.style.display = 'none'; return; }
   el.style.display = 'flex';
+
+  const ps   = CFG.PAGE_SIZE;
+  const from = (current - 1) * ps + 1;
+  const to   = Math.min(current * ps, total);
+
+  // สร้าง page numbers (แสดงสูงสุด 5 หน้า)
+  let pageNums = [];
+  if (pages <= 5) {
+    pageNums = Array.from({length: pages}, (_, i) => i + 1);
+  } else {
+    pageNums = [1];
+    if (current > 3) pageNums.push('...');
+    for (let p = Math.max(2, current - 1); p <= Math.min(pages - 1, current + 1); p++)
+      pageNums.push(p);
+    if (current < pages - 2) pageNums.push('...');
+    pageNums.push(pages);
+  }
+
+  el.innerHTML = `
+    <button class="page-btn" onclick="goPage(${current - 1})" ${current === 1 ? 'disabled' : ''}>‹</button>
+    ${pageNums.map(p => p === '...'
+      ? `<span class="page-info">…</span>`
+      : `<button class="page-btn ${p === current ? 'active' : ''}" onclick="goPage(${p})">${p}</button>`
+    ).join('')}
+    <button class="page-btn" onclick="goPage(${current + 1})" ${current === pages ? 'disabled' : ''}>›</button>
+    <span class="page-info">${from}–${to} / ${total}</span>`;
 }
 
-/* ─── TABS ─── */
+function goPage(p) {
+  const pages = Math.ceil(APP.filteredRecords.length / CFG.PAGE_SIZE);
+  if (p < 1 || p > pages) return;
+  APP.currentPage = p;
+  renderCurrentPage();
+  document.getElementById('sec-records').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ════════════════════════════════════════════════════════════
+//  RECORD DETAIL + SHARE
+// ════════════════════════════════════════════════════════════
+function showRecordDetail(idx) {
+  APP.currentRecordIdx = idx;
+  const r = APP.filteredRecords[idx];
+  document.getElementById('recordModalTitle').textContent = `📋 ${r.id} — แผน ${r.planRange}`;
+  const acts = r.activities || [];
+  document.getElementById('recordModalContent').innerHTML = `
+    <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">${r.approveDate} · ${acts.length} รายการ · ${r._timestamp}</div>
+    ${acts.map((a, i) => `
+      <div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;">
+        <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;flex-shrink:0;">${i+1}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13px;font-weight:700;">${escHtml(a.name)}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">
+            ${escHtml(a.responsible)}${a.round ? ` · ครั้งที่ ${a.round}` : ''}${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}
+            ${a.result ? ` · ${a.result}` : ''}
+          </div>
+          ${a.email ? `<div style="font-size:10px;color:var(--muted);">📧 ${escHtml(a.email)}</div>` : ''}
+        </div>
+      </div>`).join('')}
+    ${r.docLink ? `<div style="margin-top:10px;font-size:12px;">📎 <a href="${escHtml(r.docLink)}" target="_blank" style="color:var(--primary);">ดูเอกสาร</a></div>` : ''}`;
+  openModal('recordModal');
+}
+function shareRecordFromModal() {
+  if (APP.currentRecordIdx !== null) {
+    openShareAndSend(APP.filteredRecords[APP.currentRecordIdx]);
+    closeModal('recordModal');
+  }
+}
+function quickShare(idx) { openShareAndSend(APP.filteredRecords[idx]); }
+function openShareModal() {
+  if (currentShareRecord) openShareAndSend(currentShareRecord);
+}
+function openShareAndSend(record) {
+  currentShareRecord = record;
+  renderFlexBubble(record, 'sharePreviewBubble');
+  openModal('shareModal');
+}
+
+// ════════════════════════════════════════════════════════════
+//  TABS / NAV
+// ════════════════════════════════════════════════════════════
 function switchTab(tab) {
   document.querySelectorAll('.tab-item').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
   document.querySelectorAll('.section').forEach(s  => s.classList.toggle('active', s.id === `sec-${tab}`));
   document.querySelectorAll('.nav-item').forEach(n  => n.classList.toggle('active', n.id === `nav-${tab}`));
-  if (tab === 'records') renderRecords();
+  if (tab === 'records') renderCurrentPage();
 }
 
-/* ─── ACTIVITIES ─── */
+// ════════════════════════════════════════════════════════════
+//  ACTIVITIES
+// ════════════════════════════════════════════════════════════
 function addActivity() {
   actCounter++;
   const uid = 'act_' + Date.now() + '_' + actCounter;
   activities.push({ id: uid });
   renderActivities();
-  if (actCounter > 3) {
-    setTimeout(() => document.getElementById('block_' + uid)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
-  }
+  if (actCounter > 3) setTimeout(() =>
+    document.getElementById('block_' + uid)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
 }
 function removeActivity(uid) {
   activities = activities.filter(a => a.id !== uid);
@@ -629,15 +827,12 @@ function renderActivities() {
       <div class="activity-block-header">
         <div class="activity-num-badge">${i + 1}</div>
         <span style="font-size:13px;font-weight:700;color:var(--ink);flex:1;">กิจกรรมที่ ${i + 1}</span>
-        ${activities.length > 1
-          ? `<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>` : ''}
+        ${activities.length > 1 ? `<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>` : ''}
       </div>
-
       <div class="field-group">
         <div class="field-label">ชื่อกิจกรรม <span class="req">*</span></div>
         <textarea class="field-textarea" id="name_${a.id}" placeholder="ระบุชื่อกิจกรรมให้ครบถ้วน" style="min-height:64px;"></textarea>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <div class="field-group" style="margin:0;">
           <div class="field-label">ผู้รับผิดชอบ <span class="req">*</span></div>
@@ -648,7 +843,6 @@ function renderActivities() {
           <input type="number" class="field-input" id="round_${a.id}" placeholder="เช่น: 2" min="1">
         </div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
         <div class="field-group" style="margin:0;">
           <div class="field-label">ผลการอนุมัติ</div>
@@ -664,7 +858,6 @@ function renderActivities() {
           <input type="number" class="field-input" id="budget_${a.id}" placeholder="เช่น: 15000" min="0">
         </div>
       </div>
-
       <div class="field-group" style="margin-top:10px;margin-bottom:0;">
         <div class="field-label">อีเมลผู้รับผิดชอบ</div>
         <input type="email" class="field-input" id="email_${a.id}" placeholder="example@gmail.com">
@@ -673,7 +866,7 @@ function renderActivities() {
 }
 function collectActivities() {
   return activities.map(a => ({
-    id: a.id,
+    id:          a.id,
     name:        (document.getElementById('name_'  + a.id)?.value || '').trim(),
     responsible: (document.getElementById('resp_'  + a.id)?.value || '').trim(),
     round:       (document.getElementById('round_' + a.id)?.value || '').trim(),
@@ -683,7 +876,9 @@ function collectActivities() {
   }));
 }
 
-/* ─── FILE ─── */
+// ════════════════════════════════════════════════════════════
+//  FILE
+// ════════════════════════════════════════════════════════════
 function handleFileSelect(fl) {
   for (const f of fl) {
     if (f.size > 10 * 1024 * 1024) { showToast(`${f.name} ใหญ่เกิน 10MB`, 'error'); continue; }
@@ -703,7 +898,7 @@ function renderFileList() {
     return `<div class="file-item">
       <div style="width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${bg[cls]};">${ic[cls]}</div>
       <div style="flex:1;min-width:0;">
-        <div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</div>
+        <div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(f.name)}</div>
         <div style="font-size:10px;color:var(--muted);">${(f.size/1024).toFixed(1)} KB</div>
       </div>
       <button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button>
@@ -715,14 +910,17 @@ uz.addEventListener('dragover',  e => { e.preventDefault(); uz.classList.add('dr
 uz.addEventListener('dragleave', ()  => uz.classList.remove('drag-over'));
 uz.addEventListener('drop',      e  => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
 
-/* ─── BUILD RECORD ─── */
+// ════════════════════════════════════════════════════════════
+//  BUILD RECORD
+// ════════════════════════════════════════════════════════════
 function buildRecord() {
   const now    = new Date();
   const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
   const ts     = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()+543} ` +
                  `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const total  = APP.sheetRecords.length;
   return {
-    id: 'R' + String(APP.records.length + 1).padStart(4, '0'),
+    id:          'R' + String(total + 1).padStart(4, '0'),
     _timestamp:  ts,
     planRange:   document.getElementById('gf_planRange').value.trim(),
     approveDate: document.getElementById('gf_approveDate').value.trim(),
@@ -732,7 +930,9 @@ function buildRecord() {
   };
 }
 
-/* ─── PREVIEW ─── */
+// ════════════════════════════════════════════════════════════
+//  PREVIEW
+// ════════════════════════════════════════════════════════════
 function previewFlex() {
   renderFlexBubble(buildRecord(), 'flexPreviewBubble');
   document.getElementById('flexPreviewWrap').style.display = 'block';
@@ -740,25 +940,23 @@ function previewFlex() {
   showToast('ดูตัวอย่างด้านล่าง', 'info');
 }
 function renderFlexBubble(record, id) {
-  const el = document.getElementById(id);
+  const el   = document.getElementById(id);
   if (!el) return;
   const acts = record.activities || [];
   el.innerHTML = `
     <div class="bubble-hero-strip">
-      <div class="bubble-hero-title">📢 แจ้งผลการอนุมัติแผน ${record.planRange || ''}</div>
-      <div class="bubble-hero-meta">ประจำวันที่ ${record.approveDate || ''} · ${record.id}</div>
+      <div class="bubble-hero-title">📢 แจ้งผลการอนุมัติแผน ${escHtml(record.planRange || '')}</div>
+      <div class="bubble-hero-meta">ประจำวันที่ ${escHtml(record.approveDate || '')} · ${escHtml(record.id)}</div>
     </div>
     <div style="padding:8px 0;">
-      <div style="padding:6px 16px 4px;font-size:11px;font-weight:700;color:var(--muted);">
-        📝 รายการกิจกรรมที่ได้รับการอนุมัติ
-      </div>
+      <div style="padding:6px 16px 4px;font-size:11px;font-weight:700;color:var(--muted);">📝 รายการกิจกรรมที่ได้รับการอนุมัติ</div>
       ${acts.map((a, i) => `
         <div class="bubble-activity-row">
           <div class="bubble-activity-num">${i + 1}</div>
           <div class="bubble-activity-text">
-            <strong>${a.name || '—'}</strong><br>
+            <strong>${escHtml(a.name || '—')}</strong><br>
             <span style="color:var(--muted);font-size:11px;">
-              ${a.responsible ? `(${a.responsible})` : ''}
+              ${a.responsible ? `(${escHtml(a.responsible)})` : ''}
               ${a.round  ? ` ครั้งที่ ${a.round}` : ''}
               ${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}
             </span>
@@ -766,16 +964,14 @@ function renderFlexBubble(record, id) {
         </div>`).join('')}
     </div>
     <div class="bubble-footer-strip">
-      <div class="bubble-footer-note">
-        📧 ระบบส่งอีเมลแจ้งผู้รับผิดชอบแล้ว<br>✅ รวมทั้งหมด ${acts.length} รายการ
-      </div>
-      ${record.docLink
-        ? `<button class="bubble-footer-btn" onclick="window.open('${record.docLink}','_blank')">🔗 ดูเอกสาร</button>`
-        : ''}
+      <div class="bubble-footer-note">📧 ระบบส่งอีเมลแจ้งผู้รับผิดชอบแล้ว<br>✅ รวมทั้งหมด ${acts.length} รายการ</div>
+      ${record.docLink ? `<button class="bubble-footer-btn" onclick="window.open('${escHtml(record.docLink)}','_blank')">🔗 ดูเอกสาร</button>` : ''}
     </div>`;
 }
 
-/* ─── SUBMIT ─── */
+// ════════════════════════════════════════════════════════════
+//  SUBMIT / SAVE
+// ════════════════════════════════════════════════════════════
 function submitForm() {
   if (!document.getElementById('gf_planRange').value.trim())
     return showToast('กรุณาระบุแผนที่แจ้ง', 'error');
@@ -783,11 +979,15 @@ function submitForm() {
     return showToast('กรุณาระบุวันที่อนุมัติ', 'error');
   const acts = collectActivities();
   for (let i = 0; i < acts.length; i++) {
-    if (!acts[i].name)
-      return showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i + 1}`, 'error'),
-             document.getElementById('name_' + activities[i].id)?.focus();
-    if (!acts[i].responsible)
-      return showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i + 1}`, 'error');
+    if (!acts[i].name) {
+      showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i + 1}`, 'error');
+      document.getElementById('name_' + activities[i].id)?.focus();
+      return;
+    }
+    if (!acts[i].responsible) {
+      showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i + 1}`, 'error');
+      return;
+    }
   }
   if (CFG.CONFIRM_BEFORE_SAVE) openModal('confirmModal');
   else confirmAndSave();
@@ -795,32 +995,38 @@ function submitForm() {
 function confirmAndSave() { closeModal('confirmModal'); doSave(); }
 
 async function doSave() {
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> กำลังบันทึก...';
   const record = buildRecord();
   currentShareRecord = record;
-  APP.records.unshift(record);
-  saveLocalRecords();
-  showToast('กำลังบันทึก...', 'info');
+  showToast('กำลังบันทึกลง Sheets...', 'info');
 
-  if (CFG.GAS_URL && !CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')) {
-    try { await sendToGAS(record); } catch(e) { console.warn('GAS error:', e); }
+  try {
+    await sendToGAS(record);
+    showToast(`บันทึกสำเร็จ! ${record.activities.length} รายการ 🎉`);
+    document.getElementById('shareBtn').style.display = '';
+    renderFlexBubble(record, 'flexPreviewBubble');
+    document.getElementById('flexPreviewWrap').style.display = 'block';
+    clearFormFields();
+    // Refresh sheet data
+    fetchSheetRecords();
+    if (CFG.AUTO_SHARE) setTimeout(() => openShareAndSend(record), 800);
+  } catch(e) {
+    console.error(e);
+    showToast('บันทึกไม่สำเร็จ: ' + e.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg> บันทึกข้อมูล';
   }
-
-  showToast(`บันทึกสำเร็จ! ${record.activities.length} รายการ 🎉`);
-  document.getElementById('totalBadgeText').textContent = APP.records.length + ' รายการ';
-  document.getElementById('shareBtn').style.display = '';
-  renderRecords();
-  renderFlexBubble(record, 'flexPreviewBubble');
-  document.getElementById('flexPreviewWrap').style.display = 'block';
-  clearFormFields();
-  if (CFG.AUTO_SHARE) setTimeout(() => openShareAndSend(record), 600);
 }
 
 async function sendToGAS(record) {
   for (const act of record.activities) {
-    await fetch(CFG.GAS_URL, {
-      method: 'POST',
+    const res = await fetch(CFG.GAS_URL, {
+      method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      body:    JSON.stringify({
         action: 'save', sheetName: CFG.SHEET_NAME,
         data: {
           '_timestamp':     record._timestamp,
@@ -836,8 +1042,14 @@ async function sendToGAS(record) {
           'ลิงก์เอกสาร':  record.docLink,
         },
       }),
-      mode: 'no-cors',
     });
+    // GAS Web App returns JSON (no-cors removed so we can detect errors)
+    if (res.ok) {
+      const json = await res.json().catch(() => ({}));
+      if (json.success === false) throw new Error(json.error || 'GAS save failed');
+    } else {
+      throw new Error('HTTP ' + res.status);
+    }
   }
 }
 
@@ -856,122 +1068,33 @@ function clearForm() {
   showToast('ล้างข้อมูลแล้ว');
 }
 
-/* ─── RECORDS ─── */
-function setViewMode(mode) {
-  APP.viewMode = mode;
-  document.getElementById('viewBtn_local').classList.toggle('active-view', mode === 'local');
-  document.getElementById('viewBtn_sheet').classList.toggle('active-view', mode === 'sheet');
-  if (mode === 'sheet' && !APP.sheetLoaded) fetchSheetRecords();
-  renderRecords();
-}
-
-function renderRecords() {
-  const list    = document.getElementById('recordList');
-  const isSheet = APP.viewMode === 'sheet';
-  const src     = isSheet ? APP.sheetRecords : APP.records;
-  const total   = src.length;
-
-  document.getElementById('totalCount').textContent     = total + (isSheet ? ' กลุ่ม (Sheet)' : ' รายการ');
-  document.getElementById('totalBadgeText').textContent = total + ' รายการ';
-
-  if (!total) {
-    list.innerHTML = `<div class="empty-state">
-      <div class="empty-icon">${isSheet ? '☁️' : '📭'}</div>
-      <p style="font-size:13.5px;">${isSheet
-        ? (CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')
-            ? 'ยังไม่ได้ตั้งค่า GAS_URL'
-            : 'ยังไม่มีข้อมูลใน Sheets')
-        : 'ยังไม่มีข้อมูล'}</p>
-    </div>`;
-    return;
-  }
-
-  list.innerHTML = src.map((r, i) => `
-    <div class="record-item" onclick="showRecordDetail(${i})">
-      <div style="flex:1;min-width:0;">
-        <div style="font-size:13.5px;font-weight:700;">
-          📢 แจ้งผลอนุมัติแผน ${r.planRange || ''}
-          ${r._source==='sheet' ? '<span style="font-size:9px;background:#e0f2fe;color:#0369a1;padding:1px 5px;border-radius:4px;margin-left:4px;font-weight:700;">SHEET</span>' : ''}
-        </div>
-        <div style="font-size:11.5px;color:var(--muted);">${r.approveDate || ''} · ${r.activities?.length || 0} รายการ</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px;">${r._timestamp || ''}</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;">
-        <span class="record-id">${r.id}</span>
-        <button onclick="event.stopPropagation();quickShare(${i})" class="btn btn-green btn-xs">📤</button>
-      </div>
-    </div>`).join('');
-}
-
-function currentSrc() {
-  return APP.viewMode === 'sheet' ? APP.sheetRecords : APP.records;
-}
-
-function showRecordDetail(idx) {
-  APP.currentRecordIdx = idx;
-  const r = currentSrc()[idx];
-  document.getElementById('recordModalTitle').textContent = `📋 ${r.id} — แผน ${r.planRange}`;
-  const acts = r.activities || [];
-  document.getElementById('recordModalContent').innerHTML = `
-    <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">${r.approveDate} · ${acts.length} รายการ</div>
-    ${acts.map((a, i) => `
-      <div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;">
-        <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;flex-shrink:0;">${i+1}</div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:13px;font-weight:700;">${a.name}</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px;">
-            ${a.responsible}${a.round?` · ครั้งที่ ${a.round}`:''}${a.budget?` · ${Number(a.budget).toLocaleString()} บาท`:''}
-          </div>
-          ${a.email?`<div style="font-size:10px;color:var(--muted);">📧 ${a.email}</div>`:''}
-        </div>
-      </div>`).join('')}
-    ${r.docLink?`<div style="margin-top:10px;font-size:12px;">📎 <a href="${r.docLink}" target="_blank" style="color:var(--primary);">ดูเอกสาร</a></div>`:''}`;
-  openModal('recordModal');
-}
-
-function shareRecordFromModal() {
-  if (APP.currentRecordIdx !== null) {
-    openShareAndSend(currentSrc()[APP.currentRecordIdx]);
-    closeModal('recordModal');
-  }
-}
-function quickShare(idx)     { openShareAndSend(currentSrc()[idx]); }
-function openShareModal()    {
-  const src = currentSrc();
-  if (currentShareRecord)  openShareAndSend(currentShareRecord);
-  else if (src.length)     openShareAndSend(src[0]);
-}
-function openShareAndSend(record) {
-  currentShareRecord = record;
-  renderFlexBubble(record, 'sharePreviewBubble');
-  openModal('shareModal');
-}
-
-/* ─── LINE FLEX SHARE ─── */
+// ════════════════════════════════════════════════════════════
+//  LINE FLEX SHARE (LIFF)
+// ════════════════════════════════════════════════════════════
 async function shareToLine() {
   if (!currentShareRecord) return;
   const r    = currentShareRecord;
   const acts = r.activities || [];
 
   const actContents = acts.map((a, i) => ({
-    type: 'box', layout: 'horizontal',
-    paddingTop: '8px', paddingBottom: '8px',
-    borderWidth: '0px 0px 1px 0px', borderColor: '#e2e8f0',
-    contents: [
-      { type:'text', text: String(i+1), color:'#1a56db', size:'xs', weight:'bold', flex:0, gravity:'top' },
+    type:'box', layout:'horizontal',
+    paddingTop:'8px', paddingBottom:'8px',
+    borderWidth:'0px 0px 1px 0px', borderColor:'#e2e8f0',
+    contents:[
+      { type:'text', text:String(i+1), color:'#1a56db', size:'xs', weight:'bold', flex:0, gravity:'top' },
       { type:'text',
         text: a.name
           + (a.responsible ? `\n(${a.responsible})` : '')
           + (a.round       ? ` ครั้งที่ ${a.round}` : '')
           + (a.budget      ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''),
-        wrap:true, size:'sm', color:'#1C2333', flex:1, margin:'md' }
-    ]
+        wrap:true, size:'sm', color:'#1C2333', flex:1, margin:'md' },
+    ],
   }));
 
   const footerBtns = [];
   if (r.docLink) footerBtns.push({
     type:'button',
-    action:{ type:'uri', label:'📎 รายละเอียดเพิ่มเติมดังภาพตามลิงก์', uri: r.docLink },
+    action:{ type:'uri', label:'📎 รายละเอียดเพิ่มเติมดังภาพตามลิงก์', uri:r.docLink },
     style:'primary', color:'#1a56db', height:'sm',
   });
   footerBtns.push({
@@ -1017,71 +1140,60 @@ async function shareToLine() {
     },
   };
 
-  await sendToLine([flexMsg]);
-}
-
-async function sendToLine(messages) {
-  if (typeof liff !== 'undefined' && liff.isInClient && liff.isInClient()) {
+  // ── ส่งผ่าน LIFF ShareTargetPicker ──
+  if (typeof liff !== 'undefined' && liffReady) {
     try {
-      const res = await liff.shareTargetPicker(messages);
-      if (res) showToast('แชร์สำเร็จ! 🎉');
+      const shareResult = await liff.shareTargetPicker([flexMsg], { isMultiple: true });
+      if (shareResult && shareResult.status === 'success') {
+        showToast('แชร์สำเร็จ! 🎉');
+      } else if (!shareResult) {
+        // user cancelled — ไม่แสดง error
+        showToast('ยกเลิกการแชร์', 'info');
+      }
       closeModal('shareModal');
-    } catch(e) { showToast('ยกเลิกการแชร์', 'error'); }
-  } else {
-    showToast('Dev Mode — ดู Console 🎉', 'info');
-    console.log('[altText]\n' + messages[0].altText);
-    console.log('[LINE Flex JSON]', JSON.stringify(messages, null, 2));
-    closeModal('shareModal');
+    } catch(e) {
+      console.error('shareTargetPicker error:', e);
+      showToast('แชร์ไม่สำเร็จ: ' + (e.message || e.code || 'unknown'), 'error');
+    }
+    return;
   }
+
+  // ── LIFF ยังไม่พร้อม → ลอง init อีกครั้ง ──
+  if (CFG.LIFF_ID) {
+    showToast('กำลังเชื่อมต่อ LINE...', 'info');
+    await initLIFF();
+    if (liffReady) {
+      shareToLine(); // retry
+      return;
+    }
+    showToast('กรุณาเปิดจาก LINE app', 'error');
+    return;
+  }
+
+  showToast('ยังไม่ได้ตั้งค่า LIFF_ID', 'error');
 }
 
-/* ─── DATA ─── */
-function exportJSON() {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([JSON.stringify(APP.records, null, 2)], { type:'application/json' }));
-  a.download = `approval_records_${Date.now()}.json`; a.click();
-  showToast('Export สำเร็จ');
-}
-function clearAllRecords() {
-  if (!confirm('ล้างข้อมูลทั้งหมดใช่ไหม?')) return;
-  APP.records = []; saveLocalRecords(); renderRecords(); showToast('ล้างข้อมูลแล้ว');
-}
-
-/* ─── MODAL / TOAST ─── */
+// ════════════════════════════════════════════════════════════
+//  MODAL / TOAST
+// ════════════════════════════════════════════════════════════
 function openModal(id)  { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 document.querySelectorAll('.modal-overlay').forEach(m =>
   m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); }));
 let _tt;
-function showToast(msg, type='success') {
+function showToast(msg, type = 'success') {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
   t.className = `toast ${type} show`;
   document.getElementById('toastIcon').style.stroke =
-    type==='error'?'#f87171':type==='info'?'#60a5fa':'#4ade80';
+    type === 'error' ? '#f87171' : type === 'info' ? '#60a5fa' : '#4ade80';
   clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-/* ─── LIFF ─── */
-async function initLIFF() {
-  if (!CFG.LIFF_ID || typeof liff === 'undefined') return;
-  try { await liff.init({ liffId: CFG.LIFF_ID }); if (!liff.isLoggedIn()) liff.login(); }
-  catch(e) { console.warn('LIFF init failed:', e); }
-}
-
-/* ─── BOOT ─── */
+// ════════════════════════════════════════════════════════════
+//  BOOT
+// ════════════════════════════════════════════════════════════
 init();
-</script>
-
-<!-- LIFF SDK — โหลดเฉพาะเมื่อตั้งค่า LIFF_ID ใน CFG -->
-<script>
-(function(){
-  if (!CFG.LIFF_ID) return;
-  const s = document.createElement('script');
-  s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
-  s.onload = () => initLIFF && initLIFF();
-  document.head.appendChild(s);
-})();
 </script>
 </body>
 </html>
