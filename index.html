@@ -1190,20 +1190,6 @@
                         </div>
                         <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
                     </div>
-                    <div class="card-body">
-                        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-                            <div style="font-size:26px;margin-bottom:6px;">☁️</div>
-                            <div style="font-size:13px;color:var(--muted);">
-                                <span style="color:var(--primary);font-weight:700;">แตะเลือกไฟล์</span>
-                                หรือลากวางที่นี่<br>
-                                <span style="font-size:11px;margin-top:2px;display:block;">รูปภาพ, PDF, Word, Excel
-                                    (สูงสุด 10MB)</span>
-                            </div>
-                        </div>
-                        <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"
-                            onchange="handleFileSelect(this.files)">
-                        <div id="fileList"></div>
-                    </div>
                 </div>
 
                 <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
