@@ -1869,7 +1869,6 @@
                     a.budget ? Number(a.budget).toLocaleString() + ' บาท' : null,
                 ].filter(Boolean).join(' · ');
 
-                // รวมทุกอย่างเป็น text เดียว: "1. ชื่อกิจกรรม\n(ผู้รับผิดชอบ) · ครั้งที่ 1 · 15,000 บาท"
                 const fullText = (i + 1) + '. ' + (a.name || '-') + (sub ? '\n' + sub : '');
 
                 return {
@@ -1885,7 +1884,6 @@
                     }],
                 };
             });
-
             // ── footer buttons: ห้ามมี emoji ใน label ──
             const footerContents = [];
             if (r.docLink && String(r.docLink).startsWith('http')) {
@@ -1911,10 +1909,9 @@
             // ── Flex Message: โครงสร้าง minimal ที่ LINE รับรอง ──
             const flexMsg = {
                 type: 'flex',
-                altText: altText,
+                altText: 'แจ้งอนุมัติแผน ' + (r.planRange || ''),
                 contents: {
                     type: 'bubble',
-                    // header: ใช้ box + backgroundColor hex 6 หลัก (ห้ามใช้ linearGradient / hex 8 หลัก)
                     header: {
                         type: 'box',
                         layout: 'vertical',
@@ -1930,11 +1927,27 @@
                                 wrap: true,
                             },
                             {
-                                type: 'text',
-                                text: 'ประจำวันที่ ' + (r.approveDate || ''),
-                                color: '#aaccff',
-                                size: 'sm',
+                                type: 'box',
+                                layout: 'horizontal',
                                 margin: 'sm',
+                                contents: [
+                                    {
+                                        type: 'text',
+                                        text: 'ประจำวันที่ ',
+                                        color: '#FF0000',
+                                        size: 'lg',
+                                        weight: 'bold',
+                                        flex: 0,
+                                    },
+                                    {
+                                        type: 'text',
+                                        text: (r.approveDate || ''),
+                                        color: '#ffff00',
+                                        size: 'lg',
+                                        weight: 'bold',
+                                        wrap: true,
+                                    },
+                                ],
                             },
                         ],
                     },
@@ -1971,7 +1984,6 @@
                     },
                 },
             };
-
             // ── debug: log JSON ให้เห็นใน console LINE ──
             const jsonStr = JSON.stringify(flexMsg);
             console.log('[shareToLine] JSON length:', jsonStr.length);
