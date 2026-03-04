@@ -839,72 +839,61 @@ function clearFormFields() {
 function clearForm() { clearFormFields(); document.getElementById('flexPreviewWrap').style.display='none'; showToast('ล้างข้อมูลแล้ว'); }
 
 // ════════════════════════════════════════════════
-//  LINE FLEX SHARE — แก้ไขครบทุกจุด
+//  LINE FLEX SHARE — clean minimal structure
 // ════════════════════════════════════════════════
 async function shareToLine() {
     if (!currentShareRecord) return;
     const r    = currentShareRecord;
-    const acts = r.activities || [];
+    const acts = (r.activities || []);
 
-    // ──────────────────────────────────────────
-    // FIX 1: altText ต้องไม่เกิน 400 ตัวอักษร
-    // ──────────────────────────────────────────
+    // ── altText: max 400 chars, no null ──
     let altText = 'แจ้งผลการอนุมัติแผน ' + (r.planRange||'') + ' วันที่ ' + (r.approveDate||'') + '\n';
-    for (let i=0; i<acts.length; i++) {
-        const line = (i+1) + '. ' + (acts[i].name||'') + (acts[i].responsible ? ' ('+acts[i].responsible+')' : '') + '\n';
-        if ((altText + line).length > 380) { altText += '... และอื่นๆ'; break; }
+    for (let i = 0; i < acts.length; i++) {
+        const a    = acts[i];
+        const line = (i+1) + '. ' + (a.name||'-') + (a.responsible ? ' ('+a.responsible+')' : '') + '\n';
+        if ((altText+line).length > 370) { altText += '...'; break; }
         altText += line;
     }
-    altText += 'รวม ' + acts.length + ' รายการ';
+    altText = (altText + 'รวม ' + acts.length + ' รายการ').substring(0, 400);
 
-    // ──────────────────────────────────────────
-    // FIX 2: ไม่ใช้ backgroundColor ใน bubble ตรงๆ
-    //         ต้องใส่ใน box ที่เป็น header
-    // FIX 3: สีต้องเป็น hex 6 หลักเท่านั้น ห้าม 8 หลัก (#ffffffbb → #ffffff)
-    // FIX 4: ไม่มี emoji ใน label ของ button (LINE reject)
-    // FIX 5: text ใน Flex ต้องเป็น string ไม่มี null/undefined
-    // ──────────────────────────────────────────
+    // ── activity rows: แต่ละรายการเป็น text เดียว ไม่มี conditional object ──
+    const actContents = acts.map((a, i) => {
+        const sub = [
+            a.responsible ? '(' + a.responsible + ')' : null,
+            a.round       ? 'ครั้งที่ ' + String(a.round) : null,
+            a.budget      ? Number(a.budget).toLocaleString() + ' บาท' : null,
+        ].filter(Boolean).join(' · ');
 
-    const actBoxes = acts.map((a, i) => {
-        // สร้าง text ที่ปลอดภัย ไม่มี newline ซ้อนกันมากเกิน
-        const nameText  = String(a.name  || '-');
-        const subText   = [
-            a.responsible ? '(' + a.responsible + ')' : '',
-            a.round  ? 'ครั้งที่ ' + a.round : '',
-            a.budget ? Number(a.budget).toLocaleString() + ' บาท' : '',
-        ].filter(Boolean).join(' ');
+        // รวมทุกอย่างเป็น text เดียว: "1. ชื่อกิจกรรม\n(ผู้รับผิดชอบ) · ครั้งที่ 1 · 15,000 บาท"
+        const fullText = (i+1) + '. ' + (a.name||'-') + (sub ? '\n' + sub : '');
 
         return {
-            type: 'box', layout: 'vertical', margin: 'md',
-            contents: [
-                {
-                    type: 'box', layout: 'horizontal',
-                    contents: [
-                        { type:'text', text: String(i+1)+'.', color:'#1a56db', size:'xs', weight:'bold', flex:0, gravity:'top' },
-                        { type:'text', text: nameText, wrap:true, size:'sm', color:'#1C2333', flex:1, margin:'sm', weight:'bold' },
-                    ]
-                },
-                subText ? {
-                    type: 'text', text: subText, wrap:true, size:'xs', color:'#64748b', margin:'xs'
-                } : { type:'text', text:' ', size:'xs', color:'#ffffff' },  // placeholder ป้องกัน empty contents
-            ]
+            type: 'box',
+            layout: 'vertical',
+            margin: 'md',
+            contents: [{
+                type:  'text',
+                text:  fullText,
+                wrap:  true,
+                size:  'sm',
+                color: '#1C2333',
+            }],
         };
     });
 
+    // ── footer buttons: ห้ามมี emoji ใน label ──
     const footerContents = [];
-
-    // FIX 4: ลบ emoji ออกจาก label ทั้งหมด
-    if (r.docLink) {
+    if (r.docLink && String(r.docLink).startsWith('http')) {
         footerContents.push({
-            type: 'button',
+            type:   'button',
             action: { type:'uri', label:'ดูเอกสารแนบ', uri: String(r.docLink) },
-            style: 'primary',
-            color: '#1a56db',
+            style:  'primary',
+            color:  '#1a56db',
             height: 'sm',
         });
     }
     footerContents.push({
-        type: 'button',
+        type:   'button',
         action: {
             type:  'message',
             label: 'รับทราบ',
@@ -914,94 +903,95 @@ async function shareToLine() {
         height: 'sm',
     });
 
+    // ── Flex Message: โครงสร้าง minimal ที่ LINE รับรอง ──
     const flexMsg = {
-        type: 'flex',
-        altText: altText,
+        type:     'flex',
+        altText:  altText,
         contents: {
             type: 'bubble',
-            // FIX 2: header ใช้ box + backgroundColor (hex 6 หลัก)
+            // header: ใช้ box + backgroundColor hex 6 หลัก (ห้ามใช้ linearGradient / hex 8 หลัก)
             header: {
-                type: 'box',
-                layout: 'vertical',
-                paddingAll: '16px',
-                backgroundColor: '#1a56db',   // FIX 3: 6 หลัก ✅
+                type:            'box',
+                layout:          'vertical',
+                paddingAll:      '16px',
+                backgroundColor: '#1a56db',
                 contents: [
                     {
-                        type: 'text',
-                        text: 'แจ้งผลการอนุมัติแผน ' + (r.planRange||''),
-                        color: '#ffffff',          // FIX 3: 6 หลัก ✅
-                        size: 'lg',
+                        type:   'text',
+                        text:   'แจ้งผลการอนุมัติแผน ' + (r.planRange||''),
+                        color:  '#ffffff',
+                        size:   'lg',
                         weight: 'bold',
-                        wrap: true,
+                        wrap:   true,
                     },
                     {
-                        type: 'text',
-                        text: 'ประจำวันที่ ' + (r.approveDate||''),
-                        color: '#aaccff',          // FIX 3: เปลี่ยนจาก #ffffffbb → 6 หลัก ✅
-                        size: 'sm',
+                        type:   'text',
+                        text:   'ประจำวันที่ ' + (r.approveDate||''),
+                        color:  '#aaccff',
+                        size:   'sm',
                         margin: 'sm',
                     },
                 ],
             },
             body: {
-                type: 'box',
-                layout: 'vertical',
+                type:       'box',
+                layout:     'vertical',
                 paddingAll: '14px',
                 contents: [
                     {
-                        type: 'text',
-                        text: 'รายการกิจกรรมที่ได้รับการอนุมัติ',
-                        size: 'sm', weight: 'bold', color: '#334155',
+                        type:   'text',
+                        text:   'รายการกิจกรรมที่ได้รับการอนุมัติ',
+                        size:   'sm',
+                        weight: 'bold',
+                        color:  '#334155',
                     },
-                    ...actBoxes,
+                    ...actContents,
                     { type: 'separator', margin: 'md' },
                     {
-                        type: 'box', layout: 'vertical', margin: 'md',
-                        contents: [
-                            { type:'text', text:'ระบบส่งอีเมลแจ้งผู้รับผิดชอบแล้ว', wrap:true, size:'xs', color:'#64748b' },
-                            { type:'text', text:'รวมทั้งหมด ' + acts.length + ' รายการ', size:'sm', weight:'bold', color:'#059669', margin:'sm' },
-                        ],
+                        type:   'text',
+                        text:   'รวมทั้งหมด ' + acts.length + ' รายการ',
+                        size:   'sm',
+                        weight: 'bold',
+                        color:  '#059669',
+                        margin: 'md',
                     },
                 ],
             },
             footer: {
-                type: 'box', layout: 'vertical', spacing: 'sm', paddingAll: '14px',
-                contents: footerContents,
+                type:       'box',
+                layout:     'vertical',
+                spacing:    'sm',
+                paddingAll: '14px',
+                contents:   footerContents,
             },
         },
     };
 
-    // ──────────────────────────────────────────
-    // FIX 6: validate JSON ก่อนส่ง (debug helper)
-    // ──────────────────────────────────────────
-    try {
-        JSON.stringify(flexMsg); // ถ้า error จะ throw ที่นี่
-    } catch(jsonErr) {
-        showToast('Flex JSON ผิดพลาด: ' + jsonErr.message, 'error');
-        return;
-    }
+    // ── debug: log JSON ให้เห็นใน console LINE ──
+    const jsonStr = JSON.stringify(flexMsg);
+    console.log('[shareToLine] JSON length:', jsonStr.length);
+    console.log('[shareToLine] JSON:', jsonStr);
 
     // ── ส่งผ่าน LIFF ShareTargetPicker ──
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            // FIX 7: ไม่ส่ง options object (isMultiple) เพราะ LIFF 2.x บางเวอร์ชันไม่รองรับ
             const shareResult = await liff.shareTargetPicker([flexMsg]);
             if (shareResult && shareResult.status === 'success') {
                 showToast('แชร์สำเร็จ!');
             } else {
+                // user กด cancel → shareResult = null หรือ status != success
                 showToast('ยกเลิกการแชร์', 'info');
             }
             closeModal('shareModal');
         } catch(e) {
-            console.error('shareTargetPicker error:', e);
-            // แสดง error code ที่ LINE ส่งกลับมา
-            const msg = e.message || e.code || JSON.stringify(e);
-            showToast('แชร์ไม่สำเร็จ: ' + msg, 'error');
+            console.error('[shareTargetPicker] error:', e);
+            const errMsg = (e && (e.message || e.code)) ? (e.message || String(e.code)) : JSON.stringify(e);
+            showToast('แชร์ไม่สำเร็จ: ' + errMsg, 'error');
         }
         return;
     }
 
-    // LIFF ยังไม่พร้อม
+    // LIFF ยังไม่พร้อม → ลอง init อีกครั้ง
     if (CFG.LIFF_ID) {
         showToast('กำลังเชื่อมต่อ LINE...', 'info');
         await initLIFF();
