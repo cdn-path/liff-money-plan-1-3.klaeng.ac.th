@@ -1508,25 +1508,22 @@ async function shareToLine() {
 
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            // ── ลอง sendMessages ก่อน (ส่งไปห้องปัจจุบัน) ──
-            if (liff.isInClient()) {
-                await liff.sendMessages([debugMsg]);
-                showToast('ส่ง debug text สำเร็จ (sendMessages)');
+            const shareResult = await liff.shareTargetPicker([debugMsg]);
+            if (shareResult && shareResult.status === 'success') {
+                showToast('ส่ง debug text สำเร็จ (shareTargetPicker)');
             } else {
-                // นอก LINE app → ใช้ shareTargetPicker
-                const shareResult = await liff.shareTargetPicker([debugMsg]);
-                if (shareResult && shareResult.status === 'success') {
-                    showToast('ส่ง debug text สำเร็จ (shareTargetPicker)');
-                } else {
-                    showToast('ยกเลิก', 'info');
-                }
+                showToast('ยกเลิก', 'info');
             }
             closeModal('shareModal');
         } catch (e) {
             console.error('[DEBUG] share error:', e);
-            showToast('Error: ' + (e.message || JSON.stringify(e)), 'error');
-            // แสดงใน alert เพื่อดูให้ชัด
-            alert('[DEBUG ERROR]\n' + (e.message || JSON.stringify(e, null, 2)));
+            const detail = [
+                'message : ' + (e.message || '?'),
+                'code    : ' + (e.code || '?'),
+                'type    : ' + (e.errorType || '?'),
+            ].join('\n');
+            alert('[DEBUG ERROR]\n' + detail);
+            showToast('Error: ' + (e.code || e.message), 'error');
         }
         return;
     }
