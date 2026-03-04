@@ -1201,7 +1201,7 @@ function buildRecord() {
         id: 'R' + String(APP.sheetRecords.length+1).padStart(4,'0'),
         _timestamp: ts,
         planRange: document.getElementById('gf_planRange').value.trim(),
-        approveDate: document.getElementById('gf_approveDate').value.trim(),
+        approveDate: formatThaiDate(document.getElementById('gf_approveDate').value.trim()),
         docLink: APP.uploadedImageUrl,
         docLinkDrive: APP.uploadedImageDriveUrl,
         docLinkBlob: APP.uploadedImageBlob,
