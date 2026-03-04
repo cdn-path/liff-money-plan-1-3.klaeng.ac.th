@@ -1475,26 +1475,61 @@ async function shareToLine() {
         },
     };
 
+    // ── DEBUG: ส่ง text message แทน flex เพื่อดูตัวแปร ──
+    const debugLines = [
+        '🔍 DEBUG shareToLine()',
+        '─────────────────────',
+        'liff defined : ' + (typeof liff !== 'undefined'),
+        'liffReady    : ' + liffReady,
+        'liff.isInClient: ' + (typeof liff !== 'undefined' ? liff.isInClient() : 'N/A'),
+        '─────────────────────',
+        'planRange    : ' + planRange,
+        'approveDate  : ' + approveDate,
+        'acts count   : ' + acts.length,
+        '─────────────────────',
+        'docLink (lh3): ' + (docLink || '(empty)'),
+        'driveUrl     : ' + (driveUrl || '(empty)'),
+        '─────────────────────',
+        'altText      : ' + altText,
+        'flexMsg type : ' + flexMsg.type,
+        'hero exists  : ' + (!!flexMsg.contents.hero),
+        'footer exists: ' + (!!flexMsg.contents.footer),
+    ].join('\n');
+
+    const debugMsg = { type: 'text', text: debugLines };
+
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            const shareResult = await liff.shareTargetPicker([flexMsg]);
-            if (shareResult && shareResult.status === 'success') {
-                showToast('แชร์สำเร็จ!');
+            // ── ลอง sendMessages ก่อน (ส่งไปห้องปัจจุบัน) ──
+            if (liff.isInClient()) {
+                await liff.sendMessages([debugMsg]);
+                showToast('ส่ง debug text สำเร็จ (sendMessages)');
             } else {
-                showToast('ยกเลิกการแชร์', 'info');
+                // นอก LINE app → ใช้ shareTargetPicker
+                const shareResult = await liff.shareTargetPicker([debugMsg]);
+                if (shareResult && shareResult.status === 'success') {
+                    showToast('ส่ง debug text สำเร็จ (shareTargetPicker)');
+                } else {
+                    showToast('ยกเลิก', 'info');
+                }
             }
             closeModal('shareModal');
         } catch (e) {
-            console.error('[shareTargetPicker] error:', e);
-            showToast('แชร์ไม่สำเร็จ: ' + (e.message||JSON.stringify(e)), 'error');
+            console.error('[DEBUG] share error:', e);
+            showToast('Error: ' + (e.message || JSON.stringify(e)), 'error');
+            // แสดงใน alert เพื่อดูให้ชัด
+            alert('[DEBUG ERROR]\n' + (e.message || JSON.stringify(e, null, 2)));
         }
         return;
     }
 
+    // liff ยังไม่พร้อม
+    alert('[DEBUG]\nliff defined: ' + (typeof liff !== 'undefined') + '\nliffReady: ' + liffReady + '\n\nลอง initLIFF ใหม่...');
     if (CFG.LIFF_ID) {
         showToast('กำลังเชื่อมต่อ LINE...', 'info');
         await initLIFF();
         if (liffReady) { shareToLine(); return; }
+        alert('[DEBUG] initLIFF ล้มเหลว\nliffReady ยังเป็น false');
         showToast('กรุณาเปิดจาก LINE app', 'error');
         return;
     }
