@@ -1493,7 +1493,22 @@ async function shareToLine() {
 
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            const shareResult = await liff.shareTargetPicker([flexMsg]);
+            console.log('[FLEX JSON]', JSON.stringify(flexMsg, null, 2));
+            // ── ทดสอบด้วย text ก่อน ──
+            const testMsg = {
+                type: 'text',
+                text: [
+                    '🧪 ทดสอบ Flex',
+                    'planRange: ' + planRange,
+                    'approveDate: ' + approveDate,
+                    'lh3Url: ' + (lh3Url ? lh3Url.slice(0,50) : '(ว่าง)'),
+                    'driveUrl: ' + (driveUrl ? driveUrl.slice(0,60) : '(ว่าง)'),
+                    'acts: ' + acts.length + ' รายการ',
+                    'hero: ' + (!!flexMsg.contents.hero),
+                    'footer: ' + (!!flexMsg.contents.footer),
+                ].join('\n')
+            };
+            const shareResult = await liff.shareTargetPicker([testMsg, flexMsg]);
             if (shareResult && shareResult.status === 'success') {
                 showToast('แชร์สำเร็จ!');
             } else {
