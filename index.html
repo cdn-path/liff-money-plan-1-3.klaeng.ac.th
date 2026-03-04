@@ -1372,6 +1372,14 @@ function clearForm() {
 //  LINE FLEX SHARE — สร้าง Flex JSON ส่งผ่าน LIFF
 // ════════════════════════════════════════════════
 async function shareToLine() {
+    // ── ยืนยันว่าฟังก์ชันถูกเรียก ──
+    alert(
+        '[DEBUG] shareToLine() ถูกเรียกแล้ว\n' +
+        'currentShareRecord: ' + (currentShareRecord ? 'มีข้อมูล' : 'null') + '\n' +
+        'liff defined: ' + (typeof liff !== 'undefined') + '\n' +
+        'liffReady: ' + liffReady
+    );
+
     if (!currentShareRecord) return;
     const r = currentShareRecord;
     const acts = r.activities || [];
