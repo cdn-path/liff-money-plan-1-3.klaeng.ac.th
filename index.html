@@ -1921,7 +1921,7 @@
                             {
                                 type: 'box', layout: 'horizontal', margin: 'sm',
                                 contents: [
-                                    { type: 'text', text: 'ประจำวันที่ ', color: '#FF0000', size: 'lg', weight: 'bold', flex: 2 },
+                                    { type: 'text', text: 'ประจำวันที่ ', color: '#FF0000', size: 'lg', weight: 'bold', flex: 1 },
                                     { type: 'text', text: approveDate || todayShort, color: '#ffff00', size: 'lg', weight: 'bold', wrap: true },
                                 ],
                             },
@@ -1932,9 +1932,9 @@
                         contents: [
                             { type: 'text', text: 'รายการกิจกรรมที่ได้รับการอนุมัติ', size: 'sm', weight: 'bold', color: '#334155' },
                             ...actContents,
-                            { type: 'text', text: '📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว', size: 'sm', weight: 'bold', color: '#334155' },
                             { type: 'separator', margin: 'md' },
                             { type: 'text', text: 'รวมทั้งหมด ' + acts.length + ' รายการ', size: 'sm', weight: 'bold', color: '#059669', margin: 'md' },
+                            { type: 'text', text: '📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว', size: 'sm', weight: 'bold', color: '#334155' }
                         ],
                     },
                     footer: footerContents.length > 0 ? {
