@@ -1858,44 +1858,149 @@
             const r = currentShareRecord;
             const acts = (r.activities || []);
 
-            // ── DEBUG: ส่ง text เพื่อดูค่าตัวแปร ──
-            const debugText = [
-                '=== DEBUG shareToLine ===',
-                'planRange: ' + (r.planRange || '[ว่าง]'),
-                'approveDate: ' + (r.approveDate || '[ว่าง]'),
-                'docLink: ' + (r.docLink || '[ว่าง]'),
-                'จำนวน activities: ' + acts.length,
-                '---',
-                ...acts.map((a, i) =>
-                    (i + 1) + '. name=' + (a.name || '[ว่าง]') +
-                    '\n   responsible=' + (a.responsible || '[ว่าง]') +
-                    '\n   round=' + (a.round || '[ว่าง]') +
-                    '\n   budget=' + (a.budget || '[ว่าง]') +
-                    '\n   result=' + (a.result || '[ว่าง]')
-                ),
-                '========================',
-            ].join('\n');
+            // FIX 1: planRange/approveDate/docLink อาจมาจาก Sheets ใน field อื่น
+            const planRange = (r.planRange || r['แผน'] || '').trim();
+            const approveDate = (r.approveDate || r['วันที่อนุมัติ'] || '').trim();
+            const docLink = (r.docLink || r['ลิงก์เอกสาร'] || '').trim();
+
+            const altText = 'แจ้งอนุมัติแผน ' + (planRange || 'ไม่ระบุ');
+
+            // FIX 2: name มีเลขนำหน้าอยู่แล้ว → ไม่ใส่ซ้ำ
+            // FIX 3: result มี emoji → strip ออก
+            const actContents = acts.map((a) => {
+                const cleanResult = (a.result || '').replace(/[\u{1F000}-\u{1FFFF}]|[\u2600-\u27FF]|✅|❌|⭕/gu, '').trim();
+                const sub = [
+                    a.responsible ? '(' + a.responsible + ')' : null,
+                    a.round ? 'ครั้งที่ ' + String(a.round) : null,
+                    a.budget ? Number(a.budget).toLocaleString() + ' บาท' : null,
+                    cleanResult ? cleanResult : null,
+                ].filter(Boolean).join(' · ');
+
+                const fullText = (a.name || '-') + (sub ? '\n' + sub : '');
+
+                return {
+                    type: 'box',
+                    layout: 'vertical',
+                    margin: 'md',
+                    contents: [{
+                        type: 'text',
+                        text: fullText,
+                        wrap: true,
+                        size: 'sm',
+                        color: '#1C2333',
+                    }],
+                };
+            });
+
+            const footerContents = [];
+            if (docLink && docLink.startsWith('http')) {
+                footerContents.push({
+                    type: 'button',
+                    action: {
+                        type: 'uri',
+                        label: 'ลิงก์ภาพ',
+                        uri: docLink,
+                        altUri: { desktop: docLink },
+                    },
+                    style: 'secondary',
+                    height: 'sm',
+                });
+            }
+
+            const flexMsg = {
+                type: 'flex',
+                altText: altText,
+                contents: {
+                    type: 'bubble',
+                    header: {
+                        type: 'box',
+                        layout: 'vertical',
+                        paddingAll: '16px',
+                        backgroundColor: '#1a56db',
+                        contents: [
+                            {
+                                type: 'text',
+                                text: 'แจ้งผลการอนุมัติแผน ' + (planRange || 'ไม่ระบุ'),
+                                color: '#ffffff',
+                                size: 'lg',
+                                weight: 'bold',
+                                wrap: true,
+                            },
+                            {
+                                type: 'box',
+                                layout: 'horizontal',
+                                margin: 'sm',
+                                contents: [
+                                    {
+                                        type: 'text',
+                                        text: 'ประจำวันที่ ',
+                                        color: '#FF0000',
+                                        size: 'lg',
+                                        weight: 'bold',
+                                        flex: 0,
+                                    },
+                                    {
+                                        type: 'text',
+                                        text: approveDate || 'ไม่ระบุ',
+                                        color: '#ffff00',
+                                        size: 'lg',
+                                        weight: 'bold',
+                                        wrap: true,
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    body: {
+                        type: 'box',
+                        layout: 'vertical',
+                        paddingAll: '14px',
+                        contents: [
+                            {
+                                type: 'text',
+                                text: 'รายการกิจกรรมที่ได้รับการอนุมัติ',
+                                size: 'sm',
+                                weight: 'bold',
+                                color: '#334155',
+                            },
+                            ...actContents,
+                            { type: 'separator', margin: 'md' },
+                            {
+                                type: 'text',
+                                text: 'รวมทั้งหมด ' + acts.length + ' รายการ',
+                                size: 'sm',
+                                weight: 'bold',
+                                color: '#059669',
+                                margin: 'md',
+                            },
+                        ],
+                    },
+                    footer: footerContents.length > 0 ? {
+                        type: 'box',
+                        layout: 'vertical',
+                        spacing: 'sm',
+                        paddingAll: '14px',
+                        contents: footerContents,
+                    } : undefined,
+                },
+            };
 
             if (typeof liff !== 'undefined' && liffReady) {
                 try {
-                    const shareResult = await liff.shareTargetPicker([{
-                        type: 'text',
-                        text: debugText,
-                    }]);
+                    const shareResult = await liff.shareTargetPicker([flexMsg]);
                     if (shareResult && shareResult.status === 'success') {
-                        showToast('ส่ง debug สำเร็จ!');
+                        showToast('แชร์สำเร็จ!');
                     } else {
-                        showToast('ยกเลิก', 'info');
+                        showToast('ยกเลิกการแชร์', 'info');
                     }
                     closeModal('shareModal');
                 } catch (e) {
-                    console.error('[debug share] error:', e);
-                    showToast('error: ' + (e.message || JSON.stringify(e)), 'error');
+                    console.error('[shareTargetPicker] error:', e);
+                    showToast('แชร์ไม่สำเร็จ: ' + (e.message || JSON.stringify(e)), 'error');
                 }
                 return;
             }
 
-            // LIFF ยังไม่พร้อม → ลอง init อีกครั้ง
             if (CFG.LIFF_ID) {
                 showToast('กำลังเชื่อมต่อ LINE...', 'info');
                 await initLIFF();
