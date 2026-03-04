@@ -1254,7 +1254,7 @@ function renderFlexBubble(record, id) {
           <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
           <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        <div class="bubble-hero-date">${escHtml(record.approveDate||'—')}</div>
+        <div class="bubble-hero-date">${escHtml(formatThaiDate(record.approveDate||'—'))}</div>
         <div style="font-size:9px;color:rgba(255,255,255,0.6);">· ${escHtml(record.id||'')}</div>
       </div>
     </div>
@@ -1371,20 +1371,25 @@ function clearForm() {
 // ════════════════════════════════════════════════
 //  LINE FLEX SHARE — สร้าง Flex JSON ส่งผ่าน LIFF
 // ════════════════════════════════════════════════
-async function shareToLine() {
-    // ── ยืนยันว่าฟังก์ชันถูกเรียก ──
-    alert(
-        '[DEBUG] shareToLine() ถูกเรียกแล้ว\n' +
-        'currentShareRecord: ' + (currentShareRecord ? 'มีข้อมูล' : 'null') + '\n' +
-        'liff defined: ' + (typeof liff !== 'undefined') + '\n' +
-        'liffReady: ' + liffReady
-    );
+// ── แปลงวันที่ทุกรูปแบบเป็นภาษาไทย ──
+function formatThaiDate(val) {
+    if (!val) return '';
+    // ถ้าเป็น ISO string หรือ date-like → แปลง
+    const d = new Date(val);
+    if (!isNaN(d.getTime())) {
+        const m = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+        return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()+543}`;
+    }
+    // ถ้าเป็น string ภาษาไทยอยู่แล้ว → คืนเลย
+    return String(val).trim();
+}
 
+async function shareToLine() {
     if (!currentShareRecord) return;
     const r = currentShareRecord;
     const acts = r.activities || [];
     const planRange   = (r.planRange  || '').trim();
-    const approveDate = (r.approveDate|| '').trim();
+    const approveDate = formatThaiDate(r.approveDate || '');
     const docLink     = (r.docLink    || '').trim();
 
     const _now = new Date();
@@ -1393,10 +1398,12 @@ async function shareToLine() {
 
     const altText = 'แจ้งอนุมัติแผน ' + (planRange||'ไม่ระบุ') + ' วันที่ ' + todayShort;
 
-    // lh3 → ใช้ hero image ใน Flex ได้
-    // driveUrl → ปุ่ม "ดูภาพหลักฐาน" เปิดหน้า Drive
+    // lh3 → hero image ใน Flex
+    // driveUrl → ปุ่ม "ดูภาพ" เปิดหน้า Drive
     const lh3Url   = docLink;
-    const driveUrl = (r.docLinkDrive || docLink).trim();
+    const driveUrl = (r.docLinkDrive && r.docLinkDrive !== docLink)
+        ? r.docLinkDrive.trim()
+        : docLink.replace('https://lh3.googleusercontent.com/d/', 'https://drive.google.com/file/d/') + '/view?usp=sharing';
 
     // ── activity body contents ──
     const actContents = acts.map((a) => {
@@ -1483,47 +1490,19 @@ async function shareToLine() {
         },
     };
 
-    // ── DEBUG: ส่ง text message แทน flex เพื่อดูตัวแปร ──
-    const debugLines = [
-        '🔍 DEBUG shareToLine()',
-        '─────────────────────',
-        'liff defined : ' + (typeof liff !== 'undefined'),
-        'liffReady    : ' + liffReady,
-        'liff.isInClient: ' + (typeof liff !== 'undefined' ? liff.isInClient() : 'N/A'),
-        '─────────────────────',
-        'planRange    : ' + planRange,
-        'approveDate  : ' + approveDate,
-        'acts count   : ' + acts.length,
-        '─────────────────────',
-        'docLink (lh3): ' + (docLink || '(empty)'),
-        'driveUrl     : ' + (driveUrl || '(empty)'),
-        '─────────────────────',
-        'altText      : ' + altText,
-        'flexMsg type : ' + flexMsg.type,
-        'hero exists  : ' + (!!flexMsg.contents.hero),
-        'footer exists: ' + (!!flexMsg.contents.footer),
-    ].join('\n');
-
-    const debugMsg = { type: 'text', text: debugLines };
 
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            const shareResult = await liff.shareTargetPicker([debugMsg]);
+            const shareResult = await liff.shareTargetPicker([flexMsg]);
             if (shareResult && shareResult.status === 'success') {
-                showToast('ส่ง debug text สำเร็จ (shareTargetPicker)');
+                showToast('แชร์สำเร็จ!');
             } else {
-                showToast('ยกเลิก', 'info');
+                showToast('ยกเลิกการแชร์', 'info');
             }
             closeModal('shareModal');
         } catch (e) {
-            console.error('[DEBUG] share error:', e);
-            const detail = [
-                'message : ' + (e.message || '?'),
-                'code    : ' + (e.code || '?'),
-                'type    : ' + (e.errorType || '?'),
-            ].join('\n');
-            alert('[DEBUG ERROR]\n' + detail);
-            showToast('Error: ' + (e.code || e.message), 'error');
+            console.error('[shareTargetPicker] error:', e);
+            showToast('แชร์ไม่สำเร็จ: ' + (e.code || e.message), 'error');
         }
         return;
     }
