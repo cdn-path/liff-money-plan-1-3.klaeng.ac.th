@@ -215,10 +215,7 @@
             text-align: center; cursor: pointer; transition: all .2s; background: var(--surface);
         }
         .upload-zone:hover, .upload-zone.drag-over { border-color: var(--primary); background: var(--primary-light); }
-        .file-item {
-            display: flex; align-items: center; gap: 10px; padding: 9px 11px;
-            border-radius: 9px; background: var(--surface); border: 1px solid var(--border); margin-top: 7px;
-        }
+
 
         /* ── UPLOAD PROGRESS ── */
         .upload-progress-bar {
@@ -597,29 +594,7 @@
                 เพิ่มรายการกิจกรรม
             </button>
 
-            <!-- ไฟล์แนบเพิ่มเติม (รักษาไว้) -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
-                        </svg>
-                        ไฟล์แนบเพิ่มเติม
-                    </div>
-                    <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
-                </div>
-                <div class="card-body">
-                    <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-                        <div style="font-size:26px;margin-bottom:6px;">☁️</div>
-                        <div style="font-size:13px;color:var(--muted);">
-                            <span style="color:var(--primary);font-weight:700;">แตะเลือกไฟล์</span> หรือลากวางที่นี่<br>
-                            <span style="font-size:11px;margin-top:2px;display:block;">รูปภาพ, PDF, Word, Excel (สูงสุด 10MB)</span>
-                        </div>
-                    </div>
-                    <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleFileSelect(this.files)">
-                    <div id="fileList"></div>
-                </div>
-            </div>
+
 
             <!-- Preview -->
             <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
@@ -796,7 +771,7 @@
 //  CONFIG
 // ════════════════════════════════════════════════
 const CFG = {
-    PASSWORD: 'plan2569',
+    PASSWORD: 'school2568',
     GAS_URL: 'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
     SHEET_NAME: 'Sheet1',
     LIFF_ID: '2009306563-QXaMSWaV',
@@ -810,10 +785,10 @@ const APP = {
     sheetRecords: [],
     filteredRecords: [],
     currentPage: 1,
-    files: [],
+
     currentRecordIdx: null,
-    // image upload state
-    uploadedImageUrl: '',   // URL ที่แชร์ได้ (Google Drive)
+    uploadedImageUrl: '',   // lh3 URL (ใช้ใน Flex hero + บันทึกชีต)
+    uploadedImageDriveUrl: '', // Drive URL (ปุ่มเปิดดู)
     uploadedImageName: '',
     uploadedImageBlob: null, // base64 สำหรับ preview
 };
@@ -930,7 +905,8 @@ async function handleImageSelect(file) {
         if (!json.success) throw new Error(json.error || 'Upload failed');
 
         setUploadProgress(100, 'อัปโหลดสำเร็จ!');
-        APP.uploadedImageUrl = json.fileUrl || '';
+        APP.uploadedImageUrl = json.fileUrl || '';   // lh3 URL
+        APP.uploadedImageDriveUrl = json.driveUrl || json.fileUrl || '';
         APP.uploadedImageName = json.fileName || file.name;
 
         // show preview
@@ -938,7 +914,7 @@ async function handleImageSelect(file) {
         document.getElementById('imgPreviewWrap').style.display = 'block';
         document.getElementById('imgDriveFileName').textContent = json.fileName;
         document.getElementById('imgDriveUrl').textContent = json.fileUrl;
-        document.getElementById('imgDriveLink').href = json.fileUrl;
+        document.getElementById('imgDriveLink').href = json.driveUrl || json.fileUrl;
         document.getElementById('imgUploadStatus').textContent = '✅ อัปโหลดแล้ว';
         document.getElementById('imgUploadStatus').className = 'chip chip-green';
 
@@ -979,6 +955,7 @@ function fileToBase64(file) {
 
 function clearImage() {
     APP.uploadedImageUrl = '';
+    APP.uploadedImageDriveUrl = '';
     APP.uploadedImageName = '';
     APP.uploadedImageBlob = null;
     document.getElementById('imgPreviewWrap').style.display = 'none';
@@ -1030,8 +1007,9 @@ function groupSheetRows(rows) {
                 planRange: String(row['แผน'] || ''),
                 approveDate: String(row['วันที่อนุมัติ'] || ''),
                 docLink: String(row['ลิงก์เอกสาร'] || ''),
+                docLinkDrive: String(row['ลิงก์เอกสาร'] || ''), // lh3 ใช้เปิดได้ทั้งดูรูปและ fallback
                 activities: [],
-                files: [],
+
             });
         }
         map.get(key).activities.push({
@@ -1211,31 +1189,6 @@ function collectActivities() {
     }));
 }
 
-// ════════════════════════════════════════════════
-//  FILE ATTACHMENTS (เดิม - รักษาไว้)
-// ════════════════════════════════════════════════
-function handleFileSelect(fl) {
-    for (const f of fl) {
-        if (f.size > 10*1024*1024) { showToast(`${f.name} ใหญ่เกิน 10MB`, 'error'); continue; }
-        APP.files.push(f);
-    }
-    renderFileList();
-}
-function removeFile(i) { APP.files.splice(i,1); renderFileList(); }
-function renderFileList() {
-    document.getElementById('fileCount').textContent = APP.files.length + ' ไฟล์';
-    const EXT = { img:['jpg','jpeg','png','gif','webp','svg'], pdf:['pdf'], doc:['doc','docx'] };
-    document.getElementById('fileList').innerHTML = APP.files.map((f,i) => {
-        const ext = f.name.split('.').pop().toLowerCase();
-        const cls = Object.entries(EXT).find(([,e])=>e.includes(ext))?.[0]||'other';
-        const ic={img:'🖼️',pdf:'📄',doc:'📝',other:'📎'}, bg={img:'#e0f2fe',pdf:'#fee2e2',doc:'#ede9fe',other:'#f1f5f9'};
-        return `<div class="file-item"><div style="width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${bg[cls]};">${ic[cls]}</div><div style="flex:1;min-width:0;"><div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(f.name)}</div><div style="font-size:10px;color:var(--muted);">${(f.size/1024).toFixed(1)} KB</div></div><button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button></div>`;
-    }).join('');
-}
-const uz = document.getElementById('uploadZone');
-uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('drag-over'); });
-uz.addEventListener('dragleave', () => uz.classList.remove('drag-over'));
-uz.addEventListener('drop', e => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
 
 // ════════════════════════════════════════════════
 //  BUILD RECORD
@@ -1249,10 +1202,10 @@ function buildRecord() {
         _timestamp: ts,
         planRange: document.getElementById('gf_planRange').value.trim(),
         approveDate: document.getElementById('gf_approveDate').value.trim(),
-        docLink: APP.uploadedImageUrl,   // ← ใช้ URL จาก Drive upload
-        docLinkBlob: APP.uploadedImageBlob, // ← สำหรับ preview (ไม่บันทึกลง Sheet)
+        docLink: APP.uploadedImageUrl,
+        docLinkDrive: APP.uploadedImageDriveUrl,
+        docLinkBlob: APP.uploadedImageBlob,
         activities: collectActivities(),
-        files: APP.files.map(f => f.name),
     };
 }
 
@@ -1329,8 +1282,8 @@ function renderFlexBubble(record, id) {
     </div>
     ${record.docLink ? `
     <div class="bubble-footer-strip">
-      <div class="bubble-footer-note">📎 ภาพหลักฐานการอนุมัติ<br>${escHtml(record.docLink.length>40?record.docLink.slice(0,40)+'…':record.docLink)}</div>
-      <button class="bubble-footer-btn" onclick="window.open('${escHtml(record.docLink)}','_blank')">ดูภาพ</button>
+      <div class="bubble-footer-note">📎 ภาพหลักฐานการอนุมัติ<br><span style="font-size:9px;color:#94a3b8;">lh3.googleusercontent.com</span></div>
+      <button class="bubble-footer-btn" onclick="window.open('${escHtml(record.docLinkDrive||record.docLink)}','_blank')">ดูภาพ</button>
     </div>` : ''}`;
 }
 
@@ -1389,7 +1342,7 @@ async function sendToGAS(record) {
                 'ผลการอนุมัติ': act.result,
                 'วงเงิน':       act.budget,
                 'อีเมล':        act.email,
-                'ลิงก์เอกสาร':  record.docLink,  // ← Drive URL
+                'ลิงก์เอกสาร':  record.docLink,  // ← lh3 URL (แสดงรูปใน Flex ได้ตรงๆ)
             },
         };
         await fetch(CFG.GAS_URL, {
@@ -1403,9 +1356,9 @@ async function sendToGAS(record) {
 function clearFormFields() {
     document.getElementById('gf_planRange').value = '';
     document.getElementById('gf_approveDate').value = '';
-    activities = []; actCounter = 0; APP.files = [];
+    activities = []; actCounter = 0;
     clearImage();
-    renderActivities(); renderFileList();
+    renderActivities();
     addActivity(); addActivity(); addActivity();
     setDefaultApproveDate();
 }
@@ -1431,6 +1384,11 @@ async function shareToLine() {
     const todayShort = _now.getDate() + ' ' + _m[_now.getMonth()] + ' ' + (_now.getFullYear()+543);
 
     const altText = 'แจ้งอนุมัติแผน ' + (planRange||'ไม่ระบุ') + ' วันที่ ' + todayShort;
+
+    // lh3 → ใช้ hero image ใน Flex ได้
+    // driveUrl → ปุ่ม "ดูภาพหลักฐาน" เปิดหน้า Drive
+    const lh3Url   = docLink;
+    const driveUrl = (r.docLinkDrive || docLink).trim();
 
     // ── activity body contents ──
     const actContents = acts.map((a) => {
@@ -1458,7 +1416,7 @@ async function shareToLine() {
     if (docLink && docLink.startsWith('http')) {
         footerContents.push({
             type: 'button',
-            action: { type:'uri', label:'🖼️ ดูภาพหลักฐาน', uri: docLink, altUri:{ desktop: docLink } },
+            action: { type:'uri', label:'🖼️ ดูภาพหลักฐาน', uri: driveUrl, altUri:{ desktop: driveUrl } },
             style: 'primary', color: '#1a56db', height: 'sm',
         });
     }
@@ -1470,9 +1428,9 @@ async function shareToLine() {
             // ── HERO IMAGE (ถ้ามี Drive URL) ──
             ...(docLink && docLink.startsWith('http') ? {
                 hero: {
-                    type: 'image', url: docLink,
+                    type: 'image', url: lh3Url,
                     size: 'full', aspectRatio: '20:9', aspectMode: 'cover',
-                    action: { type:'uri', label:'ดูภาพ', uri: docLink },
+                    action: { type:'uri', label:'ดูภาพ', uri: driveUrl },
                 }
             } : {}),
             // ── HEADER ──
