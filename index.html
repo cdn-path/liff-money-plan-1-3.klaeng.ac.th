@@ -8,76 +8,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #1a56db;
-  --primary-dark: #1245b5;
-  --primary-light: #ebf0ff;
-  --accent: #0ea5e9;
-  --green: #06C755;
-  --green-dark: #059142;
-  --green-light: #e8fbf0;
-  --amber: #f59e0b;
-  --amber-light: #fffbeb;
-  --red: #ef4444;
-  --ink: #0f172a;
-  --ink-soft: #334155;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --surface: #f8fafc;
-  --white: #ffffff;
-  --radius: 14px;
-  --shadow: 0 2px 16px rgba(15,23,42,0.08);
-  --shadow-lg: 0 8px 40px rgba(15,23,42,0.14);
+  --primary:#1a56db; --primary-dark:#1245b5; --primary-light:#ebf0ff;
+  --accent:#0ea5e9; --green:#06C755; --green-dark:#059142; --green-light:#e8fbf0;
+  --amber:#f59e0b; --amber-light:#fffbeb; --red:#ef4444;
+  --ink:#0f172a; --muted:#64748b; --border:#e2e8f0;
+  --surface:#f8fafc; --white:#ffffff;
+  --radius:14px; --shadow:0 2px 16px rgba(15,23,42,0.08);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:'Sarabun',sans-serif;
-  background:var(--surface);color:var(--ink);
-  min-height:100vh;padding-bottom:84px;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Sarabun',sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;padding-bottom:84px;-webkit-font-smoothing:antialiased;}
 
-/* ─── LOCK SCREEN ─── */
-#lockScreen{
-  position:fixed;inset:0;z-index:9999;
-  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0ea5e9 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.lock-card{
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:24px;padding:36px 28px;
-  width:90%;max-width:340px;text-align:center;
-  backdrop-filter:blur(20px);
-}
-.lock-icon{font-size:48px;margin-bottom:12px;}
-.lock-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px;}
-.lock-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
-.lock-input{
-  width:100%;padding:12px 16px;
-  background:rgba(255,255,255,0.12);
-  border:1.5px solid rgba(255,255,255,0.2);
-  border-radius:12px;font-size:16px;
-  color:#fff;text-align:center;letter-spacing:4px;
-  font-family:'Chakra Petch',monospace;
-  outline:none;transition:border-color .2s;
-}
+/* LOCK */
+#lockScreen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0ea5e9 100%);display:flex;align-items:center;justify-content:center;}
+.lock-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:40px 28px;width:90%;max-width:340px;text-align:center;backdrop-filter:blur(20px);}
+.lock-icon{font-size:52px;margin-bottom:14px;}
+.lock-title{font-size:21px;font-weight:800;color:#fff;margin-bottom:4px;}
+.lock-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:26px;line-height:1.6;}
+.lock-input{width:100%;padding:13px 16px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.2);border-radius:12px;font-size:18px;color:#fff;text-align:center;letter-spacing:5px;font-family:'Chakra Petch',monospace;outline:none;transition:border-color .2s;}
 .lock-input::placeholder{letter-spacing:1px;color:rgba(255,255,255,0.3);font-size:13px;}
-.lock-input:focus{border-color:var(--accent);}
-.lock-btn{
-  width:100%;margin-top:14px;padding:13px;
-  background:var(--accent);color:#fff;
-  border:none;border-radius:12px;
-  font-size:15px;font-weight:700;cursor:pointer;
-  font-family:'Sarabun',sans-serif;transition:all .2s;
-}
+.lock-input:focus{border-color:var(--accent);background:rgba(255,255,255,0.18);}
+.lock-btn{width:100%;margin-top:14px;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;}
 .lock-btn:hover{background:#0284c7;transform:translateY(-1px);}
-.lock-error{color:#f87171;font-size:12px;margin-top:8px;min-height:18px;}
+.lock-error{color:#f87171;font-size:12px;margin-top:10px;min-height:18px;}
 
-/* ─── HEADER ─── */
-.app-header{
-  background:linear-gradient(135deg,#1a56db 0%,#0e3bb5 60%,#0ea5e9 100%);
-  padding:18px 20px 56px;position:relative;overflow:hidden;
-}
+/* HEADER */
+.app-header{background:linear-gradient(135deg,#1a56db 0%,#0e3bb5 60%,#0ea5e9 100%);padding:18px 20px 56px;position:relative;overflow:hidden;}
 .app-header::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.06);}
 .app-header::after{content:'';position:absolute;bottom:-30px;left:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04);}
 .header-school{font-family:'Chakra Petch',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
@@ -86,10 +41,10 @@ body{
 .header-badge-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
 .header-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.18);color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;backdrop-filter:blur(4px);}
 
-/* ─── PULL-UP CARD ─── */
+/* PULL CARD */
 .pull-card{background:var(--white);border-radius:24px 24px 0 0;margin-top:-28px;position:relative;z-index:10;box-shadow:0 -4px 32px rgba(15,23,42,0.10);padding:20px 16px 0;min-height:calc(100vh - 160px);}
 
-/* ─── TABS ─── */
+/* TABS */
 .tab-bar{display:flex;background:var(--surface);border-radius:12px;padding:4px;margin-bottom:16px;gap:4px;}
 .tab-item{flex:1;padding:10px 6px;text-align:center;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;border-radius:9px;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .tab-item.active{background:var(--white);color:var(--primary);box-shadow:var(--shadow);}
@@ -97,43 +52,42 @@ body{
 .section.active{display:block;animation:fadeUp .25s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* ─── CARD ─── */
+/* CARD */
 .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.04);overflow:hidden;margin-bottom:12px;}
 .card-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .card-title{font-size:14px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;}
 .card-body{padding:16px;}
 
-/* ─── STATUS BANNER ─── */
+/* STATUS BANNER */
 .status-banner{background:linear-gradient(135deg,#e8fbf0 0%,#d1fae5 100%);border:1.5px solid #6ee7b7;border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
 .status-title{font-size:15px;font-weight:700;color:#065f46;}
 .status-sub{font-size:12px;color:#047857;margin-top:2px;}
 
-/* ─── FORM FIELDS ─── */
+/* FIELDS */
 .field-group{margin-bottom:13px;}
 .field-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;align-items:center;gap:5px;}
-.field-label .req{color:var(--red);}
+.req{color:var(--red);}
 .field-input,.field-select,.field-textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:13.5px;font-family:'Sarabun',sans-serif;color:var(--ink);background:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;}
 .field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,0.10);}
 .field-textarea{resize:vertical;min-height:72px;}
 .field-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;}
 
-/* ─── ACTIVITY BLOCK ─── */
-.activity-block{background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:14px;margin-bottom:10px;position:relative;transition:border-color .2s;}
-.activity-block:hover{border-color:var(--primary);}
+/* ACTIVITY BLOCK */
+.activity-block{background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:14px;margin-bottom:10px;transition:border-color .2s;}
+.activity-block:focus-within{border-color:var(--primary);}
 .activity-block-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .activity-num-badge{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;font-family:'Chakra Petch',sans-serif;}
-.activity-block-title{font-size:13px;font-weight:700;color:var(--ink);flex:1;}
-.remove-activity-btn{width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0;}
+.remove-activity-btn{width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0;margin-left:auto;}
 .remove-activity-btn:hover{background:var(--red);color:#fff;}
 .add-activity-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;border:2px dashed var(--border);border-radius:12px;background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;margin-bottom:12px;}
 .add-activity-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
 
-/* ─── BUTTONS ─── */
+/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 18px;border-radius:10px;font-size:13.5px;font-weight:600;font-family:'Sarabun',sans-serif;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;}
 .btn-primary{background:var(--primary);color:#fff;}
 .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,0.3);}
 .btn-green{background:var(--green);color:#fff;}
-.btn-green:hover{background:var(--green-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,199,85,0.3);}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-1px);}
 .btn-secondary{background:var(--surface);color:var(--ink);border:1.5px solid var(--border);}
 .btn-secondary:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
 .btn-outline{background:var(--primary-light);color:var(--primary-dark);border:1.5px solid var(--primary);}
@@ -143,33 +97,13 @@ body{
 .btn-sm{padding:7px 13px;font-size:12px;border-radius:8px;}
 .btn-xs{padding:5px 10px;font-size:11px;border-radius:7px;}
 .btn-full{width:100%;}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;}
 
-/* ─── FILE UPLOAD ─── */
+/* FILE UPLOAD */
 .upload-zone{border:2px dashed var(--border);border-radius:11px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface);}
 .upload-zone:hover,.upload-zone.drag-over{border-color:var(--primary);background:var(--primary-light);}
 .file-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;background:var(--surface);border:1px solid var(--border);margin-top:7px;}
-.file-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-.file-icon.img{background:#e0f2fe;color:#0284c7;}
-.file-icon.pdf{background:#fee2e2;color:var(--red);}
-.file-icon.doc{background:#ede9fe;color:#7c3aed;}
-.file-icon.other{background:#f1f5f9;color:var(--muted);}
 
-/* ─── RECORDS ─── */
-.record-item{padding:13px 15px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
-.record-item:hover{background:var(--primary-light);}
-.record-item:last-child{border-bottom:none;}
-.record-id{font-family:'Chakra Petch',monospace;font-size:10px;color:var(--primary);font-weight:700;background:var(--primary-light);padding:2px 7px;border-radius:5px;white-space:nowrap;}
-
-/* ─── SETTINGS ─── */
-.settings-item{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-bottom:1px solid var(--border);}
-.settings-item:last-child{border-bottom:none;}
-.toggle{width:42px;height:23px;border-radius:12px;background:var(--border);cursor:pointer;position:relative;transition:background .2s;border:none;flex-shrink:0;}
-.toggle::after{content:'';position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,0.2);}
-.toggle.on{background:var(--primary);}
-.toggle.on::after{transform:translateX(19px);}
-
-/* ─── FLEX PREVIEW ─── */
+/* FLEX PREVIEW */
 .flex-preview-box{background:#1C2333;border-radius:16px;padding:16px;margin-top:8px;}
 .flex-preview-header{font-family:'Chakra Petch',sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;}
 .flex-single-bubble{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.25);}
@@ -179,16 +113,21 @@ body{
 .bubble-activity-row{padding:10px 16px;border-bottom:1px solid #f1f5f9;display:flex;gap:10px;align-items:flex-start;}
 .bubble-activity-num{width:20px;height:20px;border-radius:50%;background:var(--primary);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Chakra Petch',sans-serif;margin-top:1px;}
 .bubble-activity-text{font-size:12px;color:#1C2333;line-height:1.55;flex:1;}
-.bubble-footer-strip{padding:10px 16px;background:#f8fafc;display:flex;align-items:center;justify-content:space-between;}
-.bubble-footer-note{font-size:10px;color:var(--muted);line-height:1.5;}
-.bubble-footer-btn{background:var(--green);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;}
-.bubble-footer-btn:hover{background:var(--green-dark);}
+.bubble-footer-strip{padding:10px 16px;background:#f8fafc;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.bubble-footer-note{font-size:10px;color:var(--muted);line-height:1.6;flex:1;}
+.bubble-footer-btn{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Sarabun',sans-serif;flex-shrink:0;}
 
-/* ─── TOAST ─── */
+/* RECORDS */
+.record-item{padding:13px 15px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.record-item:hover{background:var(--primary-light);}
+.record-item:last-child{border-bottom:none;}
+.record-id{font-family:'Chakra Petch',monospace;font-size:10px;color:var(--primary);font-weight:700;background:var(--primary-light);padding:2px 7px;border-radius:5px;white-space:nowrap;}
+
+/* TOAST */
 .toast{position:fixed;bottom:92px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:100px;font-size:13px;font-weight:500;opacity:0;transition:all .3s;z-index:1000;white-space:nowrap;display:flex;align-items:center;gap:7px;max-width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.2);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* ─── MODAL ─── */
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:200;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px);}
 .modal-overlay.show{display:flex;animation:fadeIn .2s;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -197,324 +136,244 @@ body{
 .modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px;}
 .modal-title{font-size:17px;font-weight:800;margin-bottom:14px;}
 
-/* ─── BOTTOM NAV ─── */
+/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:8px 0 18px;z-index:100;box-shadow:0 -2px 20px rgba(15,23,42,0.06);}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 14px;border-radius:10px;cursor:pointer;font-size:10px;font-weight:600;color:var(--muted);transition:all .2s;}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 28px;border-radius:10px;cursor:pointer;font-size:10px;font-weight:600;color:var(--muted);transition:all .2s;}
 .nav-item svg{width:20px;height:20px;}
 .nav-item.active{color:var(--primary);}
 
-/* ─── MISC ─── */
+/* MISC */
 .chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;}
-.chip-green{background:var(--green-light);color:var(--green-dark);}
 .chip-blue{background:var(--primary-light);color:var(--primary-dark);}
 .chip-amber{background:var(--amber-light);color:#92400e;}
-.chip-red{background:#fee2e2;color:var(--red);}
-.empty-state{text-align:center;padding:36px 20px;color:var(--muted);}
-.empty-state .empty-icon{font-size:44px;opacity:.25;margin-bottom:10px;}
 .section-label{font-family:'Chakra Petch',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-input[type="file"]{display:none;}
+.empty-state{text-align:center;padding:36px 20px;color:var(--muted);}
+.empty-state .empty-icon{font-size:44px;opacity:.25;margin-bottom:10px;}
+/* VIEW TOGGLE */
+.view-toggle-btn{padding:7px 13px;border-radius:9px;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:'Sarabun',sans-serif;transition:all .2s;}
+.view-toggle-btn:hover{border-color:var(--primary);color:var(--primary);}
+.view-toggle-btn.active-view{background:var(--primary);color:#fff;border-color:var(--primary);}
 </style>
 </head>
 <body>
 
-<!-- ─── LOCK SCREEN ─── -->
+<!-- LOCK SCREEN -->
 <div id="lockScreen">
   <div class="lock-card">
     <div class="lock-icon">🔐</div>
     <div class="lock-title">ระบบแจ้งผลอนุมัติแผน</div>
-    <div class="lock-sub">โรงเรียนแกลง"วิทยสถาวร"<br>กรุณาใส่รหัสเพื่อเข้าใช้งาน</div>
-    <input type="password" class="lock-input" id="lockInput" placeholder="ใส่รหัสผ่าน" maxlength="20" onkeydown="if(event.key==='Enter')checkLock()">
+    <div class="lock-sub">โรงเรียนแกลง"วิทยสถาวร"<br>กรุณาใส่รหัสผ่านเพื่อเข้าใช้งาน</div>
+    <input type="password" class="lock-input" id="lockInput" placeholder="ใส่รหัสผ่าน" maxlength="30">
     <button class="lock-btn" onclick="checkLock()">🔓 เข้าสู่ระบบ</button>
     <div class="lock-error" id="lockError"></div>
   </div>
 </div>
 
-<!-- ─── APP (hidden until unlocked) ─── -->
+<!-- APP -->
 <div id="appWrap" style="display:none;">
 
-<!-- HEADER -->
-<div class="app-header">
-  <div class="header-school">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-    โรงเรียนแกลง"วิทยสถาวร"
-  </div>
-  <div class="header-title">📢 ระบบแจ้งผลอนุมัติแผน</div>
-  <div class="header-date">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    <span id="currentDateDisplay"></span>
-  </div>
-  <div class="header-badge-row">
-    <div class="header-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-      LINE Mini App
+  <!-- HEADER -->
+  <div class="app-header">
+    <div class="header-school">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      <span id="hdr_school"></span>
     </div>
-    <div class="header-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      <span id="totalBadgeText">0 รายการ</span>
+    <div class="header-title">📢 ระบบแจ้งผลอนุมัติแผน</div>
+    <div class="header-date">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span id="currentDateDisplay"></span>
     </div>
-  </div>
-</div>
-
-<!-- PULL CARD -->
-<div class="pull-card">
-  <!-- TAB BAR -->
-  <div class="tab-bar" id="mainTabs">
-    <div class="tab-item active" onclick="switchTab('form')" data-tab="form">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-      กรอกข้อมูล
-    </div>
-    <div class="tab-item" onclick="switchTab('records')" data-tab="records">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-      รายการ
-    </div>
-    <div class="tab-item" onclick="switchTab('settings')" data-tab="settings">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-      ตั้งค่า
+    <div class="header-badge-row">
+      <div class="header-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        LINE Mini App
+      </div>
+      <div class="header-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="totalBadgeText">0 รายการ</span>
+      </div>
     </div>
   </div>
 
-  <!-- ══ SECTION: FORM ══ -->
-  <div class="section active" id="sec-form">
+  <!-- PULL CARD -->
+  <div class="pull-card">
 
-    <!-- Status Banner -->
-    <div class="status-banner">
-      <div style="font-size:26px;flex-shrink:0;">✅</div>
-      <div>
-        <div class="status-title">แจ้งผลการอนุมัติแผน (หลายรายการพร้อมกัน)</div>
-        <div class="status-sub">กรอกข้อมูลทุกรายการในฟอร์มเดียว → แชร์ Flex Bubble 1 ข้อความ</div>
+    <!-- 2 TABS ONLY -->
+    <div class="tab-bar">
+      <div class="tab-item active" onclick="switchTab('form')" data-tab="form">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        กรอกข้อมูล
+      </div>
+      <div class="tab-item" onclick="switchTab('records')" data-tab="records">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        รายการ
       </div>
     </div>
 
-    <!-- Common Fields -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-          ข้อมูลส่วนกลาง
+    <!-- FORM SECTION -->
+    <div class="section active" id="sec-form">
+      <div class="status-banner">
+        <div style="font-size:26px;flex-shrink:0;">✅</div>
+        <div>
+          <div class="status-title">กรอกข้อมูลแล้วแชร์ได้เลย</div>
+          <div class="status-sub">ระบบส่ง Flex Bubble 1 ข้อความ รวมทุกรายการ</div>
         </div>
       </div>
-      <div class="card-body" style="display:flex;flex-direction:column;gap:0;">
-        <div class="field-group">
-          <div class="field-label">แผนที่แจ้ง (เช่น แผน 1-3) <span class="req">*</span></div>
-          <input type="text" class="field-input" id="gf_planRange" placeholder="เช่น: แผน 1-3" value="1-3">
-        </div>
-        <div class="field-group">
-          <div class="field-label">วันที่อนุมัติ <span class="req">*</span></div>
-          <input type="text" class="field-input" id="gf_approveDate" placeholder="เช่น: 2 มีนาคม 2569" id="gf_approveDate">
-        </div>
-        <div class="field-group" style="margin-bottom:0;">
-          <div class="field-label">ลิงก์เอกสาร / ภาพ</div>
-          <input type="url" class="field-input" id="gf_docLink" placeholder="https://drive.google.com/...">
-          <div style="font-size:11px;color:var(--muted);margin-top:3px;">📎 ลิงก์รายละเอียดที่แสดงในข้อความ LINE</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Activity Items -->
-    <div class="section-label">รายการกิจกรรม</div>
-    <div id="activityContainer"></div>
-
-    <button class="add-activity-btn" onclick="addActivity()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      เพิ่มรายการกิจกรรม
-    </button>
-
-    <!-- File Upload -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
-          แนบไฟล์
-        </div>
-        <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
-      </div>
-      <div class="card-body">
-        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-          <div style="font-size:26px;margin-bottom:6px;">☁️</div>
-          <div style="font-size:13px;color:var(--muted);">
-            <span style="color:var(--primary);font-weight:700;">แตะเลือกไฟล์</span> หรือลากวางที่นี่<br>
-            <span style="font-size:11px;margin-top:2px;display:block;">รูปภาพ, PDF, Word, Excel (สูงสุด 10MB)</span>
+      <!-- Common Fields -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            ข้อมูลส่วนกลาง
           </div>
         </div>
-        <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleFileSelect(this.files)">
-        <div id="fileList"></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:0;">
+          <div class="field-group">
+            <div class="field-label">แผนที่แจ้ง <span class="req">*</span></div>
+            <input type="text" class="field-input" id="gf_planRange" placeholder="เช่น: 1-3">
+          </div>
+          <div class="field-group">
+            <div class="field-label">วันที่อนุมัติ <span class="req">*</span></div>
+            <input type="text" class="field-input" id="gf_approveDate" placeholder="เช่น: 2 มีนาคม 2569">
+          </div>
+          <div class="field-group" style="margin-bottom:0;">
+            <div class="field-label">ลิงก์เอกสาร / ภาพ</div>
+            <input type="url" class="field-input" id="gf_docLink" placeholder="https://drive.google.com/...">
+            <div style="font-size:11px;color:var(--muted);margin-top:3px;">📎 ลิงก์รายละเอียดในข้อความ LINE</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Flex Preview -->
-    <div id="flexPreviewWrap" style="display:none; margin-bottom:14px;">
-      <div class="section-label">ตัวอย่าง Flex Bubble</div>
-      <div class="flex-preview-box">
-        <div class="flex-preview-header">PREVIEW — LINE FLEX MESSAGE</div>
-        <div class="flex-single-bubble" id="flexPreviewBubble"></div>
-      </div>
-    </div>
-
-    <!-- Actions -->
-    <div style="display:flex;gap:10px;margin-bottom:8px;">
-      <button class="btn btn-secondary" style="flex:1;" onclick="clearForm()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
-        ล้างข้อมูล
+      <!-- Activities -->
+      <div class="section-label">รายการกิจกรรม</div>
+      <div id="activityContainer"></div>
+      <button class="add-activity-btn" onclick="addActivity()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        เพิ่มรายการกิจกรรม
       </button>
-      <button class="btn btn-primary" style="flex:1;" onclick="previewFlex()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
-        ดูตัวอย่าง
-      </button>
-    </div>
-    <button class="btn btn-primary btn-full" onclick="submitForm()" style="margin-bottom:8px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-      บันทึกข้อมูล
-    </button>
-    <button class="btn btn-green btn-full" onclick="openShareModal()" id="shareBtn" style="display:none; margin-bottom:4px;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      แชร์ผ่าน LINE
-    </button>
-  </div>
 
-  <!-- ══ SECTION: RECORDS ══ -->
-  <div class="section" id="sec-records">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          รายการทั้งหมด
+      <!-- File Upload -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+            แนบไฟล์
+          </div>
+          <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
         </div>
-        <span class="chip chip-blue" id="totalCount">0 รายการ</span>
-      </div>
-      <div id="recordList">
-        <div class="empty-state">
-          <div class="empty-icon">📭</div>
-          <p style="font-size:14px;">ยังไม่มีข้อมูล</p>
-          <p style="font-size:12px;margin-top:4px;color:var(--muted);">กรอกข้อมูลในแท็บ "กรอกข้อมูล"</p>
+        <div class="card-body">
+          <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+            <div style="font-size:26px;margin-bottom:6px;">☁️</div>
+            <div style="font-size:13px;color:var(--muted);">
+              <span style="color:var(--primary);font-weight:700;">แตะเลือกไฟล์</span> หรือลากวางที่นี่<br>
+              <span style="font-size:11px;margin-top:2px;display:block;">รูปภาพ, PDF, Word, Excel (สูงสุด 10MB)</span>
+            </div>
+          </div>
+          <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleFileSelect(this.files)">
+          <div id="fileList"></div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ══ SECTION: SETTINGS ══ -->
-  <div class="section" id="sec-settings">
-    <div class="card" style="margin-bottom:12px;">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Google Apps Script
+      <!-- Flex Preview -->
+      <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
+        <div class="section-label">ตัวอย่าง Flex Bubble</div>
+        <div class="flex-preview-box">
+          <div class="flex-preview-header">PREVIEW — LINE FLEX MESSAGE</div>
+          <div class="flex-single-bubble" id="flexPreviewBubble"></div>
         </div>
       </div>
-      <div style="padding:15px;display:flex;flex-direction:column;gap:11px;">
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">Web App URL</div>
-          <input type="text" class="field-input" id="cfg_gasUrl" placeholder="https://script.google.com/macros/s/.../exec" style="font-size:11.5px;">
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;">📌 รับ URL หลัง Deploy Web App ใน GAS</div>
-        </div>
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">ชื่อชีท (Sheet Name)</div>
-          <input type="text" class="field-input" id="cfg_sheetName" placeholder="Sheet1" value="Sheet1">
-        </div>
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">Google Drive Folder ID</div>
-          <input type="text" class="field-input" id="cfg_folderId" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUq..." style="font-size:11.5px;">
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="saveGASSettings()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
-          บันทึกการเชื่อมต่อ
+
+      <!-- Actions -->
+      <div style="display:flex;gap:10px;margin-bottom:8px;">
+        <button class="btn btn-secondary" style="flex:1;" onclick="clearForm()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          ล้างข้อมูล
+        </button>
+        <button class="btn btn-outline" style="flex:1;" onclick="previewFlex()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+          ดูตัวอย่าง
         </button>
       </div>
+      <button class="btn btn-primary btn-full" onclick="submitForm()" style="margin-bottom:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+        บันทึกข้อมูล
+      </button>
+      <button class="btn btn-green btn-full" id="shareBtn" onclick="openShareModal()" style="display:none;margin-bottom:4px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        แชร์ผ่าน LINE
+      </button>
     </div>
 
-    <div class="card" style="margin-bottom:12px;">
-      <div class="card-header">
-        <div class="card-title">🔐 รหัสผ่านระบบ</div>
-      </div>
-      <div style="padding:15px;display:flex;flex-direction:column;gap:11px;">
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">รหัสผ่านปัจจุบัน</div>
-          <input type="password" class="field-input" id="cfg_oldPass" placeholder="รหัสผ่านเดิม">
-        </div>
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">รหัสผ่านใหม่</div>
-          <input type="password" class="field-input" id="cfg_newPass" placeholder="รหัสผ่านใหม่">
-        </div>
-        <button class="btn btn-outline btn-sm" onclick="changePassword()">เปลี่ยนรหัสผ่าน</button>
-      </div>
-    </div>
+    <!-- RECORDS SECTION -->
+    <div class="section" id="sec-records">
 
-    <div class="card" style="margin-bottom:12px;">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          ตัวเลือก
-        </div>
-      </div>
-      <div class="settings-item">
-        <div>
-          <div style="font-size:13.5px;font-weight:600;">ยืนยันก่อนบันทึก</div>
-          <div style="font-size:11px;color:var(--muted);">แสดง popup ยืนยันก่อนส่ง</div>
-        </div>
-        <button class="toggle on" id="tog_confirm" onclick="toggleSetting(this)"></button>
-      </div>
-      <div class="settings-item">
-        <div>
-          <div style="font-size:13.5px;font-weight:600;">แชร์อัตโนมัติหลังบันทึก</div>
-          <div style="font-size:11px;color:var(--muted);">เปิด ShareTargetPicker ทันที</div>
-        </div>
-        <button class="toggle" id="tog_autoShare" onclick="toggleSetting(this)"></button>
-      </div>
-    </div>
+      <!-- Sheet Status Bar -->
+      <div id="sheetStatusBar" style="display:none;align-items:center;gap:8px;
+           background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;
+           padding:9px 13px;margin-bottom:12px;font-size:12px;"></div>
 
-    <div class="card" style="margin-bottom:12px;">
-      <div class="card-header">
-        <div class="card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          จัดการข้อมูล
+      <!-- View Toggle -->
+      <div style="display:flex;gap:6px;margin-bottom:10px;align-items:center;">
+        <button id="viewBtn_local" class="view-toggle-btn active-view" onclick="setViewMode('local')">
+          📱 บันทึกในเครื่อง
+        </button>
+        <button id="viewBtn_sheet" class="view-toggle-btn" onclick="setViewMode('sheet')">
+          ☁️ จาก Google Sheets
+        </button>
+        <button onclick="fetchSheetRecords()" title="รีเฟรชจาก Sheets"
+          style="margin-left:auto;width:32px;height:32px;border-radius:8px;border:1.5px solid var(--border);
+                 background:var(--surface);cursor:pointer;font-size:14px;display:flex;align-items:center;
+                 justify-content:center;flex-shrink:0;transition:all .2s;"
+          onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
+          🔄
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            รายการทั้งหมด
+          </div>
+          <span class="chip chip-blue" id="totalCount">0 รายการ</span>
+        </div>
+        <div id="recordList">
+          <div class="empty-state">
+            <div class="empty-icon">📭</div>
+            <p style="font-size:14px;">ยังไม่มีข้อมูล</p>
+            <p style="font-size:12px;margin-top:4px;color:var(--muted);">กรอกข้อมูลในแท็บ "กรอกข้อมูล"</p>
+          </div>
         </div>
       </div>
-      <div style="padding:14px;display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="btn btn-secondary btn-sm" onclick="exportJSON()">
+
+      <div style="padding:0 4px 8px;display:flex;gap:8px;">
+        <button class="btn btn-secondary btn-sm" onclick="exportJSON()" style="flex:1;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Export JSON
         </button>
-        <button class="btn btn-danger btn-sm" onclick="clearAllRecords()">
+        <button class="btn btn-danger btn-sm" onclick="clearAllRecords()" style="flex:1;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
-          ล้างข้อมูลทั้งหมด
+          ล้างข้อมูล
         </button>
-        <button class="btn btn-danger btn-sm" onclick="lockApp()">
-          🔒 ล็อกหน้าจอ
-        </button>
+        <button class="btn btn-secondary btn-sm" onclick="lockApp()">🔒 ล็อก</button>
       </div>
     </div>
 
-    <div class="card" style="margin-bottom:12px;">
-      <div class="card-header">
-        <div class="card-title">LINE LIFF Settings</div>
-      </div>
-      <div style="padding:15px;display:flex;flex-direction:column;gap:11px;">
-        <div class="field-group" style="margin:0;">
-          <div class="field-label">LIFF ID</div>
-          <input type="text" class="field-input" id="cfg_liffId" placeholder="1234567890-abcdefgh" style="font-size:12px;">
-        </div>
-        <button class="btn btn-outline btn-sm" onclick="saveLIFFSettings()">บันทึก LIFF ID</button>
-      </div>
+  </div><!-- /pull-card -->
+
+  <!-- BOTTOM NAV — 2 items -->
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="switchTab('form')" id="nav-form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      กรอกข้อมูล
+    </div>
+    <div class="nav-item" onclick="switchTab('records')" id="nav-records">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      รายการ
     </div>
   </div>
-
-</div><!-- /pull-card -->
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <div class="nav-item active" onclick="switchTab('form')" id="nav-form">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-    กรอกข้อมูล
-  </div>
-  <div class="nav-item" onclick="switchTab('records')" id="nav-records">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-    รายการ
-  </div>
-  <div class="nav-item" onclick="switchTab('settings')" id="nav-settings">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-    ตั้งค่า
-  </div>
-</div>
 
 </div><!-- /appWrap -->
 
@@ -548,7 +407,7 @@ input[type="file"]{display:none;}
   <div class="modal-sheet">
     <div class="modal-handle"></div>
     <div class="modal-title">📤 แชร์ผ่าน LINE</div>
-    <div style="margin-bottom:6px;font-size:13px;color:var(--muted);">ข้อความด้านล่างจะถูกส่งเป็น Flex Bubble 1 ข้อความ</div>
+    <div style="margin-bottom:6px;font-size:13px;color:var(--muted);">ตัวอย่าง Flex Bubble ที่จะส่ง</div>
     <div class="flex-preview-box" style="margin-bottom:14px;">
       <div class="flex-preview-header">PREVIEW</div>
       <div class="flex-single-bubble" id="sharePreviewBubble"></div>
@@ -577,32 +436,53 @@ input[type="file"]{display:none;}
 </div>
 
 <script>
-// ─── DEFAULT PASSWORD (hashed-like via simple encode) ───
-const DEFAULT_PASS = 'school2568';
+// ════════════════════════════════════════════════════════════
+//  ⚙️  CONFIG — แก้ไขที่นี่เท่านั้น  (ไม่มีหน้าตั้งค่าในแอป)
+// ════════════════════════════════════════════════════════════
+const CFG = {
+  // รหัสผ่านสำหรับล็อกอิน
+  PASSWORD: 'school2568',
 
-const APP = {
-  records: [],
-  files: [],
-  gasUrl: '',
-  sheetName: 'Sheet1',
-  folderId: '',
-  liffId: '',
-  settings: { confirm: true, autoShare: false },
-  password: DEFAULT_PASS,
-  currentRecordIdx: null,
+  // Google Apps Script Web App URL (ได้จาก Deploy > New deployment > Web app)
+  GAS_URL: 'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
+
+  // ชื่อชีทใน Google Sheets
+  SHEET_NAME: 'Sheet1',
+
+  // LINE LIFF ID — เว้นว่างหากไม่ใช้
+  LIFF_ID: '2009306563-QXaMSWaV',
+
+  // true = แสดง popup ยืนยันก่อนบันทึก
+  CONFIRM_BEFORE_SAVE: true,
+
+  // true = เปิด ShareTargetPicker อัตโนมัติหลังบันทึก
+  AUTO_SHARE: false,
+
+  // ชื่อโรงเรียน / หน่วยงาน
+  SCHOOL_NAME: 'โรงเรียนแกลง"วิทยสถาวร"',
 };
+// ════════════════════════════════════════════════════════════
 
-let activityCounter = 0;
+/* ─── STATE ─── */
+const APP = {
+  records: [],          // รายการที่กรอกในแอปนี้ (localStorage)
+  sheetRecords: [],     // รายการที่ดึงจาก Google Sheets
+  files: [],
+  currentRecordIdx: null,
+  viewMode: 'local',    // 'local' | 'sheet'
+  sheetLoaded: false,
+};
+let activities    = [];
+let actCounter    = 0;
 let currentShareRecord = null;
 
-// ─── LOCK ───
+/* ─── LOCK ─── */
 function checkLock() {
-  const val = document.getElementById('lockInput').value;
-  const stored = getStoredPass();
-  if (val === stored) {
+  if (document.getElementById('lockInput').value === CFG.PASSWORD) {
     document.getElementById('lockScreen').style.display = 'none';
-    document.getElementById('appWrap').style.display = 'block';
+    document.getElementById('appWrap').style.display   = 'block';
     sessionStorage.setItem('unlocked', '1');
+    fetchSheetRecords();   // ดึงข้อมูลจาก Sheet หลังล็อกอิน
   } else {
     const err = document.getElementById('lockError');
     err.textContent = '❌ รหัสผ่านไม่ถูกต้อง';
@@ -610,169 +490,200 @@ function checkLock() {
     setTimeout(() => { err.textContent = ''; }, 2500);
   }
 }
-
-function getStoredPass() {
-  try { return JSON.parse(localStorage.getItem('lineapp_v3'))?.password || DEFAULT_PASS; } catch(e) { return DEFAULT_PASS; }
-}
-
 function lockApp() {
   sessionStorage.removeItem('unlocked');
   document.getElementById('lockInput').value = '';
   document.getElementById('lockScreen').style.display = 'flex';
-  document.getElementById('appWrap').style.display = 'none';
+  document.getElementById('appWrap').style.display    = 'none';
 }
+document.getElementById('lockInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkLock(); });
 
-function changePassword() {
-  const oldP = document.getElementById('cfg_oldPass').value;
-  const newP = document.getElementById('cfg_newPass').value.trim();
-  if (oldP !== APP.password) { showToast('รหัสผ่านเดิมไม่ถูกต้อง', 'error'); return; }
-  if (!newP || newP.length < 4) { showToast('รหัสผ่านใหม่ต้องมีอย่างน้อย 4 ตัว', 'error'); return; }
-  APP.password = newP;
-  saveState();
-  document.getElementById('cfg_oldPass').value = '';
-  document.getElementById('cfg_newPass').value = '';
-  showToast('เปลี่ยนรหัสผ่านสำเร็จ');
-}
-
-// ─── INIT ───
+/* ─── INIT ─── */
 function init() {
-  // Check session
   if (sessionStorage.getItem('unlocked') === '1') {
     document.getElementById('lockScreen').style.display = 'none';
-    document.getElementById('appWrap').style.display = 'block';
+    document.getElementById('appWrap').style.display   = 'block';
+    fetchSheetRecords();   // ดึงข้อมูลจาก Sheet ทันทีถ้าเคย unlock แล้ว
   }
-
+  document.getElementById('hdr_school').textContent = CFG.SCHOOL_NAME;
   setCurrentDate();
   setDefaultApproveDate();
-  loadState();
-  renderActivities();
+  loadLocalRecords();
+  addActivity(); addActivity(); addActivity();
   renderRecords();
-  if (document.getElementById('activityContainer').children.length === 0) {
-    addActivity(); addActivity(); addActivity();
-  }
 }
 
 function setCurrentDate() {
   const now = new Date();
-  const y = now.getFullYear() + 543;
-  const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
-  document.getElementById('currentDateDisplay').textContent = `${now.getDate()} ${months[now.getMonth()]} ${y}`;
+  const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
+                  'กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  document.getElementById('currentDateDisplay').textContent =
+    `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
 }
-
 function setDefaultApproveDate() {
   const now = new Date();
-  const y = now.getFullYear() + 543;
-  const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
+                  'กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
   const el = document.getElementById('gf_approveDate');
-  if (el && !el.value) el.value = `${now.getDate()} ${months[now.getMonth()]} ${y}`;
+  if (el && !el.value)
+    el.value = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
+}
+function loadLocalRecords() {
+  try { const s = localStorage.getItem('lineapp_records_v3'); if (s) APP.records = JSON.parse(s); } catch(e) {}
+}
+function saveLocalRecords() {
+  try { localStorage.setItem('lineapp_records_v3', JSON.stringify(APP.records)); } catch(e) {}
 }
 
-function loadState() {
+/* ─── FETCH FROM SHEET ─── */
+async function fetchSheetRecords() {
+  if (!CFG.GAS_URL || CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')) return;
+  setSheetStatus('loading');
   try {
-    const s = localStorage.getItem('lineapp_v3');
-    if (!s) return;
-    const d = JSON.parse(s);
-    Object.assign(APP, d);
-    document.getElementById('cfg_gasUrl').value = APP.gasUrl || '';
-    document.getElementById('cfg_sheetName').value = APP.sheetName || 'Sheet1';
-    document.getElementById('cfg_folderId').value = APP.folderId || '';
-    document.getElementById('cfg_liffId').value = APP.liffId || '';
-    document.getElementById('tog_confirm').className = 'toggle' + (APP.settings.confirm ? ' on' : '');
-    document.getElementById('tog_autoShare').className = 'toggle' + (APP.settings.autoShare ? ' on' : '');
-  } catch(e) {}
+    const url = CFG.GAS_URL + '?sheet=' + encodeURIComponent(CFG.SHEET_NAME) + '&t=' + Date.now();
+    const res  = await fetch(url);
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error || 'GAS error');
+
+    APP.sheetRecords = groupSheetRows(json.data || []);
+    APP.sheetLoaded  = true;
+    setSheetStatus('done', APP.sheetRecords.length);
+    if (APP.viewMode === 'sheet') renderRecords();
+  } catch(err) {
+    console.warn('fetchSheetRecords:', err);
+    setSheetStatus('error');
+  }
 }
 
-function saveState() {
-  try { localStorage.setItem('lineapp_v3', JSON.stringify(APP)); } catch(e) {}
+/**
+ * แถว Sheet แต่ละแถว = 1 กิจกรรม
+ * จัดกลุ่มตาม 'รหัสบันทึก' → สร้าง record object เหมือน APP.records
+ */
+function groupSheetRows(rows) {
+  const map = new Map();
+  for (const row of rows) {
+    const key = row['รหัสบันทึก'] || row['_timestamp'] || Math.random();
+    if (!map.has(key)) {
+      map.set(key, {
+        id:          key,
+        _timestamp:  row['_timestamp']    || '',
+        planRange:   row['แผน']           || '',
+        approveDate: row['วันที่อนุมัติ'] || '',
+        docLink:     row['ลิงก์เอกสาร']  || '',
+        _source:     'sheet',
+        activities:  [],
+        files:       [],
+      });
+    }
+    map.get(key).activities.push({
+      name:        row['ชื่อกิจกรรม']  || '',
+      responsible: row['ผู้รับผิดชอบ'] || '',
+      round:       row['ครั้งที่']      || '',
+      result:      row['ผลการอนุมัติ'] || '',
+      budget:      row['วงเงิน']        || '',
+      email:       row['อีเมล']         || '',
+    });
+  }
+  // เรียงล่าสุดก่อน
+  return [...map.values()].reverse();
 }
 
-// ─── TABS ───
+function setSheetStatus(state, count) {
+  const el = document.getElementById('sheetStatusBar');
+  if (!el) return;
+  const msgs = {
+    loading: `<span style="color:var(--muted);">⏳ กำลังดึงข้อมูลจาก Sheets...</span>`,
+    done:    `<span style="color:var(--green-dark);">✅ ดึงข้อมูลจาก Sheets แล้ว — ${count} กลุ่ม</span>`,
+    error:   `<span style="color:var(--red);">⚠️ ดึงข้อมูลไม่สำเร็จ <button onclick="fetchSheetRecords()" style="border:none;background:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:11px;">ลองอีกครั้ง</button></span>`,
+  };
+  el.innerHTML = msgs[state] || '';
+  el.style.display = 'flex';
+}
+
+/* ─── TABS ─── */
 function switchTab(tab) {
   document.querySelectorAll('.tab-item').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-  document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id === `sec-${tab}`));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.id === `nav-${tab}`));
+  document.querySelectorAll('.section').forEach(s  => s.classList.toggle('active', s.id === `sec-${tab}`));
+  document.querySelectorAll('.nav-item').forEach(n  => n.classList.toggle('active', n.id === `nav-${tab}`));
   if (tab === 'records') renderRecords();
 }
 
-// ─── ACTIVITIES ───
-let activities = []; // [{id, name, responsible, budget, round, details}]
-
+/* ─── ACTIVITIES ─── */
 function addActivity() {
-  activityCounter++;
-  const uid = 'act_' + Date.now() + '_' + activityCounter;
+  actCounter++;
+  const uid = 'act_' + Date.now() + '_' + actCounter;
   activities.push({ id: uid });
   renderActivities();
-  // scroll to new
-  setTimeout(() => {
-    const el = document.getElementById('block_' + uid);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 100);
+  if (actCounter > 3) {
+    setTimeout(() => document.getElementById('block_' + uid)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
+  }
 }
-
 function removeActivity(uid) {
   activities = activities.filter(a => a.id !== uid);
   renderActivities();
 }
-
 function renderActivities() {
-  const c = document.getElementById('activityContainer');
-  c.innerHTML = activities.map((a, i) => `
+  document.getElementById('activityContainer').innerHTML = activities.map((a, i) => `
     <div class="activity-block" id="block_${a.id}">
       <div class="activity-block-header">
         <div class="activity-num-badge">${i + 1}</div>
-        <div class="activity-block-title">กิจกรรมที่ ${i + 1}</div>
-        ${activities.length > 1 ? `<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>` : ''}
+        <span style="font-size:13px;font-weight:700;color:var(--ink);flex:1;">กิจกรรมที่ ${i + 1}</span>
+        ${activities.length > 1
+          ? `<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>` : ''}
       </div>
+
       <div class="field-group">
         <div class="field-label">ชื่อกิจกรรม <span class="req">*</span></div>
-        <textarea class="field-textarea" id="inp_name_${a.id}" placeholder="ระบุชื่อกิจกรรมให้ครบถ้วน" style="min-height:64px;">${a.name || ''}</textarea>
+        <textarea class="field-textarea" id="name_${a.id}" placeholder="ระบุชื่อกิจกรรมให้ครบถ้วน" style="min-height:64px;"></textarea>
       </div>
+
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <div class="field-group" style="margin:0;">
           <div class="field-label">ผู้รับผิดชอบ <span class="req">*</span></div>
-          <input type="text" class="field-input" id="inp_resp_${a.id}" placeholder="ชื่อ-สกุล" value="${a.responsible || ''}">
+          <input type="text" class="field-input" id="resp_${a.id}" placeholder="ชื่อ-สกุล">
         </div>
         <div class="field-group" style="margin:0;">
           <div class="field-label">ครั้งที่</div>
-          <input type="number" class="field-input" id="inp_round_${a.id}" placeholder="เช่น: 2" value="${a.round || ''}">
+          <input type="number" class="field-input" id="round_${a.id}" placeholder="เช่น: 2" min="1">
         </div>
       </div>
+
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
         <div class="field-group" style="margin:0;">
           <div class="field-label">ผลการอนุมัติ</div>
-          <select class="field-select" id="inp_result_${a.id}">
-            <option value="อุดหนุน" ${(a.result||'อุดหนุน')==='อุดหนุน'?'selected':''}>อุดหนุน</option>
-            <option value="✅ อนุมัติ" ${(a.result||'')==='✅ อนุมัติ'?'selected':''}>✅ อนุมัติ</option>
-            <option value="❌ ไม่อนุมัติ" ${(a.result||'')==='❌ ไม่อนุมัติ'?'selected':''}>❌ ไม่อนุมัติ</option>
-            <option value="⏳ รอพิจารณา" ${(a.result||'')==='⏳ รอพิจารณา'?'selected':''}>⏳ รอพิจารณา</option>
+          <select class="field-select" id="result_${a.id}">
+            <option value="อุดหนุน">อุดหนุน</option>
+            <option value="✅ อนุมัติ">✅ อนุมัติ</option>
+            <option value="❌ ไม่อนุมัติ">❌ ไม่อนุมัติ</option>
+            <option value="⏳ รอพิจารณา">⏳ รอพิจารณา</option>
           </select>
         </div>
         <div class="field-group" style="margin:0;">
           <div class="field-label">วงเงิน (บาท)</div>
-          <input type="number" class="field-input" id="inp_budget_${a.id}" placeholder="เช่น: 15000" value="${a.budget || ''}">
+          <input type="number" class="field-input" id="budget_${a.id}" placeholder="เช่น: 15000" min="0">
         </div>
       </div>
+
       <div class="field-group" style="margin-top:10px;margin-bottom:0;">
         <div class="field-label">อีเมลผู้รับผิดชอบ</div>
-        <input type="email" class="field-input" id="inp_email_${a.id}" placeholder="example@gmail.com" value="${a.email || ''}">
+        <input type="email" class="field-input" id="email_${a.id}" placeholder="example@gmail.com">
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
-
 function collectActivities() {
   return activities.map(a => ({
     id: a.id,
-    name: document.getElementById('inp_name_' + a.id)?.value.trim() || '',
-    responsible: document.getElementById('inp_resp_' + a.id)?.value.trim() || '',
-    round: document.getElementById('inp_round_' + a.id)?.value.trim() || '',
-    result: document.getElementById('inp_result_' + a.id)?.value || 'อุดหนุน',
-    budget: document.getElementById('inp_budget_' + a.id)?.value.trim() || '',
-    email: document.getElementById('inp_email_' + a.id)?.value.trim() || '',
+    name:        (document.getElementById('name_'  + a.id)?.value || '').trim(),
+    responsible: (document.getElementById('resp_'  + a.id)?.value || '').trim(),
+    round:       (document.getElementById('round_' + a.id)?.value || '').trim(),
+    result:       document.getElementById('result_'+ a.id)?.value || 'อุดหนุน',
+    budget:      (document.getElementById('budget_'+ a.id)?.value || '').trim(),
+    email:       (document.getElementById('email_' + a.id)?.value || '').trim(),
   }));
 }
 
-// ─── FILE ───
+/* ─── FILE ─── */
 function handleFileSelect(fl) {
   for (const f of fl) {
     if (f.size > 10 * 1024 * 1024) { showToast(`${f.name} ใหญ่เกิน 10MB`, 'error'); continue; }
@@ -783,188 +694,205 @@ function handleFileSelect(fl) {
 function removeFile(i) { APP.files.splice(i, 1); renderFileList(); }
 function renderFileList() {
   document.getElementById('fileCount').textContent = APP.files.length + ' ไฟล์';
-  const c = document.getElementById('fileList');
-  const EXT_MAP = { img: ['jpg','jpeg','png','gif','webp','svg'], pdf: ['pdf'], doc: ['doc','docx'] };
-  c.innerHTML = APP.files.map((f, i) => {
+  const EXT = { img:['jpg','jpeg','png','gif','webp','svg'], pdf:['pdf'], doc:['doc','docx'] };
+  document.getElementById('fileList').innerHTML = APP.files.map((f, i) => {
     const ext = f.name.split('.').pop().toLowerCase();
-    const cls = Object.entries(EXT_MAP).find(([, exts]) => exts.includes(ext))?.[0] || 'other';
-    const icons = { img: '🖼️', pdf: '📄', doc: '📝', other: '📎' };
-    return `<div class="file-item"><div class="file-icon ${cls}">${icons[cls]}</div>
-      <div style="flex:1;min-width:0;"><div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</div>
-      <div style="font-size:10px;color:var(--muted);">${(f.size / 1024).toFixed(1)} KB</div></div>
-      <button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button></div>`;
+    const cls = Object.entries(EXT).find(([,e]) => e.includes(ext))?.[0] || 'other';
+    const ic  = { img:'🖼️', pdf:'📄', doc:'📝', other:'📎' };
+    const bg  = { img:'#e0f2fe', pdf:'#fee2e2', doc:'#ede9fe', other:'#f1f5f9' };
+    return `<div class="file-item">
+      <div style="width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${bg[cls]};">${ic[cls]}</div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</div>
+        <div style="font-size:10px;color:var(--muted);">${(f.size/1024).toFixed(1)} KB</div>
+      </div>
+      <button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button>
+    </div>`;
   }).join('');
 }
 const uz = document.getElementById('uploadZone');
-uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('drag-over'); });
-uz.addEventListener('dragleave', () => uz.classList.remove('drag-over'));
-uz.addEventListener('drop', e => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
+uz.addEventListener('dragover',  e => { e.preventDefault(); uz.classList.add('drag-over'); });
+uz.addEventListener('dragleave', ()  => uz.classList.remove('drag-over'));
+uz.addEventListener('drop',      e  => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
 
-// ─── BUILD RECORD ───
+/* ─── BUILD RECORD ─── */
 function buildRecord() {
-  const planRange = document.getElementById('gf_planRange').value.trim();
-  const approveDate = document.getElementById('gf_approveDate').value.trim();
-  const docLink = document.getElementById('gf_docLink').value.trim();
-  const acts = collectActivities();
-
-  const now = new Date();
+  const now    = new Date();
   const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-  const ts = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()+543} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-
+  const ts     = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()+543} ` +
+                 `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
   return {
     id: 'R' + String(APP.records.length + 1).padStart(4, '0'),
-    _timestamp: ts,
-    planRange,
-    approveDate,
-    docLink,
-    activities: acts,
-    files: APP.files.map(f => f.name),
+    _timestamp:  ts,
+    planRange:   document.getElementById('gf_planRange').value.trim(),
+    approveDate: document.getElementById('gf_approveDate').value.trim(),
+    docLink:     document.getElementById('gf_docLink').value.trim(),
+    activities:  collectActivities(),
+    files:       APP.files.map(f => f.name),
   };
 }
 
-// ─── PREVIEW FLEX ───
+/* ─── PREVIEW ─── */
 function previewFlex() {
-  const record = buildRecord();
-  renderFlexBubblePreview(record, 'flexPreviewBubble');
+  renderFlexBubble(buildRecord(), 'flexPreviewBubble');
   document.getElementById('flexPreviewWrap').style.display = 'block';
-  document.getElementById('flexPreviewWrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  showToast('ดูตัวอย่างด้านล่าง');
+  document.getElementById('flexPreviewWrap').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  showToast('ดูตัวอย่างด้านล่าง', 'info');
 }
-
-function renderFlexBubblePreview(record, containerId) {
-  const el = document.getElementById(containerId);
+function renderFlexBubble(record, id) {
+  const el = document.getElementById(id);
   if (!el) return;
   const acts = record.activities || [];
-  const actHTML = acts.map((a, i) => `
-    <div class="bubble-activity-row">
-      <div class="bubble-activity-num">${i + 1}</div>
-      <div class="bubble-activity-text">
-        <strong>${a.name || '—'}</strong><br>
-        <span style="color:var(--muted);font-size:11px;">${a.responsible ? `(${a.responsible})` : ''}${a.round ? ` ครั้งที่ ${a.round}` : ''}${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}</span>
-      </div>
-    </div>`).join('');
-
   el.innerHTML = `
     <div class="bubble-hero-strip">
       <div class="bubble-hero-title">📢 แจ้งผลการอนุมัติแผน ${record.planRange || ''}</div>
       <div class="bubble-hero-meta">ประจำวันที่ ${record.approveDate || ''} · ${record.id}</div>
     </div>
     <div style="padding:8px 0;">
-      <div style="padding:6px 16px 4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;">📝 รายการกิจกรรมที่ได้รับการอนุมัติ</div>
-      ${actHTML}
+      <div style="padding:6px 16px 4px;font-size:11px;font-weight:700;color:var(--muted);">
+        📝 รายการกิจกรรมที่ได้รับการอนุมัติ
+      </div>
+      ${acts.map((a, i) => `
+        <div class="bubble-activity-row">
+          <div class="bubble-activity-num">${i + 1}</div>
+          <div class="bubble-activity-text">
+            <strong>${a.name || '—'}</strong><br>
+            <span style="color:var(--muted);font-size:11px;">
+              ${a.responsible ? `(${a.responsible})` : ''}
+              ${a.round  ? ` ครั้งที่ ${a.round}` : ''}
+              ${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}
+            </span>
+          </div>
+        </div>`).join('')}
     </div>
     <div class="bubble-footer-strip">
       <div class="bubble-footer-note">
-        ${record.docLink ? `📎 รายละเอียดดังลิงก์` : '📧 ระบบส่งอีเมลแจ้งเรียบร้อย'}<br>
-        ✅ รวมทั้งหมด ${acts.length} รายการ
+        📧 ระบบส่งอีเมลแจ้งผู้รับผิดชอบแล้ว<br>✅ รวมทั้งหมด ${acts.length} รายการ
       </div>
-      ${record.docLink ? `<button class="bubble-footer-btn" onclick="window.open('${record.docLink}','_blank')">🔗 ดูเอกสาร</button>` : '<button class="bubble-footer-btn">📤 แชร์</button>'}
+      ${record.docLink
+        ? `<button class="bubble-footer-btn" onclick="window.open('${record.docLink}','_blank')">🔗 ดูเอกสาร</button>`
+        : ''}
     </div>`;
 }
 
-// ─── SUBMIT ───
+/* ─── SUBMIT ─── */
 function submitForm() {
-  const planRange = document.getElementById('gf_planRange').value.trim();
-  const approveDate = document.getElementById('gf_approveDate').value.trim();
-  if (!planRange) { showToast('กรุณาระบุแผนที่แจ้ง', 'error'); return; }
-  if (!approveDate) { showToast('กรุณาระบุวันที่อนุมัติ', 'error'); return; }
-
+  if (!document.getElementById('gf_planRange').value.trim())
+    return showToast('กรุณาระบุแผนที่แจ้ง', 'error');
+  if (!document.getElementById('gf_approveDate').value.trim())
+    return showToast('กรุณาระบุวันที่อนุมัติ', 'error');
   const acts = collectActivities();
   for (let i = 0; i < acts.length; i++) {
-    if (!acts[i].name) { showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i + 1}`, 'error'); document.getElementById('inp_name_' + activities[i].id)?.focus(); return; }
-    if (!acts[i].responsible) { showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i + 1}`, 'error'); return; }
+    if (!acts[i].name)
+      return showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i + 1}`, 'error'),
+             document.getElementById('name_' + activities[i].id)?.focus();
+    if (!acts[i].responsible)
+      return showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i + 1}`, 'error');
   }
-
-  if (APP.settings.confirm) openModal('confirmModal');
+  if (CFG.CONFIRM_BEFORE_SAVE) openModal('confirmModal');
   else confirmAndSave();
 }
-
-function confirmAndSave() {
-  closeModal('confirmModal');
-  doSave();
-}
+function confirmAndSave() { closeModal('confirmModal'); doSave(); }
 
 async function doSave() {
   const record = buildRecord();
   currentShareRecord = record;
   APP.records.unshift(record);
-  saveState();
-
+  saveLocalRecords();
   showToast('กำลังบันทึก...', 'info');
 
-  if (APP.gasUrl) {
+  if (CFG.GAS_URL && !CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')) {
     try { await sendToGAS(record); } catch(e) { console.warn('GAS error:', e); }
   }
 
   showToast(`บันทึกสำเร็จ! ${record.activities.length} รายการ 🎉`);
   document.getElementById('totalBadgeText').textContent = APP.records.length + ' รายการ';
   document.getElementById('shareBtn').style.display = '';
-
   renderRecords();
-  renderFlexBubblePreview(record, 'flexPreviewBubble');
+  renderFlexBubble(record, 'flexPreviewBubble');
   document.getElementById('flexPreviewWrap').style.display = 'block';
-
   clearFormFields();
-  if (APP.settings.autoShare) setTimeout(() => openShareAndSend(record), 600);
+  if (CFG.AUTO_SHARE) setTimeout(() => openShareAndSend(record), 600);
 }
 
 async function sendToGAS(record) {
-  // Send summary row per activity
   for (const act of record.activities) {
-    const row = {
-      '_timestamp': record._timestamp,
-      'แผน': record.planRange,
-      'วันที่อนุมัติ': record.approveDate,
-      'ชื่อกิจกรรม': act.name,
-      'ผู้รับผิดชอบ': act.responsible,
-      'ครั้งที่': act.round,
-      'ผลการอนุมัติ': act.result,
-      'วงเงินงบประมาณ': act.budget,
-      'อีเมล': act.email,
-      'ลิงก์เอกสาร': record.docLink,
-    };
-    await fetch(APP.gasUrl, {
+    await fetch(CFG.GAS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'save', sheetName: APP.sheetName, data: row }),
-      mode: 'no-cors'
+      body: JSON.stringify({
+        action: 'save', sheetName: CFG.SHEET_NAME,
+        data: {
+          '_timestamp':     record._timestamp,
+          'รหัสบันทึก':    record.id,
+          'แผน':           record.planRange,
+          'วันที่อนุมัติ': record.approveDate,
+          'ชื่อกิจกรรม':  act.name,
+          'ผู้รับผิดชอบ': act.responsible,
+          'ครั้งที่':      act.round,
+          'ผลการอนุมัติ': act.result,
+          'วงเงิน':        act.budget,
+          'อีเมล':         act.email,
+          'ลิงก์เอกสาร':  record.docLink,
+        },
+      }),
+      mode: 'no-cors',
     });
   }
 }
 
 function clearFormFields() {
-  document.getElementById('gf_planRange').value = '';
+  document.getElementById('gf_planRange').value   = '';
   document.getElementById('gf_approveDate').value = '';
-  document.getElementById('gf_docLink').value = '';
-  activities = [];
-  activityCounter = 0;
-  APP.files = [];
-  renderActivities();
-  renderFileList();
+  document.getElementById('gf_docLink').value     = '';
+  activities = []; actCounter = 0; APP.files = [];
+  renderActivities(); renderFileList();
   addActivity(); addActivity(); addActivity();
   setDefaultApproveDate();
 }
-
 function clearForm() {
   clearFormFields();
   document.getElementById('flexPreviewWrap').style.display = 'none';
   showToast('ล้างข้อมูลแล้ว');
 }
 
-// ─── RECORDS ───
+/* ─── RECORDS ─── */
+function setViewMode(mode) {
+  APP.viewMode = mode;
+  document.getElementById('viewBtn_local').classList.toggle('active-view', mode === 'local');
+  document.getElementById('viewBtn_sheet').classList.toggle('active-view', mode === 'sheet');
+  if (mode === 'sheet' && !APP.sheetLoaded) fetchSheetRecords();
+  renderRecords();
+}
+
 function renderRecords() {
-  const list = document.getElementById('recordList');
-  const total = APP.records.length;
-  document.getElementById('totalCount').textContent = total + ' รายการ';
+  const list    = document.getElementById('recordList');
+  const isSheet = APP.viewMode === 'sheet';
+  const src     = isSheet ? APP.sheetRecords : APP.records;
+  const total   = src.length;
+
+  document.getElementById('totalCount').textContent     = total + (isSheet ? ' กลุ่ม (Sheet)' : ' รายการ');
   document.getElementById('totalBadgeText').textContent = total + ' รายการ';
+
   if (!total) {
-    list.innerHTML = `<div class="empty-state"><div class="empty-icon">📭</div><p style="font-size:13.5px;">ยังไม่มีข้อมูล</p></div>`;
+    list.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">${isSheet ? '☁️' : '📭'}</div>
+      <p style="font-size:13.5px;">${isSheet
+        ? (CFG.GAS_URL.includes('YOUR_DEPLOYMENT_ID')
+            ? 'ยังไม่ได้ตั้งค่า GAS_URL'
+            : 'ยังไม่มีข้อมูลใน Sheets')
+        : 'ยังไม่มีข้อมูล'}</p>
+    </div>`;
     return;
   }
-  list.innerHTML = APP.records.map((r, i) => `
+
+  list.innerHTML = src.map((r, i) => `
     <div class="record-item" onclick="showRecordDetail(${i})">
       <div style="flex:1;min-width:0;">
-        <div style="font-size:13.5px;font-weight:700;">📢 แจ้งผลอนุมัติแผน ${r.planRange || ''}</div>
+        <div style="font-size:13.5px;font-weight:700;">
+          📢 แจ้งผลอนุมัติแผน ${r.planRange || ''}
+          ${r._source==='sheet' ? '<span style="font-size:9px;background:#e0f2fe;color:#0369a1;padding:1px 5px;border-radius:4px;margin-left:4px;font-weight:700;">SHEET</span>' : ''}
+        </div>
         <div style="font-size:11.5px;color:var(--muted);">${r.approveDate || ''} · ${r.activities?.length || 0} รายการ</div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px;">${r._timestamp || ''}</div>
       </div>
@@ -975,94 +903,118 @@ function renderRecords() {
     </div>`).join('');
 }
 
+function currentSrc() {
+  return APP.viewMode === 'sheet' ? APP.sheetRecords : APP.records;
+}
+
 function showRecordDetail(idx) {
   APP.currentRecordIdx = idx;
-  const r = APP.records[idx];
+  const r = currentSrc()[idx];
   document.getElementById('recordModalTitle').textContent = `📋 ${r.id} — แผน ${r.planRange}`;
   const acts = r.activities || [];
   document.getElementById('recordModalContent').innerHTML = `
     <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">${r.approveDate} · ${acts.length} รายการ</div>
-    ${acts.map((a, i) => `<div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;">
-      <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;">${i+1}</div>
-      <div style="flex:1;font-size:13px;">
-        <div style="font-weight:700;">${a.name}</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${a.responsible}${a.round?` · ครั้งที่ ${a.round}`:''}${a.budget?` · ${Number(a.budget).toLocaleString()} บาท`:''}</div>
-      </div>
-    </div>`).join('')}
-    ${r.docLink ? `<div style="margin-top:8px;font-size:12px;">📎 <a href="${r.docLink}" target="_blank" style="color:var(--primary);">ดูเอกสาร</a></div>` : ''}`;
+    ${acts.map((a, i) => `
+      <div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;">
+        <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;flex-shrink:0;">${i+1}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13px;font-weight:700;">${a.name}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">
+            ${a.responsible}${a.round?` · ครั้งที่ ${a.round}`:''}${a.budget?` · ${Number(a.budget).toLocaleString()} บาท`:''}
+          </div>
+          ${a.email?`<div style="font-size:10px;color:var(--muted);">📧 ${a.email}</div>`:''}
+        </div>
+      </div>`).join('')}
+    ${r.docLink?`<div style="margin-top:10px;font-size:12px;">📎 <a href="${r.docLink}" target="_blank" style="color:var(--primary);">ดูเอกสาร</a></div>`:''}`;
   openModal('recordModal');
 }
 
 function shareRecordFromModal() {
   if (APP.currentRecordIdx !== null) {
-    openShareAndSend(APP.records[APP.currentRecordIdx]);
+    openShareAndSend(currentSrc()[APP.currentRecordIdx]);
     closeModal('recordModal');
   }
 }
-
-function quickShare(idx) { openShareAndSend(APP.records[idx]); }
-
-function openShareModal() {
-  if (currentShareRecord) openShareAndSend(currentShareRecord);
-  else if (APP.records.length) openShareAndSend(APP.records[0]);
+function quickShare(idx)     { openShareAndSend(currentSrc()[idx]); }
+function openShareModal()    {
+  const src = currentSrc();
+  if (currentShareRecord)  openShareAndSend(currentShareRecord);
+  else if (src.length)     openShareAndSend(src[0]);
 }
-
 function openShareAndSend(record) {
   currentShareRecord = record;
-  renderFlexBubblePreview(record, 'sharePreviewBubble');
+  renderFlexBubble(record, 'sharePreviewBubble');
   openModal('shareModal');
 }
 
-// ─── LINE SHARE ───
+/* ─── LINE FLEX SHARE ─── */
 async function shareToLine() {
   if (!currentShareRecord) return;
-  const record = currentShareRecord;
-  const acts = record.activities || [];
+  const r    = currentShareRecord;
+  const acts = r.activities || [];
 
   const actContents = acts.map((a, i) => ({
     type: 'box', layout: 'horizontal',
-    contents: [
-      { type: 'text', text: String(i + 1), color: '#1a56db', size: 'xs', weight: 'bold', flex: 0, offsetTop: '2px' },
-      { type: 'text', text: a.name + (a.responsible ? `\n(${a.responsible})` : '') + (a.round ? ` ครั้งที่ ${a.round}` : ''), wrap: true, size: 'sm', color: '#1C2333', flex: 1, margin: 'md' }
-    ],
     paddingTop: '8px', paddingBottom: '8px',
-    borderWidth: '0 0 1px 0', borderColor: '#e2e8f0'
+    borderWidth: '0px 0px 1px 0px', borderColor: '#e2e8f0',
+    contents: [
+      { type:'text', text: String(i+1), color:'#1a56db', size:'xs', weight:'bold', flex:0, gravity:'top' },
+      { type:'text',
+        text: a.name
+          + (a.responsible ? `\n(${a.responsible})` : '')
+          + (a.round       ? ` ครั้งที่ ${a.round}` : '')
+          + (a.budget      ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''),
+        wrap:true, size:'sm', color:'#1C2333', flex:1, margin:'md' }
+    ]
   }));
 
   const footerBtns = [];
-  if (record.docLink) {
-    footerBtns.push({ type: 'button', action: { type: 'uri', label: '📎 ดูรายละเอียด', uri: record.docLink }, style: 'primary', color: '#1a56db', height: 'sm' });
-  }
-  footerBtns.push({ type: 'button', action: { type: 'message', label: '✅ รับทราบ', text: `รับทราบผลอนุมัติแผน ${record.planRange} เรียบร้อยแล้ว` }, style: 'secondary', height: 'sm' });
+  if (r.docLink) footerBtns.push({
+    type:'button',
+    action:{ type:'uri', label:'📎 รายละเอียดเพิ่มเติมดังภาพตามลิงก์', uri: r.docLink },
+    style:'primary', color:'#1a56db', height:'sm',
+  });
+  footerBtns.push({
+    type:'button',
+    action:{ type:'message', label:'✅ รับทราบ',
+      text:`รับทราบผลอนุมัติแผน ${r.planRange} ประจำวันที่ ${r.approveDate}` },
+    style:'secondary', height:'sm',
+  });
+
+  const altText =
+    `📢 แจ้งผลการอนุมัติแผน ${r.planRange} ประจำวันที่ ${r.approveDate}\n` +
+    `📝 รายการกิจกรรมที่ได้รับการอนุมัติ:\n` +
+    acts.map((a,i) => `${i+1}. ${a.name}${a.responsible?` (${a.responsible})`:''}${a.round?` ครั้งที่ ${a.round}`:''}`).join('\n') +
+    (r.docLink ? `\n📎 รายละเอียดเพิ่มเติมดังภาพตามลิงก์: ${r.docLink}` : '') +
+    `\n📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว` +
+    `\n✅ รวมทั้งหมด ${acts.length} รายการ`;
 
   const flexMsg = {
-    type: 'flex',
-    altText: `📢 แจ้งผลการอนุมัติแผน ${record.planRange} ประจำวันที่ ${record.approveDate} รวม ${acts.length} รายการ`,
-    contents: {
-      type: 'bubble',
-      header: {
-        type: 'box', layout: 'vertical', paddingAll: '16px',
-        background: { type: 'linearGradient', angle: '135deg', startColor: '#1a56db', endColor: '#0ea5e9' },
-        contents: [
-          { type: 'text', text: '📢 แจ้งผลการอนุมัติแผน ' + record.planRange, color: '#ffffff', size: 'lg', weight: 'bold', wrap: true },
-          { type: 'text', text: 'ประจำวันที่ ' + record.approveDate, color: 'rgba(255,255,255,0.75)', size: 'sm', margin: 'sm' }
-        ]
+    type:'flex', altText,
+    contents:{
+      type:'bubble',
+      header:{
+        type:'box', layout:'vertical', paddingAll:'16px',
+        background:{ type:'linearGradient', angle:'135deg', startColor:'#1a56db', endColor:'#0ea5e9' },
+        contents:[
+          { type:'text', text:`📢 แจ้งผลการอนุมัติแผน ${r.planRange}`, color:'#ffffff', size:'lg', weight:'bold', wrap:true },
+          { type:'text', text:`ประจำวันที่ ${r.approveDate}`, color:'rgba(255,255,255,0.75)', size:'sm', margin:'sm' },
+        ],
       },
-      body: {
-        type: 'box', layout: 'vertical', paddingAll: '16px',
-        contents: [
-          { type: 'text', text: '📝 รายการกิจกรรมที่ได้รับการอนุมัติ:', size: 'sm', weight: 'bold', color: '#334155', margin: 'none' },
+      body:{
+        type:'box', layout:'vertical', paddingAll:'14px',
+        contents:[
+          { type:'text', text:'📝 รายการกิจกรรมที่ได้รับการอนุมัติ:', size:'sm', weight:'bold', color:'#334155' },
           ...actContents,
-          { type: 'box', layout: 'vertical', margin: 'md',
-            contents: [
-              { type: 'text', text: `📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว`, wrap: true, size: 'xs', color: '#64748b' },
-              { type: 'text', text: `✅ รวมทั้งหมด ${acts.length} รายการ`, size: 'sm', weight: 'bold', color: '#059669', margin: 'sm' }
-            ]
-          }
-        ]
+          { type:'separator', margin:'md' },
+          { type:'box', layout:'vertical', margin:'md', contents:[
+            { type:'text', text:'📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว', wrap:true, size:'xs', color:'#64748b' },
+            { type:'text', text:`✅ รวมทั้งหมด ${acts.length} รายการ`, size:'sm', weight:'bold', color:'#059669', margin:'sm' },
+          ]},
+        ],
       },
-      footer: { type: 'box', layout: 'vertical', spacing: 'sm', paddingAll: '14px', contents: footerBtns }
-    }
+      footer:{ type:'box', layout:'vertical', spacing:'sm', paddingAll:'14px', contents:footerBtns },
+    },
   };
 
   await sendToLine([flexMsg]);
@@ -1076,75 +1028,59 @@ async function sendToLine(messages) {
       closeModal('shareModal');
     } catch(e) { showToast('ยกเลิกการแชร์', 'error'); }
   } else {
-    showToast('แชร์แล้ว (Dev Mode) 🎉', 'info');
-    console.log('[LINE Flex]', JSON.stringify(messages, null, 2));
+    showToast('Dev Mode — ดู Console 🎉', 'info');
+    console.log('[altText]\n' + messages[0].altText);
+    console.log('[LINE Flex JSON]', JSON.stringify(messages, null, 2));
     closeModal('shareModal');
   }
 }
 
-// ─── SETTINGS ───
-function toggleSetting(btn) {
-  const on = btn.classList.contains('on');
-  btn.classList.toggle('on', !on);
-  const map = { tog_confirm: 'confirm', tog_autoShare: 'autoShare' };
-  const k = map[btn.id]; if (k) APP.settings[k] = !on;
-  saveState();
-}
-function saveGASSettings() {
-  APP.gasUrl = document.getElementById('cfg_gasUrl').value.trim();
-  APP.sheetName = document.getElementById('cfg_sheetName').value.trim() || 'Sheet1';
-  APP.folderId = document.getElementById('cfg_folderId').value.trim();
-  saveState(); showToast('บันทึกการตั้งค่าแล้ว');
-}
-function saveLIFFSettings() {
-  APP.liffId = document.getElementById('cfg_liffId').value.trim();
-  saveState(); showToast('บันทึก LIFF ID แล้ว');
-}
+/* ─── DATA ─── */
 function exportJSON() {
-  const blob = new Blob([JSON.stringify(APP.records, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = `records_${Date.now()}.json`; a.click(); showToast('Export สำเร็จ');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(APP.records, null, 2)], { type:'application/json' }));
+  a.download = `approval_records_${Date.now()}.json`; a.click();
+  showToast('Export สำเร็จ');
 }
 function clearAllRecords() {
   if (!confirm('ล้างข้อมูลทั้งหมดใช่ไหม?')) return;
-  APP.records = []; saveState(); renderRecords(); showToast('ล้างข้อมูลแล้ว');
+  APP.records = []; saveLocalRecords(); renderRecords(); showToast('ล้างข้อมูลแล้ว');
 }
 
-// ─── MODAL / TOAST ───
-function openModal(id) { document.getElementById(id).classList.add('show'); }
+/* ─── MODAL / TOAST ─── */
+function openModal(id)  { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); }));
-document.getElementById('lockInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkLock(); });
-
-let toastTimer;
-function showToast(msg, type = 'success') {
+document.querySelectorAll('.modal-overlay').forEach(m =>
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); }));
+let _tt;
+function showToast(msg, type='success') {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
   t.className = `toast ${type} show`;
-  document.getElementById('toastIcon').style.stroke = type === 'error' ? '#f87171' : type === 'info' ? '#60a5fa' : '#4ade80';
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  document.getElementById('toastIcon').style.stroke =
+    type==='error'?'#f87171':type==='info'?'#60a5fa':'#4ade80';
+  clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ─── LIFF ───
+/* ─── LIFF ─── */
 async function initLIFF() {
-  if (APP.liffId && typeof liff !== 'undefined') {
-    try { await liff.init({ liffId: APP.liffId }); if (!liff.isLoggedIn()) liff.login(); } catch(e) {}
-  }
+  if (!CFG.LIFF_ID || typeof liff === 'undefined') return;
+  try { await liff.init({ liffId: CFG.LIFF_ID }); if (!liff.isLoggedIn()) liff.login(); }
+  catch(e) { console.warn('LIFF init failed:', e); }
 }
 
-// ─── BOOT ───
+/* ─── BOOT ─── */
 init();
 </script>
+
+<!-- LIFF SDK — โหลดเฉพาะเมื่อตั้งค่า LIFF_ID ใน CFG -->
 <script>
-(function() {
-  const liffId = (() => { try { return JSON.parse(localStorage.getItem('lineapp_v3'))?.liffId || ''; } catch(e) { return ''; } })();
-  if (liffId) {
-    const s = document.createElement('script');
-    s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
-    s.onload = function() { initLIFF && initLIFF(); };
-    document.head.appendChild(s);
-  }
+(function(){
+  if (!CFG.LIFF_ID) return;
+  const s = document.createElement('script');
+  s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
+  s.onload = () => initLIFF && initLIFF();
+  document.head.appendChild(s);
 })();
 </script>
 </body>
