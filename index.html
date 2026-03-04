@@ -1374,14 +1374,16 @@ function clearForm() {
 // ── แปลงวันที่ทุกรูปแบบเป็นภาษาไทย ──
 function formatThaiDate(val) {
     if (!val) return '';
-    // ถ้าเป็น ISO string หรือ date-like → แปลง
-    const d = new Date(val);
+    const s = String(val).trim();
+    // ถ้าเป็น string ภาษาไทยอยู่แล้ว (มีตัวอักษรไทย) → คืนเลย
+    if (/[ก-๙]/.test(s)) return s;
+    // ISO / date string → แปลง (ปีที่ได้คือ ค.ศ. → บวก 543)
+    const d = new Date(s);
     if (!isNaN(d.getTime())) {
         const m = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-        return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()+543}`;
+        return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear() + 543}`;
     }
-    // ถ้าเป็น string ภาษาไทยอยู่แล้ว → คืนเลย
-    return String(val).trim();
+    return s;
 }
 
 async function shareToLine() {
@@ -1453,13 +1455,13 @@ async function shareToLine() {
                 type: 'box', layout: 'vertical', paddingAll: '16px',
                 backgroundColor: '#1a56db',
                 contents: [
-                    { type:'text', text:'📋 แจ้งผลการอนุมัติแผน', color:'rgba(255,255,255,0.75)', size:'xs', weight:'bold' },
+                    { type:'text', text:'📋 แจ้งผลการอนุมัติแผน', color:'#ffffffbf', size:'xs', weight:'bold' },
                     { type:'text', text:'แผนที่ ' + (planRange||'ไม่ระบุ'), color:'#ffffff', size:'xl', weight:'bold', wrap:true },
                     {
                         type:'box', layout:'horizontal', margin:'sm', spacing:'sm',
                         contents: [
                             { type:'text', text:'📅 ' + approveDate, color:'#bfdbfe', size:'xs', flex:1 },
-                            { type:'text', text: r.id||'', color:'rgba(255,255,255,0.5)', size:'xs', align:'end' },
+                            { type:'text', text: r.id||'', color:'#ffffff80', size:'xs', align:'end' },
                         ],
                     },
                 ],
@@ -1493,22 +1495,7 @@ async function shareToLine() {
 
     if (typeof liff !== 'undefined' && liffReady) {
         try {
-            console.log('[FLEX JSON]', JSON.stringify(flexMsg, null, 2));
-            // ── ทดสอบด้วย text ก่อน ──
-            const testMsg = {
-                type: 'text',
-                text: [
-                    '🧪 ทดสอบ Flex',
-                    'planRange: ' + planRange,
-                    'approveDate: ' + approveDate,
-                    'lh3Url: ' + (lh3Url ? lh3Url.slice(0,50) : '(ว่าง)'),
-                    'driveUrl: ' + (driveUrl ? driveUrl.slice(0,60) : '(ว่าง)'),
-                    'acts: ' + acts.length + ' รายการ',
-                    'hero: ' + (!!flexMsg.contents.hero),
-                    'footer: ' + (!!flexMsg.contents.footer),
-                ].join('\n')
-            };
-            const shareResult = await liff.shareTargetPicker([testMsg, flexMsg]);
+            const shareResult = await liff.shareTargetPicker([flexMsg]);
             if (shareResult && shareResult.status === 'success') {
                 showToast('แชร์สำเร็จ!');
             } else {
