@@ -30,11 +30,7 @@
             --shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Sarabun', sans-serif;
@@ -45,1625 +41,1151 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* ── LOCK ── */
         #lockScreen {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
+            position: fixed; inset: 0; z-index: 9999;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0ea5e9 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-
         .lock-card {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
-            padding: 40px 28px;
-            width: 90%;
-            max-width: 340px;
-            text-align: center;
-            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px; padding: 40px 28px; width: 90%; max-width: 340px;
+            text-align: center; backdrop-filter: blur(20px);
         }
-
-        .lock-icon {
-            font-size: 52px;
-            margin-bottom: 14px;
-        }
-
-        .lock-title {
-            font-size: 21px;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .lock-sub {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.55);
-            margin-bottom: 26px;
-            line-height: 1.6;
-        }
-
+        .lock-icon { font-size: 52px; margin-bottom: 14px; }
+        .lock-title { font-size: 21px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+        .lock-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 26px; line-height: 1.6; }
         .lock-input {
-            width: 100%;
-            padding: 13px 16px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            font-size: 18px;
-            color: #fff;
-            text-align: center;
-            letter-spacing: 5px;
-            font-family: 'Chakra Petch', monospace;
-            outline: none;
-            transition: border-color .2s;
+            width: 100%; padding: 13px 16px;
+            background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.2);
+            border-radius: 12px; font-size: 18px; color: #fff; text-align: center;
+            letter-spacing: 5px; font-family: 'Chakra Petch', monospace; outline: none; transition: border-color .2s;
         }
-
-        .lock-input::placeholder {
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 13px;
-        }
-
-        .lock-input:focus {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.18);
-        }
-
+        .lock-input::placeholder { letter-spacing: 1px; color: rgba(255,255,255,0.3); font-size: 13px; }
+        .lock-input:focus { border-color: var(--accent); background: rgba(255,255,255,0.18); }
         .lock-btn {
-            width: 100%;
-            margin-top: 14px;
-            padding: 14px;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: 'Sarabun', sans-serif;
-            transition: all .2s;
+            width: 100%; margin-top: 14px; padding: 14px;
+            background: var(--accent); color: #fff; border: none; border-radius: 12px;
+            font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Sarabun', sans-serif; transition: all .2s;
         }
+        .lock-btn:hover { background: #0284c7; transform: translateY(-1px); }
+        .lock-error { color: #f87171; font-size: 12px; margin-top: 10px; min-height: 18px; }
 
-        .lock-btn:hover {
-            background: #0284c7;
-            transform: translateY(-1px);
-        }
-
-        .lock-error {
-            color: #f87171;
-            font-size: 12px;
-            margin-top: 10px;
-            min-height: 18px;
-        }
-
+        /* ── HEADER ── */
         .app-header {
             background: linear-gradient(135deg, #1a56db 0%, #0e3bb5 60%, #0ea5e9 100%);
-            padding: 18px 20px 56px;
-            position: relative;
-            overflow: hidden;
+            padding: 18px 20px 56px; position: relative; overflow: hidden;
         }
-
         .app-header::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.06);
         }
-
         .app-header::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: -20px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
+            content: ''; position: absolute; bottom: -30px; left: -20px;
+            width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.04);
         }
-
         .header-school {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .12em;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-family: 'Chakra Petch', sans-serif; font-size: 11px; font-weight: 600;
+            letter-spacing: .12em; color: rgba(255,255,255,0.7); text-transform: uppercase;
+            margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
         }
-
-        .header-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.25;
-        }
-
-        .header-date {
-            margin-top: 6px;
-            font-size: 13px;
-            color: rgba(255, 255, 255, .75);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .header-badge-row {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
+        .header-title { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.25; }
+        .header-date { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: 6px; }
+        .header-badge-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
         .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: rgba(255, 255, 255, 0.18);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
+            display: inline-flex; align-items: center; gap: 5px;
+            background: rgba(255,255,255,0.18); color: #fff; padding: 4px 10px;
+            border-radius: 20px; font-size: 11px; font-weight: 600; backdrop-filter: blur(4px);
         }
 
+        /* ── PULL CARD ── */
         .pull-card {
-            background: var(--white);
-            border-radius: 24px 24px 0 0;
-            margin-top: -28px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 -4px 32px rgba(15, 23, 42, 0.10);
-            padding: 20px 16px 0;
-            min-height: calc(100vh - 160px);
+            background: var(--white); border-radius: 24px 24px 0 0; margin-top: -28px;
+            position: relative; z-index: 10; box-shadow: 0 -4px 32px rgba(15,23,42,0.10);
+            padding: 20px 16px 0; min-height: calc(100vh - 160px);
         }
 
+        /* ── TABS ── */
         .tab-bar {
-            display: flex;
-            background: var(--surface);
-            border-radius: 12px;
-            padding: 4px;
-            margin-bottom: 16px;
-            gap: 4px;
+            display: flex; background: var(--surface); border-radius: 12px; padding: 4px; margin-bottom: 16px; gap: 4px;
         }
-
         .tab-item {
-            flex: 1;
-            padding: 10px 6px;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--muted);
-            cursor: pointer;
-            border-radius: 9px;
-            transition: all .2s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
+            flex: 1; padding: 10px 6px; text-align: center; font-size: 12px; font-weight: 600;
+            color: var(--muted); cursor: pointer; border-radius: 9px; transition: all .2s;
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
         }
+        .tab-item.active { background: var(--white); color: var(--primary); box-shadow: var(--shadow); }
 
-        .tab-item.active {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: var(--shadow);
-        }
+        /* ── SECTIONS ── */
+        .section { display: none; }
+        .section.active { display: block; animation: fadeUp .25s ease; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: translateY(0) } }
 
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeUp .25s ease;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
+        /* ── CARD ── */
         .card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            overflow: hidden;
-            margin-bottom: 12px;
+            background: var(--white); border-radius: var(--radius);
+            box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04);
+            overflow: hidden; margin-bottom: 12px;
         }
-
         .card-header {
-            padding: 13px 16px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 13px 16px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
         }
-
-        .card-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--ink);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card-body {
-            padding: 16px;
-        }
+        .card-title { font-size: 14px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+        .card-body { padding: 16px; }
 
         .status-banner {
             background: linear-gradient(135deg, #e8fbf0 0%, #d1fae5 100%);
-            border: 1.5px solid #6ee7b7;
-            border-radius: 12px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
+            border: 1.5px solid #6ee7b7; border-radius: 12px; padding: 14px 16px;
+            display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
         }
+        .status-title { font-size: 15px; font-weight: 700; color: #065f46; }
+        .status-sub { font-size: 12px; color: #047857; margin-top: 2px; }
 
-        .status-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #065f46;
-        }
-
-        .status-sub {
-            font-size: 12px;
-            color: #047857;
-            margin-top: 2px;
-        }
-
-        .field-group {
-            margin-bottom: 13px;
-        }
-
+        /* ── FIELDS ── */
+        .field-group { margin-bottom: 13px; }
         .field-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: .06em;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+            letter-spacing: .06em; margin-bottom: 6px; display: flex; align-items: center; gap: 5px;
         }
-
-        .req {
-            color: var(--red);
+        .req { color: var(--red); }
+        .field-input, .field-select, .field-textarea {
+            width: 100%; padding: 10px 13px; border: 1.5px solid var(--border);
+            border-radius: 10px; font-size: 13.5px; font-family: 'Sarabun', sans-serif;
+            color: var(--ink); background: var(--white); transition: border-color .2s, box-shadow .2s; outline: none;
         }
-
-        .field-input,
-        .field-select,
-        .field-textarea {
-            width: 100%;
-            padding: 10px 13px;
-            border: 1.5px solid var(--border);
-            border-radius: 10px;
-            font-size: 13.5px;
-            font-family: 'Sarabun', sans-serif;
-            color: var(--ink);
-            background: var(--white);
-            transition: border-color .2s, box-shadow .2s;
-            outline: none;
+        .field-input:focus, .field-select:focus, .field-textarea:focus {
+            border-color: var(--primary); box-shadow: 0 0 0 3px rgba(26,86,219,0.10);
         }
-
-        .field-input:focus,
-        .field-select:focus,
-        .field-textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.10);
-        }
-
-        .field-textarea {
-            resize: vertical;
-            min-height: 72px;
-        }
-
+        .field-textarea { resize: vertical; min-height: 72px; }
         .field-select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 13px center;
+            background-repeat: no-repeat; background-position: right 13px center;
         }
 
+        /* ── ACTIVITIES ── */
         .activity-block {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: 13px;
-            padding: 14px;
-            margin-bottom: 10px;
-            transition: border-color .2s;
+            background: var(--surface); border: 1.5px solid var(--border);
+            border-radius: 13px; padding: 14px; margin-bottom: 10px; transition: border-color .2s;
         }
-
-        .activity-block:focus-within {
-            border-color: var(--primary);
-        }
-
-        .activity-block-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
+        .activity-block:focus-within { border-color: var(--primary); }
+        .activity-block-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .activity-num-badge {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-            flex-shrink: 0;
-            font-family: 'Chakra Petch', sans-serif;
+            width: 28px; height: 28px; border-radius: 50%; background: var(--primary); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+            flex-shrink: 0; font-family: 'Chakra Petch', sans-serif;
         }
-
         .remove-activity-btn {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            background: #fee2e2;
-            color: var(--red);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            transition: all .2s;
-            flex-shrink: 0;
-            margin-left: auto;
+            width: 28px; height: 28px; border-radius: 8px; background: #fee2e2; color: var(--red);
+            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 13px; transition: all .2s; flex-shrink: 0; margin-left: auto;
         }
-
-        .remove-activity-btn:hover {
-            background: var(--red);
-            color: #fff;
-        }
-
+        .remove-activity-btn:hover { background: var(--red); color: #fff; }
         .add-activity-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px;
-            border: 2px dashed var(--border);
-            border-radius: 12px;
-            background: transparent;
-            color: var(--muted);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Sarabun', sans-serif;
-            transition: all .2s;
-            margin-bottom: 12px;
+            display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+            padding: 12px; border: 2px dashed var(--border); border-radius: 12px; background: transparent;
+            color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer;
+            font-family: 'Sarabun', sans-serif; transition: all .2s; margin-bottom: 12px;
         }
+        .add-activity-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
 
-        .add-activity-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: var(--primary-light);
-        }
-
+        /* ── BUTTONS ── */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            padding: 11px 18px;
-            border-radius: 10px;
-            font-size: 13.5px;
-            font-weight: 600;
-            font-family: 'Sarabun', sans-serif;
-            cursor: pointer;
-            border: none;
-            transition: all .2s;
-            white-space: nowrap;
+            display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+            padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 600;
+            font-family: 'Sarabun', sans-serif; cursor: pointer; border: none; transition: all .2s; white-space: nowrap;
         }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,86,219,0.3); }
+        .btn-green { background: var(--green); color: #fff; }
+        .btn-green:hover { background: var(--green-dark); transform: translateY(-1px); }
+        .btn-secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+        .btn-outline { background: var(--primary-light); color: var(--primary-dark); border: 1.5px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: #fff; }
+        .btn-sm { padding: 7px 13px; font-size: 12px; border-radius: 8px; }
+        .btn-xs { padding: 5px 10px; font-size: 11px; border-radius: 7px; }
+        .btn-full { width: 100%; }
+        .btn:disabled { opacity: .5; cursor: not-allowed; transform: none !important; }
 
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(26, 86, 219, 0.3);
-        }
-
-        .btn-green {
-            background: var(--green);
-            color: #fff;
-        }
-
-        .btn-green:hover {
-            background: var(--green-dark);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--ink);
-            border: 1.5px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .btn-outline {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            border: 1.5px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .btn-sm {
-            padding: 7px 13px;
-            font-size: 12px;
-            border-radius: 8px;
-        }
-
-        .btn-xs {
-            padding: 5px 10px;
-            font-size: 11px;
-            border-radius: 7px;
-        }
-
-        .btn-full {
-            width: 100%;
-        }
-
-        .btn:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
+        /* ── UPLOAD ── */
         .upload-zone {
-            border: 2px dashed var(--border);
-            border-radius: 11px;
-            padding: 18px;
-            text-align: center;
-            cursor: pointer;
-            transition: all .2s;
-            background: var(--surface);
+            border: 2px dashed var(--border); border-radius: 11px; padding: 20px;
+            text-align: center; cursor: pointer; transition: all .2s; background: var(--surface);
         }
-
-        .upload-zone:hover,
-        .upload-zone.drag-over {
-            border-color: var(--primary);
-            background: var(--primary-light);
-        }
-
+        .upload-zone:hover, .upload-zone.drag-over { border-color: var(--primary); background: var(--primary-light); }
         .file-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 11px;
-            border-radius: 9px;
-            background: var(--surface);
+            display: flex; align-items: center; gap: 10px; padding: 9px 11px;
+            border-radius: 9px; background: var(--surface); border: 1px solid var(--border); margin-top: 7px;
+        }
+
+        /* ── UPLOAD PROGRESS ── */
+        .upload-progress-bar {
+            height: 4px; background: var(--border); border-radius: 2px; margin-top: 6px; overflow: hidden;
+        }
+        .upload-progress-fill {
+            height: 100%; background: var(--primary); border-radius: 2px; transition: width .3s ease; width: 0%;
+        }
+        .upload-status-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 8px; border-radius: 100px; font-size: 10px; font-weight: 700;
+        }
+        .upload-status-badge.uploading { background: #fef3c7; color: #92400e; }
+        .upload-status-badge.done      { background: #d1fae5; color: #065f46; }
+        .upload-status-badge.error     { background: #fee2e2; color: #991b1b; }
+
+        /* ── PREVIEW IMAGE ── */
+        .img-preview-wrap {
+            margin-top: 8px; border-radius: 10px; overflow: hidden; position: relative;
             border: 1px solid var(--border);
-            margin-top: 7px;
         }
-
-        .flex-preview-box {
-            background: #1C2333;
-            border-radius: 16px;
-            padding: 16px;
-            margin-top: 8px;
+        .img-preview-wrap img { width: 100%; display: block; max-height: 200px; object-fit: cover; }
+        .img-preview-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.45);
+            display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0; transition: opacity .2s;
         }
+        .img-preview-wrap:hover .img-preview-overlay { opacity: 1; }
 
+        /* ── FLEX PREVIEW ── */
+        .flex-preview-box { background: #1C2333; border-radius: 16px; padding: 16px; margin-top: 8px; }
         .flex-preview-header {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 9px;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .4);
-            margin-bottom: 10px;
+            font-family: 'Chakra Petch', sans-serif; font-size: 9px; letter-spacing: .12em;
+            text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 10px;
         }
+        .flex-single-bubble { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
 
-        .flex-single-bubble {
-            background: #fff;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-        }
-
+        /* ── BUBBLE PARTS ── */
         .bubble-hero-strip {
-            padding: 14px 16px;
-            background: linear-gradient(135deg, #1a56db, #0ea5e9);
+            padding: 18px 16px 14px;
+            background: linear-gradient(135deg, #1a56db 0%, #0284c7 100%);
+            position: relative; overflow: hidden;
         }
-
-        .bubble-hero-title {
-            font-size: 13px;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.4;
+        .bubble-hero-strip::before {
+            content: ''; position: absolute; top: -30px; right: -30px;
+            width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.08);
         }
-
-        .bubble-hero-meta {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .7);
-            margin-top: 3px;
+        .bubble-hero-eyebrow {
+            font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.7);
+            letter-spacing: .1em; text-transform: uppercase; margin-bottom: 5px;
+            display: flex; align-items: center; gap: 4px;
         }
+        .bubble-hero-title { font-size: 15px; font-weight: 800; color: #fff; line-height: 1.35; }
+        .bubble-hero-date-row {
+            margin-top: 8px; display: flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,0.15); border-radius: 8px; padding: 5px 9px; width: fit-content;
+        }
+        .bubble-hero-date { font-size: 11px; font-weight: 700; color: #fff; }
 
+        .bubble-body { padding: 12px 14px 6px; }
+        .bubble-section-label {
+            font-size: 9px; font-weight: 800; color: var(--muted); letter-spacing: .08em;
+            text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 5px;
+        }
         .bubble-activity-row {
-            padding: 10px 16px;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
+            padding: 9px 0; border-bottom: 1px solid #f1f5f9; display: flex; gap: 10px; align-items: flex-start;
         }
-
+        .bubble-activity-row:last-child { border-bottom: none; }
         .bubble-activity-num {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-family: 'Chakra Petch', sans-serif;
-            margin-top: 1px;
+            width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff;
+            font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-family: 'Chakra Petch', sans-serif; margin-top: 1px;
         }
+        .bubble-activity-text { font-size: 12px; color: #1C2333; line-height: 1.55; flex: 1; }
+        .bubble-result-chip {
+            display: inline-flex; align-items: center; gap: 3px; padding: 2px 6px;
+            border-radius: 5px; font-size: 9.5px; font-weight: 700; margin-top: 3px;
+        }
+        .bubble-result-chip.approved  { background: #d1fae5; color: #065f46; }
+        .bubble-result-chip.subsidized { background: #dbeafe; color: #1e40af; }
+        .bubble-result-chip.rejected  { background: #fee2e2; color: #991b1b; }
+        .bubble-result-chip.pending   { background: #fef3c7; color: #92400e; }
 
-        .bubble-activity-text {
-            font-size: 12px;
-            color: #1C2333;
-            line-height: 1.55;
-            flex: 1;
+        .bubble-summary-strip {
+            margin: 10px 14px; padding: 10px 12px;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        }
+        .bubble-summary-text { font-size: 11px; font-weight: 700; color: #0c4a6e; }
+        .bubble-count-badge {
+            background: var(--primary); color: #fff; padding: 3px 9px;
+            border-radius: 100px; font-size: 11px; font-weight: 800; white-space: nowrap;
+            font-family: 'Chakra Petch', sans-serif;
         }
 
         .bubble-footer-strip {
-            padding: 10px 16px;
-            background: #f8fafc;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            padding: 10px 14px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; gap: 8px;
         }
-
-        .bubble-footer-note {
-            font-size: 10px;
-            color: var(--muted);
-            line-height: 1.6;
-            flex: 1;
-        }
-
+        .bubble-footer-note { font-size: 10px; color: var(--muted); line-height: 1.5; flex: 1; }
+        .bubble-img-preview { width: 100%; display: block; max-height: 160px; object-fit: cover; }
         .bubble-footer-btn {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 7px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: 'Sarabun', sans-serif;
-            flex-shrink: 0;
+            background: var(--primary); color: #fff; border: none; border-radius: 8px;
+            padding: 7px 12px; font-size: 11px; font-weight: 700; cursor: pointer;
+            font-family: 'Sarabun', sans-serif; flex-shrink: 0; white-space: nowrap;
         }
 
+        /* ── SEARCH + RECORDS ── */
         .search-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--white);
-            border: 1.5px solid var(--border);
-            border-radius: 11px;
-            padding: 0 12px;
-            transition: border-color .2s;
-            margin-bottom: 10px;
+            display: flex; align-items: center; gap: 8px; background: var(--white);
+            border: 1.5px solid var(--border); border-radius: 11px; padding: 0 12px;
+            transition: border-color .2s; margin-bottom: 10px;
         }
-
-        .search-box:focus-within {
-            border-color: var(--primary);
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 10px 0;
-            border: none;
-            background: transparent;
-            font-size: 13px;
-            font-family: 'Sarabun', sans-serif;
-            color: var(--ink);
-            outline: none;
-        }
-
-        .search-input::placeholder {
-            color: var(--muted);
-        }
-
-        .search-clear {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--muted);
-            padding: 4px;
-            border-radius: 6px;
-            display: none;
-            font-size: 13px;
-        }
-
-        .search-clear.visible {
-            display: block;
-        }
-
+        .search-box:focus-within { border-color: var(--primary); }
+        .search-input { flex: 1; padding: 10px 0; border: none; background: transparent; font-size: 13px; font-family: 'Sarabun', sans-serif; color: var(--ink); outline: none; }
+        .search-input::placeholder { color: var(--muted); }
+        .search-clear { background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; border-radius: 6px; display: none; font-size: 13px; }
+        .search-clear.visible { display: block; }
         .record-item {
-            padding: 13px 15px;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            transition: background .15s;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 10px;
+            padding: 13px 15px; border-bottom: 1px solid var(--border); cursor: pointer;
+            transition: background .15s; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
         }
-
-        .record-item:hover {
-            background: var(--primary-light);
-        }
-
-        .record-item:last-child {
-            border-bottom: none;
-        }
-
+        .record-item:hover { background: var(--primary-light); }
+        .record-item:last-child { border-bottom: none; }
         .record-id {
-            font-family: 'Chakra Petch', monospace;
-            font-size: 10px;
-            color: var(--primary);
-            font-weight: 700;
-            background: var(--primary-light);
-            padding: 2px 7px;
-            border-radius: 5px;
-            white-space: nowrap;
+            font-family: 'Chakra Petch', monospace; font-size: 10px; color: var(--primary); font-weight: 700;
+            background: var(--primary-light); padding: 2px 7px; border-radius: 5px; white-space: nowrap;
         }
+        mark { background: #fef08a; border-radius: 3px; padding: 0 1px; }
 
-        mark {
-            background: #fef08a;
-            border-radius: 3px;
-            padding: 0 1px;
-        }
-
-        .pagination {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 12px 4px 4px;
-        }
-
+        /* ── PAGINATION ── */
+        .pagination { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 4px 4px; }
         .page-btn {
-            min-width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            border: 1.5px solid var(--border);
-            background: var(--white);
-            color: var(--ink);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Chakra Petch', sans-serif;
-            transition: all .2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 8px;
+            min-width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid var(--border);
+            background: var(--white); color: var(--ink); font-size: 12px; font-weight: 600; cursor: pointer;
+            font-family: 'Chakra Petch', sans-serif; transition: all .2s;
+            display: flex; align-items: center; justify-content: center; padding: 0 8px;
         }
+        .page-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+        .page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .page-btn:disabled { opacity: .35; cursor: not-allowed; }
+        .page-info { font-size: 11px; color: var(--muted); font-family: 'Chakra Petch', sans-serif; padding: 0 4px; }
 
-        .page-btn:hover:not(:disabled) {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .page-btn.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-
-        .page-btn:disabled {
-            opacity: .35;
-            cursor: not-allowed;
-        }
-
-        .page-info {
-            font-size: 11px;
-            color: var(--muted);
-            font-family: 'Chakra Petch', sans-serif;
-            padding: 0 4px;
-        }
-
+        /* ── STATUS BAR ── */
         #sheetStatusBar {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            border-radius: 10px;
-            padding: 9px 13px;
-            margin-bottom: 10px;
-            font-size: 12px;
+            display: none; align-items: center; gap: 8px; background: #f0f9ff;
+            border: 1px solid #bae6fd; border-radius: 10px; padding: 9px 13px; margin-bottom: 10px; font-size: 12px;
         }
+        .status-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+        .status-dot.loading { background: var(--amber); animation: pulse 1s infinite; }
+        .status-dot.done    { background: var(--green); }
+        .status-dot.error   { background: var(--red); }
+        @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .4 } }
 
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .status-dot.loading {
-            background: var(--amber);
-            animation: pulse 1s infinite;
-        }
-
-        .status-dot.done {
-            background: var(--green);
-        }
-
-        .status-dot.error {
-            background: var(--red);
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .4
-            }
-        }
-
+        /* ── TOAST ── */
         .toast {
-            position: fixed;
-            bottom: 92px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: var(--ink);
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 500;
-            opacity: 0;
-            transition: all .3s;
-            z-index: 1000;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            max-width: 320px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            position: fixed; bottom: 92px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 100px;
+            font-size: 13px; font-weight: 500; opacity: 0; transition: all .3s; z-index: 1000;
+            white-space: nowrap; display: flex; align-items: center; gap: 7px;
+            max-width: 320px; box-shadow: 0 4px 24px rgba(0,0,0,0.2);
         }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
+        /* ── MODALS ── */
         .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.55);
-            z-index: 200;
-            display: none;
-            align-items: flex-end;
-            justify-content: center;
-            backdrop-filter: blur(3px);
+            position: fixed; inset: 0; background: rgba(15,23,42,0.55); z-index: 200;
+            display: none; align-items: flex-end; justify-content: center; backdrop-filter: blur(3px);
         }
-
-        .modal-overlay.show {
-            display: flex;
-            animation: fadeIn .2s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
+        .modal-overlay.show { display: flex; animation: fadeIn .2s; }
+        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
         .modal-sheet {
-            background: #fff;
-            border-radius: 22px 22px 0 0;
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            animation: slideUp .32s cubic-bezier(0.34, 1.3, 0.64, 1);
-            max-height: 92vh;
-            overflow-y: auto;
+            background: #fff; border-radius: 22px 22px 0 0; width: 100%; max-width: 500px;
+            padding: 20px; animation: slideUp .32s cubic-bezier(0.34,1.3,0.64,1);
+            max-height: 92vh; overflow-y: auto;
         }
+        @keyframes slideUp { from { transform: translateY(100%) } to { transform: translateY(0) } }
+        .modal-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 auto 16px; }
+        .modal-title { font-size: 17px; font-weight: 800; margin-bottom: 14px; }
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%)
-            }
-
-            to {
-                transform: translateY(0)
-            }
-        }
-
-        .modal-handle {
-            width: 36px;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            margin: 0 auto 16px;
-        }
-
-        .modal-title {
-            font-size: 17px;
-            font-weight: 800;
-            margin-bottom: 14px;
-        }
-
+        /* ── BOTTOM NAV ── */
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-around;
-            padding: 8px 0 18px;
-            z-index: 100;
-            box-shadow: 0 -2px 20px rgba(15, 23, 42, 0.06);
+            position: fixed; bottom: 0; left: 0; right: 0; background: #fff;
+            border-top: 1px solid var(--border); display: flex; justify-content: space-around;
+            padding: 8px 0 18px; z-index: 100; box-shadow: 0 -2px 20px rgba(15,23,42,0.06);
         }
-
         .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            padding: 5px 28px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--muted);
-            transition: all .2s;
+            display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 5px 28px;
+            border-radius: 10px; cursor: pointer; font-size: 10px; font-weight: 600; color: var(--muted); transition: all .2s;
         }
+        .nav-item svg { width: 20px; height: 20px; }
+        .nav-item.active { color: var(--primary); }
 
-        .nav-item svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .nav-item.active {
-            color: var(--primary);
-        }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 9px;
-            border-radius: 100px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .chip-blue {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-        }
-
-        .chip-amber {
-            background: var(--amber-light);
-            color: #92400e;
-        }
-
+        /* ── MISC ── */
+        .chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 100px; font-size: 10px; font-weight: 700; }
+        .chip-blue  { background: var(--primary-light); color: var(--primary-dark); }
+        .chip-amber { background: var(--amber-light); color: #92400e; }
+        .chip-green { background: var(--green-light); color: var(--green-dark); }
         .section-label {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-family: 'Chakra Petch', sans-serif; font-size: 10px; font-weight: 600;
+            letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+            margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
         }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 36px 20px;
-            color: var(--muted);
-        }
-
-        .empty-state .empty-icon {
-            font-size: 44px;
-            opacity: .25;
-            margin-bottom: 10px;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .empty-state { text-align: center; padding: 36px 20px; color: var(--muted); }
+        .empty-state .empty-icon { font-size: 44px; opacity: .25; margin-bottom: 10px; }
+        input[type="file"] { display: none; }
         .spinner {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border: 2px solid rgba(0, 0, 0, .1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin .7s linear infinite;
+            display: inline-block; width: 14px; height: 14px;
+            border: 2px solid rgba(0,0,0,.1); border-top-color: var(--primary);
+            border-radius: 50%; animation: spin .7s linear infinite;
         }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg)
-            }
-        }
+        @keyframes spin { to { transform: rotate(360deg) } }
     </style>
 </head>
 
 <body>
 
-    <!-- LOCK -->
-    <div id="lockScreen">
-        <div class="lock-card">
-            <div class="lock-icon">🔐</div>
-            <div class="lock-title">ระบบแจ้งผลอนุมัติแผน</div>
-            <div class="lock-sub">โรงเรียนแกลง"วิทยสถาวร"<br>กรุณาใส่รหัสผ่านเพื่อเข้าใช้งาน</div>
-            <input type="password" class="lock-input" id="lockInput" placeholder="ใส่รหัสผ่าน" maxlength="30">
-            <button class="lock-btn" onclick="checkLock()">🔓 เข้าสู่ระบบ</button>
-            <div class="lock-error" id="lockError"></div>
+<!-- ════ LOCK ════ -->
+<div id="lockScreen">
+    <div class="lock-card">
+        <div class="lock-icon">🔐</div>
+        <div class="lock-title">ระบบแจ้งผลอนุมัติแผน</div>
+        <div class="lock-sub">โรงเรียนแกลง"วิทยสถาวร"<br>กรุณาใส่รหัสผ่านเพื่อเข้าใช้งาน</div>
+        <input type="password" class="lock-input" id="lockInput" placeholder="ใส่รหัสผ่าน" maxlength="30">
+        <button class="lock-btn" onclick="checkLock()">🔓 เข้าสู่ระบบ</button>
+        <div class="lock-error" id="lockError"></div>
+    </div>
+</div>
+
+<!-- ════ APP ════ -->
+<div id="appWrap" style="display:none;">
+    <div class="app-header">
+        <div class="header-school">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            <span id="hdr_school"></span>
+        </div>
+        <div class="header-title">📢 ระบบแจ้งผลอนุมัติแผน</div>
+        <div class="header-date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span id="currentDateDisplay"></span>
+        </div>
+        <div class="header-badge-row">
+            <div class="header-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+                LINE Mini App
+            </div>
+            <div class="header-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span id="totalBadgeText">0 รายการ</span>
+            </div>
         </div>
     </div>
 
-    <!-- APP -->
-    <div id="appWrap" style="display:none;">
-        <div class="app-header">
-            <div class="header-school">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                    <polyline points="9,22 9,12 15,12 15,22" />
-                </svg>
-                <span id="hdr_school"></span>
-            </div>
-            <div class="header-title">📢 ระบบแจ้งผลอนุมัติแผน</div>
-            <div class="header-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                <span id="currentDateDisplay"></span>
-            </div>
-            <div class="header-badge-row">
-                <div class="header-badge">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
-                    </svg>
-                    LINE Mini App
-                </div>
-                <div class="header-badge">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span id="totalBadgeText">0 รายการ</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="pull-card">
-            <div class="tab-bar">
-                <div class="tab-item active" onclick="switchTab('form')" data-tab="form">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-                    </svg>
-                    กรอกข้อมูล
-                </div>
-                <div class="tab-item" onclick="switchTab('records')" data-tab="records">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <ellipse cx="12" cy="5" rx="9" ry="3" />
-                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                    </svg>
-                    รายการ
-                </div>
-            </div>
-
-            <!-- FORM -->
-            <div class="section active" id="sec-form">
-                <div class="status-banner">
-                    <div style="font-size:26px;flex-shrink:0;">✅</div>
-                    <div>
-                        <div class="status-title">กรอกข้อมูลแล้วแชร์ได้เลย</div>
-                        <div class="status-sub">ระบบส่ง Flex Bubble 1 ข้อความ รวมทุกรายการ</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <line x1="3" y1="9" x2="21" y2="9" />
-                                <line x1="9" y1="3" x2="9" y2="21" />
-                            </svg>
-                            ข้อมูลส่วนกลาง
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="field-group">
-                            <div class="field-label">แผนที่แจ้ง <span class="req">*</span></div>
-                            <input type="text" class="field-input" id="gf_planRange" placeholder="เช่น: 1-3">
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label">วันที่อนุมัติ <span class="req">*</span></div>
-                            <input type="text" class="field-input" id="gf_approveDate"
-                                placeholder="เช่น: 2 มีนาคม 2569">
-                        </div>
-                        <div class="field-group" style="margin-bottom:0;">
-                            <div class="field-label">ลิงก์เอกสาร / ภาพ</div>
-                            <input type="url" class="field-input" id="gf_docLink"
-                                placeholder="https://drive.google.com/...">
-                            <div style="font-size:11px;color:var(--muted);margin-top:3px;">📎 ลิงก์รายละเอียดในข้อความ
-                                LINE</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-label">รายการกิจกรรม</div>
-                <div id="activityContainer"></div>
-                <button class="add-activity-btn" onclick="addActivity()">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    เพิ่มรายการกิจกรรม
-                </button>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <path
-                                    d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
-                            </svg>
-                            แนบไฟล์
-                        </div>
-                        <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
-                    </div>
-                </div>
-
-                <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
-                    <div class="section-label">ตัวอย่าง Flex Bubble</div>
-                    <div class="flex-preview-box">
-                        <div class="flex-preview-header">PREVIEW — LINE FLEX MESSAGE</div>
-                        <div class="flex-single-bubble" id="flexPreviewBubble"></div>
-                    </div>
-                </div>
-
-                <div style="display:flex;gap:10px;margin-bottom:8px;">
-                    <button class="btn btn-secondary" style="flex:1;" onclick="clearForm()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polyline points="1 4 1 10 7 10" />
-                            <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
-                        </svg>
-                        ล้างข้อมูล
-                    </button>
-                    <button class="btn btn-outline" style="flex:1;" onclick="previewFlex()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                        </svg>
-                        ดูตัวอย่าง
-                    </button>
-                </div>
-                <button class="btn btn-primary btn-full" id="saveBtn" onclick="submitForm()" style="margin-bottom:8px;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
-                        <polyline points="17 21 17 13 7 13 7 21" />
-                    </svg>
-                    บันทึกข้อมูล
-                </button>
-                <button class="btn btn-green btn-full" id="shareBtn" onclick="openShareModal()"
-                    style="display:none;margin-bottom:4px;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <line x1="22" y1="2" x2="11" y2="13" />
-                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                    แชร์ผ่าน LINE
-                </button>
-            </div>
-
-            <!-- RECORDS -->
-            <div class="section" id="sec-records">
-                <div id="sheetStatusBar">
-                    <div class="status-dot" id="statusDot"></div>
-                    <span id="statusMsg"></span>
-                    <button id="retryBtn" onclick="fetchSheetRecords()"
-                        style="display:none;margin-left:auto;border:none;background:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:11px;">ลองอีกครั้ง</button>
-                    <button onclick="fetchSheetRecords()"
-                        style="margin-left:auto;border:none;background:none;color:var(--muted);cursor:pointer;font-size:13px;"
-                        title="รีเฟรช" id="refreshBtn">🔄</button>
-                </div>
-                <div class="search-box">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                    <input class="search-input" id="searchInput" type="search"
-                        placeholder="ค้นหา ชื่อกิจกรรม / ผู้รับผิดชอบ / แผน..." oninput="onSearch()">
-                    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5">
-                                <ellipse cx="12" cy="5" rx="9" ry="3" />
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                            </svg>
-                            รายการจาก Google Sheets
-                        </div>
-                        <span class="chip chip-blue" id="totalCount">0 รายการ</span>
-                    </div>
-                    <div id="recordList">
-                        <div class="empty-state">
-                            <div class="empty-icon">☁️</div>
-                            <p style="font-size:13.5px;">กำลังโหลดข้อมูล...</p>
-                        </div>
-                    </div>
-                    <div id="pagination" class="pagination" style="display:none;"></div>
-                </div>
-                <div style="padding:0 4px 8px;display:flex;gap:8px;">
-                    <button class="btn btn-secondary btn-sm" onclick="fetchSheetRecords()" style="flex:1;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polyline points="1 4 1 10 7 10" />
-                            <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
-                        </svg>
-                        โหลดใหม่
-                    </button>
-                    <button class="btn btn-secondary btn-sm" onclick="lockApp()">🔒 ล็อก</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom-nav">
-            <div class="nav-item active" onclick="switchTab('form')" id="nav-form">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+    <div class="pull-card">
+        <div class="tab-bar">
+            <div class="tab-item active" onclick="switchTab('form')" data-tab="form">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
                 </svg>
                 กรอกข้อมูล
             </div>
-            <div class="nav-item" onclick="switchTab('records')" id="nav-records">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <ellipse cx="12" cy="5" rx="9" ry="3" />
-                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            <div class="tab-item" onclick="switchTab('records')" data-tab="records">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
                 </svg>
                 รายการ
             </div>
         </div>
-    </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <svg id="toastIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5">
-            <polyline points="20 6 9 17 4 12" />
-        </svg>
-        <span id="toastMsg"></span>
-    </div>
-
-    <!-- CONFIRM MODAL -->
-    <div class="modal-overlay" id="confirmModal">
-        <div class="modal-sheet">
-            <div class="modal-handle"></div>
-            <div style="text-align:center;padding:6px 0 16px;">
-                <div style="font-size:52px;margin-bottom:10px;">💾</div>
-                <div class="modal-title" style="text-align:center;">ยืนยันการบันทึก?</div>
-                <p style="font-size:13.5px;color:var(--muted);line-height:1.6;">ข้อมูลจะถูกบันทึกลง Google
-                    Sheets<br>และส่งอีเมลแจ้งผู้รับผิดชอบแต่ละคน</p>
+        <!-- ══ FORM ══ -->
+        <div class="section active" id="sec-form">
+            <div class="status-banner">
+                <div style="font-size:26px;flex-shrink:0;">✅</div>
+                <div>
+                    <div class="status-title">กรอกข้อมูลแล้วแชร์ได้เลย</div>
+                    <div class="status-sub">อัปโหลดรูปภาพ → ระบบส่ง Flex Bubble รวมทุกรายการพร้อมรูป</div>
+                </div>
             </div>
-            <div style="display:flex;gap:10px;">
-                <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('confirmModal')">ยกเลิก</button>
-                <button class="btn btn-primary" style="flex:2;" onclick="confirmAndSave()">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="20 6 9 17 4 12" />
+
+            <!-- ข้อมูลส่วนกลาง -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/>
+                        </svg>
+                        ข้อมูลส่วนกลาง
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="field-group">
+                        <div class="field-label">แผนที่แจ้ง <span class="req">*</span></div>
+                        <input type="text" class="field-input" id="gf_planRange" placeholder="เช่น: 1-3">
+                    </div>
+                    <div class="field-group" style="margin-bottom:0;">
+                        <div class="field-label">วันที่อนุมัติ <span class="req">*</span></div>
+                        <input type="text" class="field-input" id="gf_approveDate" placeholder="เช่น: 2 มีนาคม 2569">
+                    </div>
+                </div>
+            </div>
+
+            <!-- อัปโหลดภาพหลักฐาน -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        ภาพหลักฐานการอนุมัติ
+                    </div>
+                    <span class="chip chip-amber" id="imgUploadStatus">ยังไม่อัปโหลด</span>
+                </div>
+                <div class="card-body">
+                    <div class="upload-zone" id="imgUploadZone" onclick="document.getElementById('imgFileInput').click()">
+                        <div style="font-size:32px;margin-bottom:8px;">🖼️</div>
+                        <div style="font-size:13px;color:var(--muted);">
+                            <span style="color:var(--primary);font-weight:700;">แตะเลือกรูปภาพ</span><br>
+                            <span style="font-size:11px;margin-top:2px;display:block;">JPG, PNG, WEBP (สูงสุด 10MB)<br>ระบบจะอัปโหลดไปยัง Google Drive อัตโนมัติ</span>
+                        </div>
+                    </div>
+                    <input type="file" id="imgFileInput" accept="image/*" onchange="handleImageSelect(this.files[0])">
+
+                    <!-- progress + preview -->
+                    <div id="imgUploadProgress" style="display:none;margin-top:10px;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                            <span style="font-size:11px;color:var(--muted);" id="imgProgressLabel">กำลังอัปโหลด...</span>
+                            <span class="upload-status-badge uploading" id="imgStatusBadge">⏳ อัปโหลด...</span>
+                        </div>
+                        <div class="upload-progress-bar">
+                            <div class="upload-progress-fill" id="imgProgressFill"></div>
+                        </div>
+                    </div>
+
+                    <div id="imgPreviewWrap" style="display:none;margin-top:10px;">
+                        <div class="img-preview-wrap">
+                            <img id="imgPreviewEl" src="" alt="preview">
+                            <div class="img-preview-overlay">
+                                <button onclick="clearImage()" style="background:rgba(239,68,68,0.9);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;">🗑️ ลบรูป</button>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding:8px 10px;background:var(--green-light);border-radius:9px;border:1px solid #6ee7b7;">
+                            <span style="font-size:16px;">✅</span>
+                            <div style="flex:1;min-width:0;">
+                                <div style="font-size:12px;font-weight:700;color:#065f46;" id="imgDriveFileName">อัปโหลดสำเร็จ</div>
+                                <div style="font-size:10px;color:#047857;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="imgDriveUrl">—</div>
+                            </div>
+                            <a id="imgDriveLink" href="#" target="_blank" style="color:var(--primary);font-size:11px;font-weight:700;white-space:nowrap;">เปิดดู</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- รายการกิจกรรม -->
+            <div class="section-label">รายการกิจกรรม</div>
+            <div id="activityContainer"></div>
+            <button class="add-activity-btn" onclick="addActivity()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                เพิ่มรายการกิจกรรม
+            </button>
+
+            <!-- ไฟล์แนบเพิ่มเติม (รักษาไว้) -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
+                        </svg>
+                        ไฟล์แนบเพิ่มเติม
+                    </div>
+                    <span class="chip chip-amber" id="fileCount">0 ไฟล์</span>
+                </div>
+                <div class="card-body">
+                    <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                        <div style="font-size:26px;margin-bottom:6px;">☁️</div>
+                        <div style="font-size:13px;color:var(--muted);">
+                            <span style="color:var(--primary);font-weight:700;">แตะเลือกไฟล์</span> หรือลากวางที่นี่<br>
+                            <span style="font-size:11px;margin-top:2px;display:block;">รูปภาพ, PDF, Word, Excel (สูงสุด 10MB)</span>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx" onchange="handleFileSelect(this.files)">
+                    <div id="fileList"></div>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div id="flexPreviewWrap" style="display:none;margin-bottom:14px;">
+                <div class="section-label">ตัวอย่าง Flex Bubble</div>
+                <div class="flex-preview-box">
+                    <div class="flex-preview-header">PREVIEW — LINE FLEX MESSAGE</div>
+                    <div class="flex-single-bubble" id="flexPreviewBubble"></div>
+                </div>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-bottom:8px;">
+                <button class="btn btn-secondary" style="flex:1;" onclick="clearForm()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="1 4 1 10 7 10"/>
+                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
                     </svg>
-                    ยืนยัน บันทึก
+                    ล้างข้อมูล
                 </button>
+                <button class="btn btn-outline" style="flex:1;" onclick="previewFlex()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    </svg>
+                    ดูตัวอย่าง
+                </button>
+            </div>
+            <button class="btn btn-primary btn-full" id="saveBtn" onclick="submitForm()" style="margin-bottom:8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                </svg>
+                บันทึกข้อมูล
+            </button>
+            <button class="btn btn-green btn-full" id="shareBtn" onclick="openShareModal()" style="display:none;margin-bottom:4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                แชร์ผ่าน LINE
+            </button>
+        </div>
+
+        <!-- ══ RECORDS ══ -->
+        <div class="section" id="sec-records">
+            <div id="sheetStatusBar">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusMsg"></span>
+                <button id="retryBtn" onclick="fetchSheetRecords()" style="display:none;margin-left:auto;border:none;background:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:11px;">ลองอีกครั้ง</button>
+                <button onclick="fetchSheetRecords()" style="margin-left:auto;border:none;background:none;color:var(--muted);cursor:pointer;font-size:13px;" title="รีเฟรช" id="refreshBtn">🔄</button>
+            </div>
+            <div class="search-box">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input class="search-input" id="searchInput" type="search" placeholder="ค้นหา ชื่อกิจกรรม / ผู้รับผิดชอบ / แผน..." oninput="onSearch()">
+                <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        </svg>
+                        รายการจาก Google Sheets
+                    </div>
+                    <span class="chip chip-blue" id="totalCount">0 รายการ</span>
+                </div>
+                <div id="recordList">
+                    <div class="empty-state"><div class="empty-icon">☁️</div><p style="font-size:13.5px;">กำลังโหลดข้อมูล...</p></div>
+                </div>
+                <div id="pagination" class="pagination" style="display:none;"></div>
+            </div>
+            <div style="padding:0 4px 8px;display:flex;gap:8px;">
+                <button class="btn btn-secondary btn-sm" onclick="fetchSheetRecords()" style="flex:1;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+                    </svg>
+                    โหลดใหม่
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="lockApp()">🔒 ล็อก</button>
             </div>
         </div>
     </div>
 
-    <!-- SHARE MODAL -->
-    <div class="modal-overlay" id="shareModal">
-        <div class="modal-sheet">
-            <div class="modal-handle"></div>
-            <div class="modal-title">แชร์ผ่าน LINE</div>
-            <div style="margin-bottom:6px;font-size:13px;color:var(--muted);">ตัวอย่าง Flex Bubble ที่จะส่ง</div>
-            <div class="flex-preview-box" style="margin-bottom:14px;">
-                <div class="flex-preview-header">PREVIEW</div>
-                <div class="flex-single-bubble" id="sharePreviewBubble"></div>
-            </div>
-            <div style="display:flex;gap:10px;">
-                <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('shareModal')">ปิด</button>
-                <button class="btn btn-green" style="flex:2;" id="shareNowBtn" onclick="shareToLine()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <line x1="22" y1="2" x2="11" y2="13" />
-                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                    แชร์ใน LINE ตอนนี้
-                </button>
-            </div>
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('form')" id="nav-form">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            กรอกข้อมูล
+        </div>
+        <div class="nav-item" onclick="switchTab('records')" id="nav-records">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+            รายการ
         </div>
     </div>
+</div>
 
-    <!-- RECORD DETAIL MODAL -->
-    <div class="modal-overlay" id="recordModal">
-        <div class="modal-sheet">
-            <div class="modal-handle"></div>
-            <div class="modal-title" id="recordModalTitle">รายละเอียด</div>
-            <div id="recordModalContent"></div>
-            <div style="display:flex;gap:10px;margin-top:14px;">
-                <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('recordModal')">ปิด</button>
-                <button class="btn btn-green" style="flex:2;" onclick="shareRecordFromModal()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <line x1="22" y1="2" x2="11" y2="13" />
-                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                    </svg>
-                    แชร์ใน LINE
-                </button>
-            </div>
+<!-- TOAST -->
+<div class="toast" id="toast">
+    <svg id="toastIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"/>
+    </svg>
+    <span id="toastMsg"></span>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal-sheet">
+        <div class="modal-handle"></div>
+        <div style="text-align:center;padding:6px 0 16px;">
+            <div style="font-size:52px;margin-bottom:10px;">💾</div>
+            <div class="modal-title" style="text-align:center;">ยืนยันการบันทึก?</div>
+            <p style="font-size:13.5px;color:var(--muted);line-height:1.6;">ข้อมูลจะถูกบันทึกลง Google Sheets<br>และส่งอีเมลแจ้งผู้รับผิดชอบแต่ละคน</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+            <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('confirmModal')">ยกเลิก</button>
+            <button class="btn btn-primary" style="flex:2;" onclick="confirmAndSave()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                ยืนยัน บันทึก
+            </button>
         </div>
     </div>
+</div>
 
-    <script>
-        // ════════════════════════════════════════════════
-        //  CONFIG
-        // ════════════════════════════════════════════════
-        const CFG = {
-            PASSWORD: 'school2568',
-            GAS_URL: 'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
-            SHEET_NAME: 'Sheet1',
-            LIFF_ID: '2009306563-QXaMSWaV',
-            CONFIRM_BEFORE_SAVE: true,
-            AUTO_SHARE: false,
-            SCHOOL_NAME: 'โรงเรียนแกลง"วิทยสถาวร"',
-            PAGE_SIZE: 10,
-        };
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+    <div class="modal-sheet">
+        <div class="modal-handle"></div>
+        <div class="modal-title">แชร์ผ่าน LINE</div>
+        <div style="margin-bottom:6px;font-size:13px;color:var(--muted);">ตัวอย่าง Flex Bubble ที่จะส่ง</div>
+        <div class="flex-preview-box" style="margin-bottom:14px;">
+            <div class="flex-preview-header">PREVIEW</div>
+            <div class="flex-single-bubble" id="sharePreviewBubble"></div>
+        </div>
+        <div style="display:flex;gap:10px;">
+            <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('shareModal')">ปิด</button>
+            <button class="btn btn-green" style="flex:2;" id="shareNowBtn" onclick="shareToLine()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                แชร์ใน LINE ตอนนี้
+            </button>
+        </div>
+    </div>
+</div>
 
-        const APP = {
-            sheetRecords: [],
-            filteredRecords: [],
-            currentPage: 1,
-            files: [],
-            currentRecordIdx: null,
-        };
-        let activities = [];
-        let actCounter = 0;
-        let currentShareRecord = null;
-        let liffReady = false;
+<!-- RECORD DETAIL MODAL -->
+<div class="modal-overlay" id="recordModal">
+    <div class="modal-sheet">
+        <div class="modal-handle"></div>
+        <div class="modal-title" id="recordModalTitle">รายละเอียด</div>
+        <div id="recordModalContent"></div>
+        <div style="display:flex;gap:10px;margin-top:14px;">
+            <button class="btn btn-secondary" style="flex:1;" onclick="closeModal('recordModal')">ปิด</button>
+            <button class="btn btn-green" style="flex:2;" onclick="shareRecordFromModal()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                แชร์ใน LINE
+            </button>
+        </div>
+    </div>
+</div>
 
-        // ════════════════════════════════════════════════
-        //  LOCK
-        // ════════════════════════════════════════════════
-        function checkLock() {
-            if (document.getElementById('lockInput').value === CFG.PASSWORD) {
-                document.getElementById('lockScreen').style.display = 'none';
-                document.getElementById('appWrap').style.display = 'block';
-                sessionStorage.setItem('unlocked', '1');
-                afterUnlock();
-            } else {
-                const err = document.getElementById('lockError');
-                err.textContent = '❌ รหัสผ่านไม่ถูกต้อง';
-                document.getElementById('lockInput').value = '';
-                setTimeout(() => { err.textContent = ''; }, 2500);
-            }
-        }
-        function lockApp() {
-            sessionStorage.removeItem('unlocked');
-            document.getElementById('lockInput').value = '';
-            document.getElementById('lockScreen').style.display = 'flex';
-            document.getElementById('appWrap').style.display = 'none';
-        }
-        function afterUnlock() { fetchSheetRecords(); initLIFF(); }
-        document.getElementById('lockInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkLock(); });
+<script>
+// ════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════
+const CFG = {
+    PASSWORD: 'plan2569',
+    GAS_URL: 'https://script.google.com/macros/s/AKfycby6jgE_ugf7a3TVE9GM1_4mizFDbiDXtiFpGwBSnSbjoqgwL36f9XCQnIwXt280W2ptpA/exec',
+    SHEET_NAME: 'Sheet1',
+    LIFF_ID: '2009306563-QXaMSWaV',
+    CONFIRM_BEFORE_SAVE: true,
+    AUTO_SHARE: false,
+    SCHOOL_NAME: 'โรงเรียนแกลง"วิทยสถาวร"',
+    PAGE_SIZE: 10,
+};
 
-        // ════════════════════════════════════════════════
-        //  INIT
-        // ════════════════════════════════════════════════
-        function init() {
-            document.getElementById('hdr_school').textContent = CFG.SCHOOL_NAME;
-            setCurrentDate();
-            setDefaultApproveDate();
-            addActivity(); addActivity(); addActivity();
-            if (sessionStorage.getItem('unlocked') === '1') {
-                document.getElementById('lockScreen').style.display = 'none';
-                document.getElementById('appWrap').style.display = 'block';
-                afterUnlock();
-            }
-        }
-        function setCurrentDate() {
-            const now = new Date();
-            const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
-            document.getElementById('currentDateDisplay').textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
-        }
-        function setDefaultApproveDate() {
-            const now = new Date();
-            const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
-            const el = document.getElementById('gf_approveDate');
-            if (el && !el.value) el.value = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
-        }
+const APP = {
+    sheetRecords: [],
+    filteredRecords: [],
+    currentPage: 1,
+    files: [],
+    currentRecordIdx: null,
+    // image upload state
+    uploadedImageUrl: '',   // URL ที่แชร์ได้ (Google Drive)
+    uploadedImageName: '',
+    uploadedImageBlob: null, // base64 สำหรับ preview
+};
+let activities = [];
+let actCounter = 0;
+let currentShareRecord = null;
+let liffReady = false;
 
-        // ════════════════════════════════════════════════
-        //  LIFF
-        // ════════════════════════════════════════════════
-        async function initLIFF() {
-            if (!CFG.LIFF_ID) return;
-            if (typeof liff === 'undefined') {
-                await new Promise((res, rej) => {
-                    const s = document.createElement('script');
-                    s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
-                    s.onload = res; s.onerror = rej;
-                    document.head.appendChild(s);
-                });
-            }
-            try {
-                await liff.init({ liffId: CFG.LIFF_ID });
-                if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
-                liffReady = true;
-                console.log('LIFF ready, isInClient:', liff.isInClient());
-            } catch (e) {
-                console.warn('LIFF init error:', e);
-            }
-        }
+// ════════════════════════════════════════════════
+//  LOCK
+// ════════════════════════════════════════════════
+function checkLock() {
+    if (document.getElementById('lockInput').value === CFG.PASSWORD) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('appWrap').style.display = 'block';
+        sessionStorage.setItem('unlocked', '1');
+        afterUnlock();
+    } else {
+        const err = document.getElementById('lockError');
+        err.textContent = '❌ รหัสผ่านไม่ถูกต้อง';
+        document.getElementById('lockInput').value = '';
+        setTimeout(() => { err.textContent = ''; }, 2500);
+    }
+}
+function lockApp() {
+    sessionStorage.removeItem('unlocked');
+    document.getElementById('lockInput').value = '';
+    document.getElementById('lockScreen').style.display = 'flex';
+    document.getElementById('appWrap').style.display = 'none';
+}
+function afterUnlock() { fetchSheetRecords(); initLIFF(); }
+document.getElementById('lockInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkLock(); });
 
-        // ════════════════════════════════════════════════
-        //  FETCH SHEET
-        // ════════════════════════════════════════════════
-        async function fetchSheetRecords() {
-            setStatus('loading', 'กำลังดึงข้อมูลจาก Sheets...');
-            document.getElementById('retryBtn').style.display = 'none';
-            try {
-                const url = CFG.GAS_URL + '?sheet=' + encodeURIComponent(CFG.SHEET_NAME) + '&t=' + Date.now();
-                const res = await fetch(url);
-                const json = await res.json();
-                if (!json.success) throw new Error(json.error || 'GAS returned error');
-                APP.sheetRecords = groupSheetRows(json.data || []);
-                APP.filteredRecords = APP.sheetRecords;
-                APP.currentPage = 1;
-                const total = APP.sheetRecords.length;
-                setStatus('done', `ดึงข้อมูลสำเร็จ — ${total} กลุ่ม`);
-                document.getElementById('totalBadgeText').textContent = total + ' รายการ';
-                applySearch();
-            } catch (err) {
-                setStatus('error', 'ดึงข้อมูลไม่สำเร็จ: ' + err.message);
-                document.getElementById('retryBtn').style.display = 'inline';
-                renderRecordList([]);
-            }
-        }
-        function groupSheetRows(rows) {
-            const map = new Map();
-            for (const row of rows) {
-                const key = String(row['รหัสบันทึก'] || row['_timestamp'] || Math.random());
-                if (!map.has(key)) {
-                    map.set(key, { id: key, _timestamp: String(row['_timestamp'] || ''), planRange: String(row['แผน'] || ''), approveDate: String(row['วันที่อนุมัติ'] || ''), docLink: String(row['ลิงก์เอกสาร'] || ''), activities: [], files: [] });
-                }
-                map.get(key).activities.push({ name: String(row['ชื่อกิจกรรม'] || ''), responsible: String(row['ผู้รับผิดชอบ'] || ''), round: String(row['ครั้งที่'] || ''), result: String(row['ผลการอนุมัติ'] || ''), budget: String(row['วงเงิน'] || ''), email: String(row['อีเมล'] || '') });
-            }
-            return [...map.values()].reverse();
-        }
-        function setStatus(state, msg) {
-            const bar = document.getElementById('sheetStatusBar');
-            bar.style.display = 'flex';
-            document.getElementById('statusDot').className = 'status-dot ' + state;
-            document.getElementById('statusMsg').textContent = msg;
-        }
+// ════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════
+function init() {
+    document.getElementById('hdr_school').textContent = CFG.SCHOOL_NAME;
+    setCurrentDate();
+    setDefaultApproveDate();
+    addActivity(); addActivity(); addActivity();
+    if (sessionStorage.getItem('unlocked') === '1') {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('appWrap').style.display = 'block';
+        afterUnlock();
+    }
+}
+function setCurrentDate() {
+    const now = new Date();
+    const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+    document.getElementById('currentDateDisplay').textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
+}
+function setDefaultApproveDate() {
+    const now = new Date();
+    const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+    const el = document.getElementById('gf_approveDate');
+    if (el && !el.value) el.value = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543}`;
+}
 
-        // ════════════════════════════════════════════════
-        //  SEARCH + PAGINATION
-        // ════════════════════════════════════════════════
-        let searchTimer;
-        function onSearch() {
-            clearTimeout(searchTimer);
-            searchTimer = setTimeout(applySearch, 200);
-            document.getElementById('searchClear').classList.toggle('visible', document.getElementById('searchInput').value.length > 0);
+// ════════════════════════════════════════════════
+//  LIFF
+// ════════════════════════════════════════════════
+async function initLIFF() {
+    if (!CFG.LIFF_ID) return;
+    if (typeof liff === 'undefined') {
+        await new Promise((res, rej) => {
+            const s = document.createElement('script');
+            s.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
+            s.onload = res; s.onerror = rej;
+            document.head.appendChild(s);
+        });
+    }
+    try {
+        await liff.init({ liffId: CFG.LIFF_ID });
+        if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
+        liffReady = true;
+        console.log('LIFF ready, isInClient:', liff.isInClient());
+    } catch (e) { console.warn('LIFF init error:', e); }
+}
+
+// ════════════════════════════════════════════════
+//  IMAGE UPLOAD (to Google Drive via GAS)
+// ════════════════════════════════════════════════
+async function handleImageSelect(file) {
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) { showToast('ไฟล์ใหญ่เกิน 10MB', 'error'); return; }
+    if (!file.type.startsWith('image/')) { showToast('รองรับเฉพาะไฟล์รูปภาพ', 'error'); return; }
+
+    // show progress UI
+    document.getElementById('imgUploadProgress').style.display = 'block';
+    document.getElementById('imgPreviewWrap').style.display = 'none';
+    document.getElementById('imgUploadStatus').textContent = 'กำลังอัปโหลด...';
+    document.getElementById('imgUploadStatus').className = 'chip chip-amber';
+    setUploadProgress(30, 'กำลังแปลงไฟล์...');
+
+    try {
+        // read as base64
+        const base64 = await fileToBase64(file);
+        APP.uploadedImageBlob = base64; // สำหรับ preview ใน HTML
+        setUploadProgress(60, 'กำลังส่งไปยัง Google Drive...');
+
+        // call GAS upload
+        const res = await fetch(CFG.GAS_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body: JSON.stringify({
+                action: 'upload',
+                fileName: file.name,
+                mimeType: file.type,
+                fileData: base64.split(',')[1],  // strip data:image/...;base64,
+            }),
+        });
+        const json = await res.json();
+        if (!json.success) throw new Error(json.error || 'Upload failed');
+
+        setUploadProgress(100, 'อัปโหลดสำเร็จ!');
+        APP.uploadedImageUrl = json.fileUrl || '';
+        APP.uploadedImageName = json.fileName || file.name;
+
+        // show preview
+        document.getElementById('imgPreviewEl').src = base64;
+        document.getElementById('imgPreviewWrap').style.display = 'block';
+        document.getElementById('imgDriveFileName').textContent = json.fileName;
+        document.getElementById('imgDriveUrl').textContent = json.fileUrl;
+        document.getElementById('imgDriveLink').href = json.fileUrl;
+        document.getElementById('imgUploadStatus').textContent = '✅ อัปโหลดแล้ว';
+        document.getElementById('imgUploadStatus').className = 'chip chip-green';
+
+        setTimeout(() => { document.getElementById('imgUploadProgress').style.display = 'none'; }, 1200);
+        showToast('อัปโหลดรูปสำเร็จ!');
+
+    } catch (err) {
+        setUploadProgress(0, 'เกิดข้อผิดพลาด: ' + err.message);
+        document.getElementById('imgStatusBadge').textContent = '❌ ล้มเหลว';
+        document.getElementById('imgStatusBadge').className = 'upload-status-badge error';
+        document.getElementById('imgUploadStatus').textContent = '❌ ล้มเหลว';
+        document.getElementById('imgUploadStatus').className = 'chip chip-amber';
+        showToast('อัปโหลดไม่สำเร็จ: ' + err.message, 'error');
+    }
+}
+
+function setUploadProgress(pct, label) {
+    document.getElementById('imgProgressFill').style.width = pct + '%';
+    document.getElementById('imgProgressLabel').textContent = label;
+    const badge = document.getElementById('imgStatusBadge');
+    if (pct >= 100) {
+        badge.textContent = '✅ สำเร็จ';
+        badge.className = 'upload-status-badge done';
+    } else {
+        badge.textContent = '⏳ ' + pct + '%';
+        badge.className = 'upload-status-badge uploading';
+    }
+}
+
+function fileToBase64(file) {
+    return new Promise((res, rej) => {
+        const r = new FileReader();
+        r.onload = () => res(r.result);
+        r.onerror = () => rej(new Error('อ่านไฟล์ไม่สำเร็จ'));
+        r.readAsDataURL(file);
+    });
+}
+
+function clearImage() {
+    APP.uploadedImageUrl = '';
+    APP.uploadedImageName = '';
+    APP.uploadedImageBlob = null;
+    document.getElementById('imgPreviewWrap').style.display = 'none';
+    document.getElementById('imgUploadProgress').style.display = 'none';
+    document.getElementById('imgUploadStatus').textContent = 'ยังไม่อัปโหลด';
+    document.getElementById('imgUploadStatus').className = 'chip chip-amber';
+    document.getElementById('imgFileInput').value = '';
+    showToast('ลบรูปแล้ว');
+}
+
+// drag-drop for image zone
+const imgZone = document.getElementById('imgUploadZone');
+imgZone.addEventListener('dragover', e => { e.preventDefault(); imgZone.classList.add('drag-over'); });
+imgZone.addEventListener('dragleave', () => imgZone.classList.remove('drag-over'));
+imgZone.addEventListener('drop', e => { e.preventDefault(); imgZone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) handleImageSelect(e.dataTransfer.files[0]); });
+
+// ════════════════════════════════════════════════
+//  FETCH SHEET
+// ════════════════════════════════════════════════
+async function fetchSheetRecords() {
+    setStatus('loading', 'กำลังดึงข้อมูลจาก Sheets...');
+    document.getElementById('retryBtn').style.display = 'none';
+    try {
+        const url = CFG.GAS_URL + '?sheet=' + encodeURIComponent(CFG.SHEET_NAME) + '&t=' + Date.now();
+        const res = await fetch(url);
+        const json = await res.json();
+        if (!json.success) throw new Error(json.error || 'GAS returned error');
+        APP.sheetRecords = groupSheetRows(json.data || []);
+        APP.filteredRecords = APP.sheetRecords;
+        APP.currentPage = 1;
+        const total = APP.sheetRecords.length;
+        setStatus('done', `ดึงข้อมูลสำเร็จ — ${total} กลุ่ม`);
+        document.getElementById('totalBadgeText').textContent = total + ' รายการ';
+        applySearch();
+    } catch (err) {
+        setStatus('error', 'ดึงข้อมูลไม่สำเร็จ: ' + err.message);
+        document.getElementById('retryBtn').style.display = 'inline';
+        renderRecordList([]);
+    }
+}
+function groupSheetRows(rows) {
+    const map = new Map();
+    for (const row of rows) {
+        const key = String(row['รหัสบันทึก'] || row['_timestamp'] || Math.random());
+        if (!map.has(key)) {
+            map.set(key, {
+                id: key,
+                _timestamp: String(row['_timestamp'] || ''),
+                planRange: String(row['แผน'] || ''),
+                approveDate: String(row['วันที่อนุมัติ'] || ''),
+                docLink: String(row['ลิงก์เอกสาร'] || ''),
+                activities: [],
+                files: [],
+            });
         }
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('searchClear').classList.remove('visible');
-            applySearch();
-        }
-        function applySearch() {
-            const q = document.getElementById('searchInput').value.trim().toLowerCase();
-            APP.filteredRecords = !q ? APP.sheetRecords : APP.sheetRecords.filter(r =>
-                r.planRange.toLowerCase().includes(q) || r.approveDate.toLowerCase().includes(q) || r.id.toLowerCase().includes(q) ||
-                r.activities.some(a => a.name.toLowerCase().includes(q) || a.responsible.toLowerCase().includes(q))
-            );
-            APP.currentPage = 1;
-            document.getElementById('totalCount').textContent = (q ? APP.filteredRecords.length + ' ผลลัพธ์' : APP.filteredRecords.length + ' รายการ');
-            renderCurrentPage();
-        }
-        function renderCurrentPage() {
-            const { filteredRecords: src, currentPage } = APP;
-            const ps = CFG.PAGE_SIZE, total = src.length, pages = Math.ceil(total / ps), start = (currentPage - 1) * ps;
-            renderRecordList(src.slice(start, start + ps), start);
-            renderPagination(currentPage, pages, total);
-        }
-        function hl(text, q) {
-            if (!q) return escHtml(text);
-            return escHtml(text).replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>');
-        }
-        function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-        function renderRecordList(slice, offset = 0) {
-            const list = document.getElementById('recordList');
-            const q = document.getElementById('searchInput').value.trim().toLowerCase();
-            if (!slice.length) {
-                list.innerHTML = `<div class="empty-state"><div class="empty-icon">${APP.sheetRecords.length === 0 ? '☁️' : '🔍'}</div><p style="font-size:13.5px;">${APP.sheetRecords.length === 0 ? 'ยังไม่มีข้อมูล' : 'ไม่พบรายการที่ค้นหา'}</p></div>`;
-                return;
-            }
-            list.innerHTML = slice.map((r, i) => `
+        map.get(key).activities.push({
+            name: String(row['ชื่อกิจกรรม'] || ''),
+            responsible: String(row['ผู้รับผิดชอบ'] || ''),
+            round: String(row['ครั้งที่'] || ''),
+            result: String(row['ผลการอนุมัติ'] || ''),
+            budget: String(row['วงเงิน'] || ''),
+            email: String(row['อีเมล'] || ''),
+        });
+    }
+    return [...map.values()].reverse();
+}
+function setStatus(state, msg) {
+    const bar = document.getElementById('sheetStatusBar');
+    bar.style.display = 'flex';
+    document.getElementById('statusDot').className = 'status-dot ' + state;
+    document.getElementById('statusMsg').textContent = msg;
+}
+
+// ════════════════════════════════════════════════
+//  SEARCH + PAGINATION
+// ════════════════════════════════════════════════
+let searchTimer;
+function onSearch() {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applySearch, 200);
+    document.getElementById('searchClear').classList.toggle('visible', document.getElementById('searchInput').value.length > 0);
+}
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('searchClear').classList.remove('visible');
+    applySearch();
+}
+function applySearch() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    APP.filteredRecords = !q ? APP.sheetRecords : APP.sheetRecords.filter(r =>
+        r.planRange.toLowerCase().includes(q) || r.approveDate.toLowerCase().includes(q) ||
+        r.id.toLowerCase().includes(q) ||
+        r.activities.some(a => a.name.toLowerCase().includes(q) || a.responsible.toLowerCase().includes(q))
+    );
+    APP.currentPage = 1;
+    document.getElementById('totalCount').textContent = (q ? APP.filteredRecords.length + ' ผลลัพธ์' : APP.filteredRecords.length + ' รายการ');
+    renderCurrentPage();
+}
+function renderCurrentPage() {
+    const { filteredRecords: src, currentPage } = APP;
+    const ps = CFG.PAGE_SIZE, total = src.length, pages = Math.ceil(total / ps), start = (currentPage - 1) * ps;
+    renderRecordList(src.slice(start, start + ps), start);
+    renderPagination(currentPage, pages, total);
+}
+function hl(text, q) {
+    if (!q) return escHtml(text);
+    return escHtml(text).replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>');
+}
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function renderRecordList(slice, offset = 0) {
+    const list = document.getElementById('recordList');
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!slice.length) {
+        list.innerHTML = `<div class="empty-state"><div class="empty-icon">${APP.sheetRecords.length===0?'☁️':'🔍'}</div><p style="font-size:13.5px;">${APP.sheetRecords.length===0?'ยังไม่มีข้อมูล':'ไม่พบรายการที่ค้นหา'}</p></div>`;
+        return;
+    }
+    list.innerHTML = slice.map((r, i) => `
     <div class="record-item" onclick="showRecordDetail(${offset + i})">
       <div style="flex:1;min-width:0;">
-        <div style="font-size:13.5px;font-weight:700;">แจ้งผลอนุมัติแผน <span>${hl(r.planRange, q)}</span></div>
-        <div style="font-size:11.5px;color:var(--muted);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${hl(r.approveDate, q)} · ${r.activities.length} รายการ</div>
-        <div style="font-size:10.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${hl(r.activities.map(a => a.name).filter(Boolean).join(', ') || '—', q)}</div>
+        <div style="font-size:13.5px;font-weight:700;">แจ้งผลอนุมัติแผน <span>${hl(r.planRange,q)}</span></div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${hl(r.approveDate,q)} · ${r.activities.length} รายการ</div>
+        <div style="font-size:10.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${hl(r.activities.map(a=>a.name).filter(Boolean).join(', ')||'—',q)}</div>
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;">
-        <span class="record-id">${hl(r.id, q)}</span>
-        <button onclick="event.stopPropagation();quickShare(${offset + i})" class="btn btn-green btn-xs">แชร์</button>
+        <span class="record-id">${hl(r.id,q)}</span>
+        <button onclick="event.stopPropagation();quickShare(${offset+i})" class="btn btn-green btn-xs">แชร์</button>
       </div>
     </div>`).join('');
-        }
-        function renderPagination(current, pages, total) {
-            const el = document.getElementById('pagination');
-            if (pages <= 1) { el.style.display = 'none'; return; }
-            el.style.display = 'flex';
-            const ps = CFG.PAGE_SIZE, from = (current - 1) * ps + 1, to = Math.min(current * ps, total);
-            let pageNums = pages <= 5 ? Array.from({ length: pages }, (_, i) => i + 1) : [1];
-            if (pages > 5) {
-                if (current > 3) pageNums.push('...');
-                for (let p = Math.max(2, current - 1); p <= Math.min(pages - 1, current + 1); p++) pageNums.push(p);
-                if (current < pages - 2) pageNums.push('...');
-                pageNums.push(pages);
-            }
-            el.innerHTML = `<button class="page-btn" onclick="goPage(${current - 1})" ${current === 1 ? 'disabled' : ''}>‹</button>${pageNums.map(p => p === '...' ? `<span class="page-info">…</span>` : `<button class="page-btn ${p === current ? 'active' : ''}" onclick="goPage(${p})">${p}</button>`).join('')}<button class="page-btn" onclick="goPage(${current + 1})" ${current === pages ? 'disabled' : ''}>›</button><span class="page-info">${from}–${to} / ${total}</span>`;
-        }
-        function goPage(p) {
-            const pages = Math.ceil(APP.filteredRecords.length / CFG.PAGE_SIZE);
-            if (p < 1 || p > pages) return;
-            APP.currentPage = p;
-            renderCurrentPage();
-            document.getElementById('sec-records').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+}
+function renderPagination(current, pages, total) {
+    const el = document.getElementById('pagination');
+    if (pages <= 1) { el.style.display = 'none'; return; }
+    el.style.display = 'flex';
+    const ps = CFG.PAGE_SIZE, from = (current-1)*ps+1, to = Math.min(current*ps, total);
+    let pageNums = pages <= 5 ? Array.from({length:pages},(_,i)=>i+1) : [1];
+    if (pages > 5) {
+        if (current > 3) pageNums.push('...');
+        for (let p = Math.max(2,current-1); p <= Math.min(pages-1,current+1); p++) pageNums.push(p);
+        if (current < pages-2) pageNums.push('...');
+        pageNums.push(pages);
+    }
+    el.innerHTML = `<button class="page-btn" onclick="goPage(${current-1})" ${current===1?'disabled':''}>‹</button>${pageNums.map(p=>p==='...'?`<span class="page-info">…</span>`:`<button class="page-btn ${p===current?'active':''}" onclick="goPage(${p})">${p}</button>`).join('')}<button class="page-btn" onclick="goPage(${current+1})" ${current===pages?'disabled':''}>›</button><span class="page-info">${from}–${to} / ${total}</span>`;
+}
+function goPage(p) {
+    const pages = Math.ceil(APP.filteredRecords.length / CFG.PAGE_SIZE);
+    if (p < 1 || p > pages) return;
+    APP.currentPage = p;
+    renderCurrentPage();
+    document.getElementById('sec-records').scrollIntoView({behavior:'smooth',block:'start'});
+}
 
-        // ════════════════════════════════════════════════
-        //  RECORD DETAIL
-        // ════════════════════════════════════════════════
-        function showRecordDetail(idx) {
-            APP.currentRecordIdx = idx;
-            const r = APP.filteredRecords[idx];
-            document.getElementById('recordModalTitle').textContent = `${r.id} — แผน ${r.planRange}`;
-            const acts = r.activities || [];
-            document.getElementById('recordModalContent').innerHTML = `
+// ════════════════════════════════════════════════
+//  RECORD DETAIL
+// ════════════════════════════════════════════════
+function showRecordDetail(idx) {
+    APP.currentRecordIdx = idx;
+    const r = APP.filteredRecords[idx];
+    document.getElementById('recordModalTitle').textContent = `${r.id} — แผน ${r.planRange}`;
+    const acts = r.activities || [];
+    document.getElementById('recordModalContent').innerHTML = `
     <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">${r.approveDate} · ${acts.length} รายการ · ${r._timestamp}</div>
-    ${acts.map((a, i) => `<div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;">
-      <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;flex-shrink:0;">${i + 1}</div>
+    ${acts.map((a,i) => `<div style="padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;">
+      <div class="activity-num-badge" style="width:22px;height:22px;font-size:11px;flex-shrink:0;">${i+1}</div>
       <div style="flex:1;min-width:0;">
         <div style="font-size:13px;font-weight:700;">${escHtml(a.name)}</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${escHtml(a.responsible)}${a.round ? ` · ครั้งที่ ${a.round}` : ''}${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}${a.result ? ` · ${a.result}` : ''}</div>
-        ${a.email ? `<div style="font-size:10px;color:var(--muted);">📧 ${escHtml(a.email)}</div>` : ''}
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${escHtml(a.responsible)}${a.round?` · ครั้งที่ ${a.round}`:''}${a.budget?` · ${Number(a.budget).toLocaleString()} บาท`:''}${a.result?` · ${a.result}`:''}</div>
+        ${a.email?`<div style="font-size:10px;color:var(--muted);">📧 ${escHtml(a.email)}</div>`:''}
       </div>
     </div>`).join('')}
-    ${r.docLink ? `<div style="margin-top:10px;font-size:12px;">📎 <a href="${escHtml(r.docLink)}" target="_blank" style="color:var(--primary);">ดูเอกสาร</a></div>` : ''}`;
-            openModal('recordModal');
-        }
-        function shareRecordFromModal() {
-            if (APP.currentRecordIdx !== null) { openShareAndSend(APP.filteredRecords[APP.currentRecordIdx]); closeModal('recordModal'); }
-        }
-        function quickShare(idx) { openShareAndSend(APP.filteredRecords[idx]); }
-        function openShareModal() { if (currentShareRecord) openShareAndSend(currentShareRecord); }
-        function openShareAndSend(record) { currentShareRecord = record; renderFlexBubble(record, 'sharePreviewBubble'); openModal('shareModal'); }
+    ${r.docLink?`<div style="margin-top:10px;font-size:12px;">🖼️ <a href="${escHtml(r.docLink)}" target="_blank" style="color:var(--primary);">ดูภาพหลักฐาน</a></div>`:''}`;
+    openModal('recordModal');
+}
+function shareRecordFromModal() {
+    if (APP.currentRecordIdx !== null) { openShareAndSend(APP.filteredRecords[APP.currentRecordIdx]); closeModal('recordModal'); }
+}
+function quickShare(idx) { openShareAndSend(APP.filteredRecords[idx]); }
+function openShareModal() { if (currentShareRecord) openShareAndSend(currentShareRecord); }
+function openShareAndSend(record) { currentShareRecord = record; renderFlexBubble(record, 'sharePreviewBubble'); openModal('shareModal'); }
 
-        // ════════════════════════════════════════════════
-        //  TABS
-        // ════════════════════════════════════════════════
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-item').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-            document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id === `sec-${tab}`));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.id === `nav-${tab}`));
-            if (tab === 'records') renderCurrentPage();
-        }
+// ════════════════════════════════════════════════
+//  TABS
+// ════════════════════════════════════════════════
+function switchTab(tab) {
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.querySelectorAll('.section').forEach(s => s.classList.toggle('active', s.id === `sec-${tab}`));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.id === `nav-${tab}`));
+    if (tab === 'records') renderCurrentPage();
+}
 
-        // ════════════════════════════════════════════════
-        //  ACTIVITIES
-        // ════════════════════════════════════════════════
-        function addActivity() {
-            actCounter++;
-            const uid = 'act_' + Date.now() + '_' + actCounter;
-            activities.push({ id: uid });
-            renderActivities();
-            if (actCounter > 3) setTimeout(() => document.getElementById('block_' + uid)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
-        }
-        function removeActivity(uid) { activities = activities.filter(a => a.id !== uid); renderActivities(); }
-        function renderActivities() {
-            document.getElementById('activityContainer').innerHTML = activities.map((a, i) => `
+// ════════════════════════════════════════════════
+//  ACTIVITIES
+// ════════════════════════════════════════════════
+function addActivity() {
+    actCounter++;
+    const uid = 'act_' + Date.now() + '_' + actCounter;
+    activities.push({ id: uid });
+    renderActivities();
+    if (actCounter > 3) setTimeout(() => document.getElementById('block_' + uid)?.scrollIntoView({behavior:'smooth',block:'center'}), 80);
+}
+function removeActivity(uid) { activities = activities.filter(a => a.id !== uid); renderActivities(); }
+function renderActivities() {
+    document.getElementById('activityContainer').innerHTML = activities.map((a,i) => `
     <div class="activity-block" id="block_${a.id}">
       <div class="activity-block-header">
-        <div class="activity-num-badge">${i + 1}</div>
-        <span style="font-size:13px;font-weight:700;color:var(--ink);flex:1;">กิจกรรมที่ ${i + 1}</span>
-        ${activities.length > 1 ? `<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>` : ''}
+        <div class="activity-num-badge">${i+1}</div>
+        <span style="font-size:13px;font-weight:700;color:var(--ink);flex:1;">กิจกรรมที่ ${i+1}</span>
+        ${activities.length>1?`<button class="remove-activity-btn" onclick="removeActivity('${a.id}')">✕</button>`:''}
       </div>
       <div class="field-group"><div class="field-label">ชื่อกิจกรรม <span class="req">*</span></div><textarea class="field-textarea" id="name_${a.id}" placeholder="ระบุชื่อกิจกรรมให้ครบถ้วน" style="min-height:64px;"></textarea></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
@@ -1676,306 +1198,370 @@
       </div>
       <div class="field-group" style="margin-top:10px;margin-bottom:0;"><div class="field-label">อีเมลผู้รับผิดชอบ</div><input type="email" class="field-input" id="email_${a.id}" placeholder="example@gmail.com"></div>
     </div>`).join('');
-        }
-        function collectActivities() {
-            return activities.map(a => ({
-                id: a.id,
-                name: (document.getElementById('name_' + a.id)?.value || '').trim(),
-                responsible: (document.getElementById('resp_' + a.id)?.value || '').trim(),
-                round: (document.getElementById('round_' + a.id)?.value || '').trim(),
-                result: document.getElementById('result_' + a.id)?.value || 'อุดหนุน',
-                budget: (document.getElementById('budget_' + a.id)?.value || '').trim(),
-                email: (document.getElementById('email_' + a.id)?.value || '').trim(),
-            }));
-        }
+}
+function collectActivities() {
+    return activities.map(a => ({
+        id: a.id,
+        name: (document.getElementById('name_'+a.id)?.value||'').trim(),
+        responsible: (document.getElementById('resp_'+a.id)?.value||'').trim(),
+        round: (document.getElementById('round_'+a.id)?.value||'').trim(),
+        result: document.getElementById('result_'+a.id)?.value||'อุดหนุน',
+        budget: (document.getElementById('budget_'+a.id)?.value||'').trim(),
+        email: (document.getElementById('email_'+a.id)?.value||'').trim(),
+    }));
+}
 
-        // ════════════════════════════════════════════════
-        //  FILE
-        // ════════════════════════════════════════════════
-        function handleFileSelect(fl) {
-            for (const f of fl) { if (f.size > 10 * 1024 * 1024) { showToast(`${f.name} ใหญ่เกิน 10MB`, 'error'); continue; } APP.files.push(f); }
-            renderFileList();
-        }
-        function removeFile(i) { APP.files.splice(i, 1); renderFileList(); }
-        function renderFileList() {
-            document.getElementById('fileCount').textContent = APP.files.length + ' ไฟล์';
-            const EXT = { img: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'], pdf: ['pdf'], doc: ['doc', 'docx'] };
-            document.getElementById('fileList').innerHTML = APP.files.map((f, i) => {
-                const ext = f.name.split('.').pop().toLowerCase();
-                const cls = Object.entries(EXT).find(([, e]) => e.includes(ext))?.[0] || 'other';
-                const ic = { img: '🖼️', pdf: '📄', doc: '📝', other: '📎' }, bg = { img: '#e0f2fe', pdf: '#fee2e2', doc: '#ede9fe', other: '#f1f5f9' };
-                return `<div class="file-item"><div style="width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${bg[cls]};">${ic[cls]}</div><div style="flex:1;min-width:0;"><div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(f.name)}</div><div style="font-size:10px;color:var(--muted);">${(f.size / 1024).toFixed(1)} KB</div></div><button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button></div>`;
-            }).join('');
-        }
-        const uz = document.getElementById('uploadZone');
-        uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('drag-over'); });
-        uz.addEventListener('dragleave', () => uz.classList.remove('drag-over'));
-        uz.addEventListener('drop', e => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
+// ════════════════════════════════════════════════
+//  FILE ATTACHMENTS (เดิม - รักษาไว้)
+// ════════════════════════════════════════════════
+function handleFileSelect(fl) {
+    for (const f of fl) {
+        if (f.size > 10*1024*1024) { showToast(`${f.name} ใหญ่เกิน 10MB`, 'error'); continue; }
+        APP.files.push(f);
+    }
+    renderFileList();
+}
+function removeFile(i) { APP.files.splice(i,1); renderFileList(); }
+function renderFileList() {
+    document.getElementById('fileCount').textContent = APP.files.length + ' ไฟล์';
+    const EXT = { img:['jpg','jpeg','png','gif','webp','svg'], pdf:['pdf'], doc:['doc','docx'] };
+    document.getElementById('fileList').innerHTML = APP.files.map((f,i) => {
+        const ext = f.name.split('.').pop().toLowerCase();
+        const cls = Object.entries(EXT).find(([,e])=>e.includes(ext))?.[0]||'other';
+        const ic={img:'🖼️',pdf:'📄',doc:'📝',other:'📎'}, bg={img:'#e0f2fe',pdf:'#fee2e2',doc:'#ede9fe',other:'#f1f5f9'};
+        return `<div class="file-item"><div style="width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${bg[cls]};">${ic[cls]}</div><div style="flex:1;min-width:0;"><div style="font-size:12.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(f.name)}</div><div style="font-size:10px;color:var(--muted);">${(f.size/1024).toFixed(1)} KB</div></div><button onclick="removeFile(${i})" style="width:28px;height:28px;border-radius:8px;background:#fee2e2;color:var(--red);border:none;cursor:pointer;font-size:13px;">✕</button></div>`;
+    }).join('');
+}
+const uz = document.getElementById('uploadZone');
+uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('drag-over'); });
+uz.addEventListener('dragleave', () => uz.classList.remove('drag-over'));
+uz.addEventListener('drop', e => { e.preventDefault(); uz.classList.remove('drag-over'); handleFileSelect(e.dataTransfer.files); });
 
-        // ════════════════════════════════════════════════
-        //  BUILD RECORD
-        // ════════════════════════════════════════════════
-        function buildRecord() {
-            const now = new Date();
-            const months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-            const ts = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear() + 543} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-            return {
-                id: 'R' + String(APP.sheetRecords.length + 1).padStart(4, '0'),
-                _timestamp: ts,
-                planRange: document.getElementById('gf_planRange').value.trim(),
-                approveDate: document.getElementById('gf_approveDate').value.trim(),
-                docLink: document.getElementById('gf_docLink').value.trim(),
-                activities: collectActivities(),
-                files: APP.files.map(f => f.name),
-            };
-        }
+// ════════════════════════════════════════════════
+//  BUILD RECORD
+// ════════════════════════════════════════════════
+function buildRecord() {
+    const now = new Date();
+    const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+    const ts = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()+543} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    return {
+        id: 'R' + String(APP.sheetRecords.length+1).padStart(4,'0'),
+        _timestamp: ts,
+        planRange: document.getElementById('gf_planRange').value.trim(),
+        approveDate: document.getElementById('gf_approveDate').value.trim(),
+        docLink: APP.uploadedImageUrl,   // ← ใช้ URL จาก Drive upload
+        docLinkBlob: APP.uploadedImageBlob, // ← สำหรับ preview (ไม่บันทึกลง Sheet)
+        activities: collectActivities(),
+        files: APP.files.map(f => f.name),
+    };
+}
 
-        // ════════════════════════════════════════════════
-        //  PREVIEW
-        // ════════════════════════════════════════════════
-        function previewFlex() {
-            renderFlexBubble(buildRecord(), 'flexPreviewBubble');
-            document.getElementById('flexPreviewWrap').style.display = 'block';
-            document.getElementById('flexPreviewWrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            showToast('ดูตัวอย่างด้านล่าง', 'info');
-        }
-        function renderFlexBubble(record, id) {
-            const el = document.getElementById(id); if (!el) return;
-            const acts = record.activities || [];
-            el.innerHTML = `
+// ════════════════════════════════════════════════
+//  PREVIEW FLEX
+// ════════════════════════════════════════════════
+function previewFlex() {
+    renderFlexBubble(buildRecord(), 'flexPreviewBubble');
+    document.getElementById('flexPreviewWrap').style.display = 'block';
+    document.getElementById('flexPreviewWrap').scrollIntoView({behavior:'smooth',block:'nearest'});
+    showToast('ดูตัวอย่างด้านล่าง', 'info');
+}
+
+// ── helper: result chip colour ──
+function resultChipClass(result) {
+    const r = (result||'').toLowerCase();
+    if (r.includes('อุดหนุน')) return 'subsidized';
+    if (r.includes('อนุมัติ') && !r.includes('ไม่')) return 'approved';
+    if (r.includes('ไม่')) return 'rejected';
+    return 'pending';
+}
+function resultEmoji(result) {
+    const r = (result||'').toLowerCase();
+    if (r.includes('อุดหนุน')) return '💙';
+    if (r.includes('อนุมัติ') && !r.includes('ไม่')) return '✅';
+    if (r.includes('ไม่')) return '❌';
+    return '⏳';
+}
+
+function renderFlexBubble(record, id) {
+    const el = document.getElementById(id); if (!el) return;
+    const acts = record.activities || [];
+    const hasImg = record.docLinkBlob || record.docLink;
+    const imgSrc = record.docLinkBlob || '';  // blob สำหรับ preview HTML
+
+    el.innerHTML = `
+    ${hasImg && imgSrc ? `<div style="position:relative;overflow:hidden;height:130px;">
+      <img src="${imgSrc}" style="width:100%;height:130px;object-fit:cover;display:block;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,30,80,0.7));"></div>
+    </div>` : ''}
     <div class="bubble-hero-strip">
-      <div class="bubble-hero-title">แจ้งผลการอนุมัติแผน ${escHtml(record.planRange || '')}</div>
-      <div class="bubble-hero-meta">ประจำวันที่ ${escHtml(record.approveDate || '')} · ${escHtml(record.id)}</div>
+      <div class="bubble-hero-eyebrow">📋 แจ้งผลการอนุมัติ</div>
+      <div class="bubble-hero-title">แผนที่ ${escHtml(record.planRange||'—')}</div>
+      <div class="bubble-hero-date-row">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <div class="bubble-hero-date">${escHtml(record.approveDate||'—')}</div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.6);">· ${escHtml(record.id||'')}</div>
+      </div>
     </div>
-    <div style="padding:8px 0;">
-      <div style="padding:6px 16px 4px;font-size:11px;font-weight:700;color:var(--muted);">รายการกิจกรรมที่ได้รับการอนุมัติ</div>
-      ${acts.map((a, i) => `<div class="bubble-activity-row"><div class="bubble-activity-num">${i + 1}</div><div class="bubble-activity-text"><strong>${escHtml(a.name || '—')}</strong><br><span style="color:var(--muted);font-size:11px;">${a.responsible ? `(${escHtml(a.responsible)})` : ''}${a.round ? ` ครั้งที่ ${a.round}` : ''}${a.budget ? ` · ${Number(a.budget).toLocaleString()} บาท` : ''}</span></div></div>`).join('')}
+    <div class="bubble-body">
+      <div class="bubble-section-label">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+        รายการกิจกรรมที่ได้รับการอนุมัติ
+      </div>
+      ${acts.map((a,i) => `
+      <div class="bubble-activity-row">
+        <div class="bubble-activity-num">${i+1}</div>
+        <div class="bubble-activity-text">
+          <strong style="font-size:12.5px;">${escHtml(a.name||'—')}</strong>
+          ${a.responsible?`<br><span style="color:var(--muted);font-size:10.5px;">👤 ${escHtml(a.responsible)}${a.round?` · ครั้งที่ ${a.round}`:''}</span>`:''}
+          ${a.budget?`<br><span style="color:#0369a1;font-size:10.5px;font-weight:700;">💰 ${Number(a.budget).toLocaleString()} บาท</span>`:''}
+          <br><span class="bubble-result-chip ${resultChipClass(a.result)}">${resultEmoji(a.result)} ${escHtml(a.result||'อุดหนุน')}</span>
+        </div>
+      </div>`).join('')}
     </div>
+    <div class="bubble-summary-strip">
+      <div class="bubble-summary-text">📧 ส่งอีเมลแจ้งผู้รับผิดชอบแล้ว</div>
+      <div class="bubble-count-badge">${acts.length} รายการ</div>
+    </div>
+    ${record.docLink ? `
     <div class="bubble-footer-strip">
-      <div class="bubble-footer-note">ระบบส่งอีเมลแจ้งผู้รับผิดชอบแล้ว<br>รวมทั้งหมด ${acts.length} รายการ</div>
-      ${record.docLink ? `<button class="bubble-footer-btn" onclick="window.open('${escHtml(record.docLink)}','_blank')">ดูเอกสาร</button>` : ''}
-    </div>`;
-        }
+      <div class="bubble-footer-note">📎 ภาพหลักฐานการอนุมัติ<br>${escHtml(record.docLink.length>40?record.docLink.slice(0,40)+'…':record.docLink)}</div>
+      <button class="bubble-footer-btn" onclick="window.open('${escHtml(record.docLink)}','_blank')">ดูภาพ</button>
+    </div>` : ''}`;
+}
 
-        // ════════════════════════════════════════════════
-        //  SUBMIT / SAVE
-        // ════════════════════════════════════════════════
-        function submitForm() {
-            if (!document.getElementById('gf_planRange').value.trim()) return showToast('กรุณาระบุแผนที่แจ้ง', 'error');
-            if (!document.getElementById('gf_approveDate').value.trim()) return showToast('กรุณาระบุวันที่อนุมัติ', 'error');
-            const acts = collectActivities();
-            for (let i = 0; i < acts.length; i++) {
-                if (!acts[i].name) { showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i + 1}`, 'error'); document.getElementById('name_' + activities[i].id)?.focus(); return; }
-                if (!acts[i].responsible) { showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i + 1}`, 'error'); return; }
-            }
-            if (CFG.CONFIRM_BEFORE_SAVE) openModal('confirmModal'); else confirmAndSave();
-        }
-        function confirmAndSave() { closeModal('confirmModal'); doSave(); }
+// ════════════════════════════════════════════════
+//  SUBMIT / SAVE
+// ════════════════════════════════════════════════
+function submitForm() {
+    if (!document.getElementById('gf_planRange').value.trim()) return showToast('กรุณาระบุแผนที่แจ้ง', 'error');
+    if (!document.getElementById('gf_approveDate').value.trim()) return showToast('กรุณาระบุวันที่อนุมัติ', 'error');
+    const acts = collectActivities();
+    for (let i = 0; i < acts.length; i++) {
+        if (!acts[i].name) { showToast(`กรุณากรอกชื่อกิจกรรมที่ ${i+1}`, 'error'); document.getElementById('name_'+activities[i].id)?.focus(); return; }
+        if (!acts[i].responsible) { showToast(`กรุณากรอกผู้รับผิดชอบรายการที่ ${i+1}`, 'error'); return; }
+    }
+    if (CFG.CONFIRM_BEFORE_SAVE) openModal('confirmModal'); else confirmAndSave();
+}
+function confirmAndSave() { closeModal('confirmModal'); doSave(); }
 
-        async function doSave() {
-            const btn = document.getElementById('saveBtn');
-            btn.disabled = true;
-            btn.innerHTML = '<div class="spinner"></div> กำลังบันทึก...';
-            const record = buildRecord();
-            currentShareRecord = record;
-            showToast('กำลังบันทึกลง Sheets...', 'info');
-            try {
-                await sendToGAS(record);
-                await new Promise(r => setTimeout(r, 1500));
-                await fetchSheetRecords();
-                showToast(`บันทึกสำเร็จ! ${record.activities.length} รายการ`);
-                document.getElementById('shareBtn').style.display = '';
-                renderFlexBubble(record, 'flexPreviewBubble');
-                document.getElementById('flexPreviewWrap').style.display = 'block';
-                clearFormFields();
-                if (CFG.AUTO_SHARE) setTimeout(() => openShareAndSend(record), 800);
-            } catch (e) {
-                showToast('บันทึกไม่สำเร็จ: ' + e.message, 'error');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg> บันทึกข้อมูล';
-            }
-        }
+async function doSave() {
+    const btn = document.getElementById('saveBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<div class="spinner"></div> กำลังบันทึก...';
+    const record = buildRecord();
+    currentShareRecord = record;
+    showToast('กำลังบันทึกลง Sheets...', 'info');
+    try {
+        await sendToGAS(record);
+        await new Promise(r => setTimeout(r, 1500));
+        await fetchSheetRecords();
+        showToast(`บันทึกสำเร็จ! ${record.activities.length} รายการ`);
+        document.getElementById('shareBtn').style.display = '';
+        renderFlexBubble(record, 'flexPreviewBubble');
+        document.getElementById('flexPreviewWrap').style.display = 'block';
+        clearFormFields();
+        if (CFG.AUTO_SHARE) setTimeout(() => openShareAndSend(record), 800);
+    } catch (e) {
+        showToast('บันทึกไม่สำเร็จ: ' + e.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg> บันทึกข้อมูล';
+    }
+}
 
-        async function sendToGAS(record) {
-            for (const act of record.activities) {
-                const payload = {
-                    action: 'save', sheetName: CFG.SHEET_NAME,
-                    data: {
-                        '_timestamp': record._timestamp,
-                        'รหัสบันทึก': record.id,
-                        'แผน': record.planRange,
-                        'วันที่อนุมัติ': record.approveDate,
-                        'ชื่อกิจกรรม': act.name,
-                        'ผู้รับผิดชอบ': act.responsible,
-                        'ครั้งที่': act.round,
-                        'ผลการอนุมัติ': act.result,
-                        'วงเงิน': act.budget,
-                        'อีเมล': act.email,
-                        'ลิงก์เอกสาร': record.docLink,
-                    },
-                };
-                // no-cors: GAS รับ text/plain ได้, response เป็น opaque ตรวจไม่ได้
-                await fetch(CFG.GAS_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-                    body: JSON.stringify(payload),
-                });
-            }
-        }
+async function sendToGAS(record) {
+    for (const act of record.activities) {
+        const payload = {
+            action: 'save', sheetName: CFG.SHEET_NAME,
+            data: {
+                '_timestamp':    record._timestamp,
+                'รหัสบันทึก':   record.id,
+                'แผน':          record.planRange,
+                'วันที่อนุมัติ': record.approveDate,
+                'ชื่อกิจกรรม':  act.name,
+                'ผู้รับผิดชอบ':  act.responsible,
+                'ครั้งที่':     act.round,
+                'ผลการอนุมัติ': act.result,
+                'วงเงิน':       act.budget,
+                'อีเมล':        act.email,
+                'ลิงก์เอกสาร':  record.docLink,  // ← Drive URL
+            },
+        };
+        await fetch(CFG.GAS_URL, {
+            method: 'POST', mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body: JSON.stringify(payload),
+        });
+    }
+}
 
-        function clearFormFields() {
-            document.getElementById('gf_planRange').value = '';
-            document.getElementById('gf_approveDate').value = '';
-            document.getElementById('gf_docLink').value = '';
-            activities = []; actCounter = 0; APP.files = [];
-            renderActivities(); renderFileList();
-            addActivity(); addActivity(); addActivity();
-            setDefaultApproveDate();
-        }
-        function clearForm() { clearFormFields(); document.getElementById('flexPreviewWrap').style.display = 'none'; showToast('ล้างข้อมูลแล้ว'); }
+function clearFormFields() {
+    document.getElementById('gf_planRange').value = '';
+    document.getElementById('gf_approveDate').value = '';
+    activities = []; actCounter = 0; APP.files = [];
+    clearImage();
+    renderActivities(); renderFileList();
+    addActivity(); addActivity(); addActivity();
+    setDefaultApproveDate();
+}
+function clearForm() {
+    clearFormFields();
+    document.getElementById('flexPreviewWrap').style.display = 'none';
+    showToast('ล้างข้อมูลแล้ว');
+}
 
-        // ════════════════════════════════════════════════
-        //  LINE FLEX SHARE — clean minimal structure
-        // ════════════════════════════════════════════════
-        async function shareToLine() {
-            if (!currentShareRecord) return;
-            const r = currentShareRecord;
-            const acts = (r.activities || []);
+// ════════════════════════════════════════════════
+//  LINE FLEX SHARE — สร้าง Flex JSON ส่งผ่าน LIFF
+// ════════════════════════════════════════════════
+async function shareToLine() {
+    if (!currentShareRecord) return;
+    const r = currentShareRecord;
+    const acts = r.activities || [];
+    const planRange   = (r.planRange  || '').trim();
+    const approveDate = (r.approveDate|| '').trim();
+    const docLink     = (r.docLink    || '').trim();
 
-            const planRange = (r.planRange || '').trim();
-            const approveDate = (r.approveDate || '').trim();
-            const docLink = (r.docLink || '').trim();
+    const _now = new Date();
+    const _m = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+    const todayShort = _now.getDate() + ' ' + _m[_now.getMonth()] + ' ' + (_now.getFullYear()+543);
 
-            // วันที่ปัจจุบันภาษาไทยย่อ
-            const _now = new Date();
-            const _months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-            const todayShort = _now.getDate() + ' ' + _months[_now.getMonth()] + ' ' + (_now.getFullYear() + 543);
+    const altText = 'แจ้งอนุมัติแผน ' + (planRange||'ไม่ระบุ') + ' วันที่ ' + todayShort;
 
-            // altText แบบตรงๆ
-            const altText = 'แจ้งอนุมัติแผน ' + (planRange || 'ไม่ระบุ') + ' วันที่ ' + todayShort;
+    // ── activity body contents ──
+    const actContents = acts.map((a) => {
+        const cleanResult = (a.result||'').replace(/[\u{1F000}-\u{1FFFF}]|[\u2600-\u27FF]|✅|❌|⭕/gu,'').trim();
+        const sub = [
+            a.responsible ? '👤 ' + a.responsible : null,
+            a.round       ? 'ครั้งที่ ' + String(a.round) : null,
+            a.budget      ? '💰 ' + Number(a.budget).toLocaleString() + ' บาท' : null,
+            cleanResult   ? '· ' + cleanResult : null,
+        ].filter(Boolean).join('  ');
 
-            // activity rows
-            const actContents = acts.map((a) => {
-                const cleanResult = (a.result || '').replace(/[\u{1F000}-\u{1FFFF}]|[\u2600-\u27FF]|✅|❌|⭕/gu, '').trim();
-                const sub = [
-                    a.responsible ? '(' + a.responsible + ')' : null,
-                    a.round ? '\nครั้งที่ ' + String(a.round) : null,
-                    a.budget ? Number(a.budget).toLocaleString() + ' บาท' : null,
-                    cleanResult ? cleanResult : null,
-                ].filter(Boolean).join(' · ');
+        return {
+            type: 'box', layout: 'vertical', margin: 'md', spacing: 'xs',
+            paddingAll: '10px', backgroundColor: '#f8fafc',
+            cornerRadius: '10px', borderWidth: '1px', borderColor: '#e2e8f0',
+            contents: [
+                { type:'text', text: a.name||'-', wrap:true, size:'sm', color:'#0f172a', weight:'bold' },
+                ...(sub ? [{ type:'text', text: sub, wrap:true, size:'xs', color:'#64748b', margin:'xs' }] : []),
+            ],
+        };
+    });
 
-                return {
-                    type: 'box', layout: 'vertical', margin: 'md',
-                    contents: [{
-                        type: 'text',
-                        text: (a.name || '-') + (sub ? '\n' + sub : ''),
-                        wrap: true, size: 'sm', color: '#1C2333',
-                    }],
-                };
-            });
+    // ── footer button (open image) ──
+    const footerContents = [];
+    if (docLink && docLink.startsWith('http')) {
+        footerContents.push({
+            type: 'button',
+            action: { type:'uri', label:'🖼️ ดูภาพหลักฐาน', uri: docLink, altUri:{ desktop: docLink } },
+            style: 'primary', color: '#1a56db', height: 'sm',
+        });
+    }
 
-            // footer — ปุ่มเปิดลิงก์ภาพ
-            const footerContents = [];
-            if (docLink && docLink.startsWith('http')) {
-                footerContents.push({
-                    type: 'button',
-                    action: {
-                        type: 'uri',
-                        label: 'เปิดลิงก์ภาพ',
-                        uri: docLink,
-                        altUri: { desktop: docLink },
-                    },
-                    style: 'primary', color: '#1a56db', height: 'sm',
-                });
-            }
-
-            const flexMsg = {
-                type: 'flex', altText: altText,
-                contents: {
-                    type: 'bubble',
-                    header: {
-                        type: 'box', layout: 'vertical', paddingAll: '16px',
-                        backgroundColor: '#1a56db',
-                        contents: [
-                            {
-                                type: 'text',
-                                text: 'แจ้งผลการอนุมัติแผน ' + (planRange || 'ไม่ระบุ'),
-                                color: '#ffffff', size: 'lg', weight: 'bold', wrap: true,
-                            },
-                            {
-                                type: 'box', layout: 'horizontal', margin: 'sm',
-                                contents: [
-                                    { type: 'text', text: 'ประจำวันที่ ', color: '#FF0000', size: 'lg', weight: 'bold', flex: 1 },
-                                    { type: 'text', text: todayShort, color: '#ffff00', size: 'lg', weight: 'bold', wrap: true },
-                                ],
-                            },
-                        ],
-                    },
-                    body: {
-                        type: 'box', layout: 'vertical', paddingAll: '14px',
-                        contents: [
-                            { type: 'text', text: 'รายการกิจกรรมที่ได้รับการอนุมัติ', size: 'sm', weight: 'bold', color: '#334155' },
-                            ...actContents,
-                            { type: 'separator', margin: 'md' },
-                            { type: 'text', text: 'รวมทั้งหมด ' + acts.length + ' รายการ', size: 'sm', weight: 'bold', color: '#059669', margin: 'md' },
-                            { type: 'separator', margin: 'md' },
-                            { type: 'text', text: '📧 ระบบได้ส่งอีเมลแจ้งไปยังผู้รับผิดชอบแต่ละคนเรียบร้อยแล้ว', size: 'sm', weight: 'bold', color: '#334155', wrap: true }
-                        ],
-                    },
-                    footer: footerContents.length > 0 ? {
-                        type: 'box', layout: 'vertical', spacing: 'sm', paddingAll: '14px',
-                        contents: footerContents,
-                    } : undefined,
-                },
-            };
-
-            if (typeof liff !== 'undefined' && liffReady) {
-                try {
-                    const shareResult = await liff.shareTargetPicker([flexMsg]);
-                    if (shareResult && shareResult.status === 'success') {
-                        showToast('แชร์สำเร็จ!');
-                    } else {
-                        showToast('ยกเลิกการแชร์', 'info');
-                    }
-                    closeModal('shareModal');
-                } catch (e) {
-                    console.error('[shareTargetPicker] error:', e);
-                    showToast('แชร์ไม่สำเร็จ: ' + (e.message || JSON.stringify(e)), 'error');
+    const flexMsg = {
+        type: 'flex', altText,
+        contents: {
+            type: 'bubble',
+            // ── HERO IMAGE (ถ้ามี Drive URL) ──
+            ...(docLink && docLink.startsWith('http') ? {
+                hero: {
+                    type: 'image', url: docLink,
+                    size: 'full', aspectRatio: '20:9', aspectMode: 'cover',
+                    action: { type:'uri', label:'ดูภาพ', uri: docLink },
                 }
-                return;
-            }
+            } : {}),
+            // ── HEADER ──
+            header: {
+                type: 'box', layout: 'vertical', paddingAll: '16px',
+                backgroundColor: '#1a56db',
+                contents: [
+                    { type:'text', text:'📋 แจ้งผลการอนุมัติแผน', color:'rgba(255,255,255,0.75)', size:'xs', weight:'bold' },
+                    { type:'text', text:'แผนที่ ' + (planRange||'ไม่ระบุ'), color:'#ffffff', size:'xl', weight:'bold', wrap:true },
+                    {
+                        type:'box', layout:'horizontal', margin:'sm', spacing:'sm',
+                        contents: [
+                            { type:'text', text:'📅 ' + approveDate, color:'#bfdbfe', size:'xs', flex:1 },
+                            { type:'text', text: r.id||'', color:'rgba(255,255,255,0.5)', size:'xs', align:'end' },
+                        ],
+                    },
+                ],
+            },
+            // ── BODY ──
+            body: {
+                type: 'box', layout: 'vertical', paddingAll: '14px', spacing: 'sm',
+                contents: [
+                    { type:'text', text:'รายการกิจกรรมที่ได้รับการอนุมัติ', size:'xs', weight:'bold', color:'#64748b' },
+                    ...actContents,
+                    { type:'separator', margin:'lg' },
+                    {
+                        type:'box', layout:'horizontal', margin:'md',
+                        contents: [
+                            { type:'text', text:'📧 ส่งอีเมลแจ้งผู้รับผิดชอบแล้ว', size:'xs', color:'#059669', flex:1, wrap:true },
+                            { type:'text', text: acts.length + ' รายการ', size:'sm', weight:'bold', color:'#1a56db', align:'end' },
+                        ],
+                    },
+                ],
+            },
+            // ── FOOTER ──
+            ...(footerContents.length > 0 ? {
+                footer: {
+                    type:'box', layout:'vertical', spacing:'sm', paddingAll:'12px',
+                    contents: footerContents,
+                },
+            } : {}),
+        },
+    };
 
-            if (CFG.LIFF_ID) {
-                showToast('กำลังเชื่อมต่อ LINE...', 'info');
-                await initLIFF();
-                if (liffReady) { shareToLine(); return; }
-                showToast('กรุณาเปิดจาก LINE app', 'error');
-                return;
+    if (typeof liff !== 'undefined' && liffReady) {
+        try {
+            const shareResult = await liff.shareTargetPicker([flexMsg]);
+            if (shareResult && shareResult.status === 'success') {
+                showToast('แชร์สำเร็จ!');
+            } else {
+                showToast('ยกเลิกการแชร์', 'info');
             }
-            showToast('ยังไม่ได้ตั้งค่า LIFF_ID', 'error');
+            closeModal('shareModal');
+        } catch (e) {
+            console.error('[shareTargetPicker] error:', e);
+            showToast('แชร์ไม่สำเร็จ: ' + (e.message||JSON.stringify(e)), 'error');
         }
-        // ════════════════════════════════════════════════
-        //  MODAL / TOAST
-        // ════════════════════════════════════════════════
-        function openModal(id) { document.getElementById(id).classList.add('show'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-        document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); }));
-        let _tt;
-        function showToast(msg, type = 'success') {
-            const t = document.getElementById('toast');
-            document.getElementById('toastMsg').textContent = msg;
-            t.className = `toast ${type} show`;
-            document.getElementById('toastIcon').style.stroke = type === 'error' ? '#f87171' : type === 'info' ? '#60a5fa' : '#4ade80';
-            clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800);
-        }
+        return;
+    }
 
-        // ════════════════════════════════════════════════
-        //  BOOT
-        // ════════════════════════════════════════════════
-        init();
-    </script>
+    if (CFG.LIFF_ID) {
+        showToast('กำลังเชื่อมต่อ LINE...', 'info');
+        await initLIFF();
+        if (liffReady) { shareToLine(); return; }
+        showToast('กรุณาเปิดจาก LINE app', 'error');
+        return;
+    }
+    showToast('ยังไม่ได้ตั้งค่า LIFF_ID', 'error');
+}
+
+// ════════════════════════════════════════════════
+//  MODAL / TOAST
+// ════════════════════════════════════════════════
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if (e.target===m) m.classList.remove('show'); }));
+let _tt;
+function showToast(msg, type='success') {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.className = `toast ${type} show`;
+    document.getElementById('toastIcon').style.stroke = type==='error'?'#f87171':type==='info'?'#60a5fa':'#4ade80';
+    clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ════════════════════════════════════════════════
+//  BOOT
+// ════════════════════════════════════════════════
+init();
+</script>
 </body>
-
 </html>
